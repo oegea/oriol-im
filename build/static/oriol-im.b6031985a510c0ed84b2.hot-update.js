@@ -1,0 +1,15 @@
+webpackHotUpdate("oriol-im",{
+
+/***/ "./packages/html2react/processors/wordpress-columns.js":
+/*!*************************************************************!*\
+  !*** ./packages/html2react/processors/wordpress-columns.js ***!
+  \*************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\nfunction _templateObject(){var data=_taggedTemplateLiteral([\"display: flex;\"]);_templateObject=function _templateObject(){return data;};return data;}function _taggedTemplateLiteral(strings,raw){if(!raw){raw=strings.slice(0);}return Object.freeze(Object.defineProperties(strings,{raw:{value:Object.freeze(raw)}}));}var wordpressColumns={name:\"external anchors\",priority:10,// Only process the node it if it's an anchor and href starts with http.\ntest:(_ref)=>{var{node}=_ref;debugger;return node.component===\"div\"&&node.props.className.includes(\"wp-block-columns\");},// Add the target attribute.\nprocessor:(_ref2)=>{var{node}=_ref2;node.props.css=css(_templateObject());return node;}};/* harmony default export */ __webpack_exports__[\"default\"] = (wordpressColumns);//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9wYWNrYWdlcy9odG1sMnJlYWN0L3Byb2Nlc3NvcnMvd29yZHByZXNzLWNvbHVtbnMuanM/NTAzNSJdLCJuYW1lcyI6WyJ3b3JkcHJlc3NDb2x1bW5zIiwibmFtZSIsInByaW9yaXR5IiwidGVzdCIsIm5vZGUiLCJjb21wb25lbnQiLCJwcm9wcyIsImNsYXNzTmFtZSIsImluY2x1ZGVzIiwicHJvY2Vzc29yIiwiY3NzIl0sIm1hcHBpbmdzIjoiOzBUQUFBLEdBQU1BLGlCQUFnQixDQUFHLENBQ3JCQyxJQUFJLENBQUUsa0JBRGUsQ0FFckJDLFFBQVEsQ0FBRSxFQUZXLENBR3JCO0FBQ0FDLElBQUksQ0FBRSxRQUFjLElBQWIsQ0FBRUMsSUFBRixDQUFhLE1BQUUsU0FBVSxNQUFPQSxLQUFJLENBQUNDLFNBQUwsR0FBbUIsS0FBbkIsRUFBNEJELElBQUksQ0FBQ0UsS0FBTCxDQUFXQyxTQUFYLENBQXFCQyxRQUFyQixDQUE4QixrQkFBOUIsQ0FBbkMsQ0FBcUYsQ0FKaEcsQ0FLckI7QUFDQUMsU0FBUyxDQUFFLFNBQWMsSUFBYixDQUFFTCxJQUFGLENBQWEsT0FDdkJBLElBQUksQ0FBQ0UsS0FBTCxDQUFXSSxHQUFYLENBQWlCQSxHQUFqQixvQkFDQSxNQUFPTixLQUFQLENBQ0QsQ0FUb0IsQ0FBekIsQ0FZZUosK0VBQWYiLCJmaWxlIjoiLi9wYWNrYWdlcy9odG1sMnJlYWN0L3Byb2Nlc3NvcnMvd29yZHByZXNzLWNvbHVtbnMuanMuanMiLCJzb3VyY2VzQ29udGVudCI6WyJjb25zdCB3b3JkcHJlc3NDb2x1bW5zID0ge1xyXG4gICAgbmFtZTogXCJleHRlcm5hbCBhbmNob3JzXCIsXHJcbiAgICBwcmlvcml0eTogMTAsXHJcbiAgICAvLyBPbmx5IHByb2Nlc3MgdGhlIG5vZGUgaXQgaWYgaXQncyBhbiBhbmNob3IgYW5kIGhyZWYgc3RhcnRzIHdpdGggaHR0cC5cclxuICAgIHRlc3Q6ICh7IG5vZGUgfSkgPT4geyBkZWJ1Z2dlcjsgcmV0dXJuIG5vZGUuY29tcG9uZW50ID09PSBcImRpdlwiICYmIG5vZGUucHJvcHMuY2xhc3NOYW1lLmluY2x1ZGVzKFwid3AtYmxvY2stY29sdW1uc1wiKX0sXHJcbiAgICAvLyBBZGQgdGhlIHRhcmdldCBhdHRyaWJ1dGUuXHJcbiAgICBwcm9jZXNzb3I6ICh7IG5vZGUgfSkgPT4ge1xyXG4gICAgICBub2RlLnByb3BzLmNzcyA9IGNzc2BkaXNwbGF5OiBmbGV4O2A7XHJcbiAgICAgIHJldHVybiBub2RlO1xyXG4gICAgfVxyXG59O1xyXG5cclxuZXhwb3J0IGRlZmF1bHQgd29yZHByZXNzQ29sdW1uczsiXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./packages/html2react/processors/wordpress-columns.js\n");
+
+/***/ })
+
+})
