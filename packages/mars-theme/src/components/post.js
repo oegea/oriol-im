@@ -25,6 +25,11 @@ const Post = ({ state, actions, libraries }) => {
   useEffect(() => {
     actions.source.fetch("/");
     List.preload();
+
+    //Prismjs to highlight code snippets
+    if (Prism !== undefined){
+      Prism.highlightAll();
+    }
   }, []);
 
   // Load the post, but only if the data is ready.
@@ -141,8 +146,12 @@ const Content = styled.div`
   }
 
   a {
-    color: rgb(31, 56, 197);
-    text-decoration: underline;
+    color: rgb(239, 190, 0);
+    font-weight: bold;
+    text-decoration: none;
+  }
+  a:hover{
+    border-bottom: 2px solid rgb(239, 190, 0);
   }
 
   /* Input fields styles */

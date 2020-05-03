@@ -11,10 +11,11 @@ const Header = ({ state }) => {
         <StyledLink link="/">
           <Title>{state.frontity.title}</Title>
         </StyledLink>
+        <Nav />
         {/*<Description>{state.frontity.description}</Description>*/}
-        <MobileMenu />
+        
       </Container>
-      <Nav />
+      <MobileMenu />
     </>
   );
 };
@@ -27,13 +28,14 @@ const Container = styled.div`
   max-width: 100%;
   box-sizing: border-box;
   padding: 24px;
-  color: #fff;
+  padding-top: 15px;
+  color: black;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-around;
 `;
 
-const Title = styled.h2`
+const Title = styled.h1`
   margin: 0;
   margin-bottom: 16px;
 `;
@@ -45,4 +47,5 @@ const Title = styled.h2`
 
 const StyledLink = styled(Link)`
   text-decoration: none;
+  align-self: flex-start;
 `;
