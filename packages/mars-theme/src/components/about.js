@@ -175,78 +175,18 @@ const Post = ({ state, actions, libraries }) => {
         
         <h1>Mi cronología</h1>
         <ul>
-          <li><strong>1996:</strong> 
+          <li>
+            <strong>2020:</strong>
             <ul>
-              <li>👶 Nazco a mediados de abril en Terrassa, Barcelona.</li>
+              <li>✔️ Finalizamos la primera versión estable de VSNCREA y la desplegamos en diversos entornos de producción de diversos clientes. Seguimos trabajando en un montón de nuevas funcionalidades nuevas.</li>
             </ul>
           </li>
           <li>
-            <strong>2004:</strong>
+            <strong>2019:</strong>
             <ul>
-              <li>🎮 Paso las tardes con mi hermano: Veo la historia de los Zeldas a través de las partidas de mi hermano, vemos el K3 en casa de nuestra abuela 👵, o salimos a dar vueltas con los patinetes de la época.</li>
-            </ul>
-          </li>
-          <li>
-            <strong>2006:</strong>
-            <ul>
-              <li>📡 El Internet llega a casa gracias al ADSL de Wanadoo. Utilizamos programas P2P para descargar música, nuestro ratio de descarga es de una canción cada cuatro horas.</li>
-              <li>🖥️ Mis padres compran un nuevo ordenador. Empiezo a instalar programas que pruebo indiscriminadamente en Softonic.</li>
-              <li>💬 Windows Live Messenger se convierte en el Whatsapp de la época (pero sin ser portátil, y sólo por las tardes) para la mayoría de compañeros de clase.</li>
-              <li>🔄 Microsoft libera Windows Vista. Me las apaño para descargarlo por P2P, y al lograr instalarlo (para disgusto de mis padres) en el Ordenador lo dejo inservible por falta de drivers.</li>
-            </ul>
-          </li>
-          <li><strong>2009:</strong> 
-            <ul>
-              <li>🏴‍☠️‍ Veo Piratas de Silicon Valley por primera vez.</li>
-              <li>👁️ Un colega de mi hermano me enseña EyeOS y me hago fan del proyecto.</li>
-            </ul>
-          </li>
-          <li>
-            <strong>2011:</strong> 
-            <ul>
-              <li>🎮 Colaboro en el desarrollo de una adaptación del emulador <a href="https://rathena.org/" target="_blank">rAthena</a> para crear un juego de rol. Aprendo aspectos básicos de MySQL, PHP y administración de servidores gracias al resto de partícipes del proyecto, que dedican mucho tiempo a enseñarme y compartir su conocimiento.</li>
-            </ul>
-          </li>
-          <li>
-            <strong>2012:</strong> 
-            <ul>
-              <li>📜 Finalizo la Educación Secundaria Obligatoria.</li>
-              <li>👨‍🎓 Empiezo a cursar el Grado Medio en Sistemas Microinformáticos y Redes.</li>
-            </ul>
-          </li>
-          <li>
-            <strong>2013:</strong> 
-            <ul>
-              <li>💻 Programo <a href="https://www.frikipoint.com" target="_blank">FrikiPoint</a> junto a un colega, una red social que permite conocer gente cercana a ti de tus mismas aficiones frikis. El proyecto tiene muchos aspectos mejorables, pero acaba resultando una experiencia muy enriquecedora.</li>
-            </ul>
-          </li>
-          <li>
-            <strong>2014:</strong>
-            <ul>
-              <li>📜 Finalizo el Grado Medio en Sistemas Microinformáticos y Redes. Aprendo un montón gracias a un profesorado muy comprometido.</li>
-              <li>👷 Tras seis meses cómo becario, empiezo a trabajar cómo Web & CRM Developer en <a href="https://www.vsn-tv.com" target="_blank">VSN</a>. Encargándome (al mismo tiempo que aprendo) de remodelar el sitio web corporativo, administrar Salesforce, y gestionar y desarrollar el stack de aplicaciones internas.</li>
-            </ul>
-          </li>
-          <li>
-            <strong>2015:</strong>
-            <ul>
-              <li>👨‍🎓 Empiezo a cursar el Grado Superior en Desarrollo de Aplicaciones Multiplataforma a distancia.</li>
-              <li>✔️ Finaliza en VSN el desarrollo del nuevo sitio web, y otras aplicaciones internas integradas con Salesforce y otros servicios, relativas a la gestión de tiempo de trabajo y satisfacción del cliente.</li>
-            </ul>
-          </li>
-          <li>
-            <strong>2016:</strong>
-            <ul>
-              <li>👨‍🎓 Me inscribo en <a href="https://teamtreehouse.com/" target="_blank">Treehouse</a>. Aprendo y consolido mis conocimientos de Javascript y AngularJS. Durante los sucesivos años me sirve para aprender ReactJS, y realizar algún curso de programación básica en Swift y Android nativo. Poco después también realizo algunos cursos a través de Unity.</li>
-              <li>👷 Empiezo a trabajar con un equipo de programadores de VSN. Trabajamos en una aplicación web para la gestión y venta de contenidos y noticias para un organismo de la administración pública de la provincia de Barcelona.</li>
-            </ul>
-          </li>
-          <li>
-            <strong>2017:</strong>
-            <ul>
-              <li>✔️ Finaliza mi implicación con el proyecto de gestión y venta de contenidos y noticias. Finaliza un periodo en el que aprendo muchísimo gracias a unos compañeros muy profesionales y experimentados.</li>
-              <li>✈️ Viajo por primera vez a Lisboa para asistir al Web Summit.</li>
-              <li>✈️ Viajo a Cádiz por primera vez y conozco a gente estupenda.</li>
+              <li>📜 Obtengo la certificación PSPO1 de Scrum.org siguiendo un curso de Mplaza.</li>
+              <li>📜 Finalizo el Grado Superior en Desarrollo de Aplicaciones Multiplataforma a distancia.</li>
+              <li>👩‍👩‍👧‍👦 El equipo de desarrollo crece gracias a dos nuevas incorporaciones. Empezamos a remodelar de nuevo el sitio web de VSN.</li>
             </ul>
           </li>
           <li>
@@ -259,17 +199,77 @@ const Post = ({ state, actions, libraries }) => {
             </ul>
           </li>
           <li>
-            <strong>2019:</strong>
+            <strong>2017:</strong>
             <ul>
-              <li>📜 Obtengo la certificación PSPO1 de Scrum.org siguiendo un curso de Mplaza.</li>
-              <li>📜 Finalizo el Grado Superior en Desarrollo de Aplicaciones Multiplataforma a distancia.</li>
-              <li>👩‍👩‍👧‍👦 El equipo de desarrollo crece gracias a dos nuevas incorporaciones. Empezamos a remodelar de nuevo el sitio web de VSN.</li>
+              <li>✔️ Finaliza mi implicación con el proyecto de gestión y venta de contenidos y noticias. Finaliza un periodo en el que aprendo muchísimo gracias a unos compañeros muy profesionales y experimentados.</li>
+              <li>✈️ Viajo por primera vez a Lisboa para asistir al Web Summit.</li>
+              <li>✈️ Viajo a Cádiz por primera vez y conozco a gente estupenda.</li>
             </ul>
           </li>
           <li>
-            <strong>2020:</strong>
+            <strong>2016:</strong>
             <ul>
-              <li>✔️ Finalizamos la primera versión estable de VSNCREA y la desplegamos en diversos entornos de producción de diversos clientes. Seguimos trabajando en un montón de nuevas funcionalidades nuevas.</li>
+              <li>👨‍🎓 Me inscribo en <a href="https://teamtreehouse.com/" target="_blank">Treehouse</a>. Aprendo y consolido mis conocimientos de Javascript y AngularJS. Durante los sucesivos años me sirve para aprender ReactJS, y realizar algún curso de programación básica en Swift y Android nativo. Poco después también realizo algunos cursos a través de Unity.</li>
+              <li>👷 Empiezo a trabajar con un equipo de programadores de VSN. Trabajamos en una aplicación web para la gestión y venta de contenidos y noticias para un organismo de la administración pública de la provincia de Barcelona.</li>
+            </ul>
+          </li>
+          <li>
+            <strong>2015:</strong>
+            <ul>
+              <li>👨‍🎓 Empiezo a cursar el Grado Superior en Desarrollo de Aplicaciones Multiplataforma a distancia.</li>
+              <li>✔️ Finaliza en VSN el desarrollo del nuevo sitio web, y otras aplicaciones internas integradas con Salesforce y otros servicios, relativas a la gestión de tiempo de trabajo y satisfacción del cliente.</li>
+            </ul>
+          </li>
+          <li>
+            <strong>2014:</strong>
+            <ul>
+              <li>📜 Finalizo el Grado Medio en Sistemas Microinformáticos y Redes. Aprendo un montón gracias a un profesorado muy comprometido.</li>
+              <li>👷 Tras seis meses cómo becario, empiezo a trabajar cómo Web & CRM Developer en <a href="https://www.vsn-tv.com" target="_blank">VSN</a>. Encargándome (al mismo tiempo que aprendo) de remodelar el sitio web corporativo, administrar Salesforce, y gestionar y desarrollar el stack de aplicaciones internas.</li>
+            </ul>
+          </li>
+          <li>
+            <strong>2013:</strong> 
+            <ul>
+              <li>💻 Programo <a href="https://www.frikipoint.com" target="_blank">FrikiPoint</a> junto a un colega, una red social que permite conocer gente cercana a ti de tus mismas aficiones frikis. El proyecto tiene muchos aspectos mejorables, pero acaba resultando una experiencia muy enriquecedora.</li>
+            </ul>
+          </li>
+          <li>
+            <strong>2012:</strong> 
+            <ul>
+              <li>📜 Finalizo la Educación Secundaria Obligatoria.</li>
+              <li>👨‍🎓 Empiezo a cursar el Grado Medio en Sistemas Microinformáticos y Redes.</li>
+            </ul>
+          </li>
+          <li>
+            <strong>2011:</strong> 
+            <ul>
+              <li>🎮 Colaboro en el desarrollo de una adaptación del emulador <a href="https://rathena.org/" target="_blank">rAthena</a> para crear un juego de rol. Aprendo aspectos básicos de MySQL, PHP y administración de servidores gracias al resto de partícipes del proyecto, que dedican mucho tiempo a enseñarme y compartir su conocimiento.</li>
+            </ul>
+          </li>
+          <li><strong>2009:</strong> 
+            <ul>
+              <li>🏴‍☠️‍ Veo Piratas de Silicon Valley por primera vez.</li>
+              <li>👁️ Un colega de mi hermano me enseña EyeOS y me hago fan del proyecto.</li>
+            </ul>
+          </li>
+          <li>
+            <strong>2006:</strong>
+            <ul>
+              <li>📡 El Internet llega a casa gracias al ADSL de Wanadoo. Utilizamos programas P2P para descargar música, nuestro ratio de descarga es de una canción cada cuatro horas.</li>
+              <li>🖥️ Mis padres compran un nuevo ordenador. Empiezo a instalar programas que pruebo indiscriminadamente en Softonic.</li>
+              <li>💬 Windows Live Messenger se convierte en el Whatsapp de la época (pero sin ser portátil, y sólo por las tardes) para la mayoría de compañeros de clase.</li>
+              <li>🔄 Microsoft libera Windows Vista. Me las apaño para descargarlo por P2P, y al lograr instalarlo (para disgusto de mis padres) en el Ordenador lo dejo inservible por falta de drivers.</li>
+            </ul>
+          </li>
+          <li>
+            <strong>2004:</strong>
+            <ul>
+              <li>🎮 Paso las tardes con mi hermano: Veo la historia de los Zeldas a través de las partidas de mi hermano, vemos el K3 en casa de nuestra abuela 👵, o salimos a dar vueltas con los patinetes de la época.</li>
+            </ul>
+          </li>
+          <li><strong>1996:</strong> 
+            <ul>
+              <li>👶 Nazco a mediados de abril en Terrassa, Barcelona.</li>
             </ul>
           </li>
         </ul>
