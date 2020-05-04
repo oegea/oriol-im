@@ -14,17 +14,17 @@ const settings = {
         "theme": {
           "menu": [
             [
-              "Home",
+              "Inicio",
               "/"
             ],
             [
-              "About Me",
-              "/sobre-mi/"
+              "Sobre mi",
+              "/about/"
             ]
           ],
           "featured": {
             "showOnList": false,
-            "showOnPost": false
+            "showOnPost": true
           }
         }
       }

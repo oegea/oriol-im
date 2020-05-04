@@ -31,6 +31,14 @@ const marsTheme = {
    */
   actions: {
     theme: {
+      init: ({ libraries }) => {
+        libraries.source.handlers.push({
+          pattern: "/about/",
+          func: ({ state }) => {
+            state.source.data["/about/"].isAbout = true;
+          }
+        });
+      },
       toggleMobileMenu: ({ state }) => {
         state.theme.isMobileMenuOpen = !state.theme.isMobileMenuOpen;
       },

@@ -9,6 +9,9 @@ import Loading from "./loading";
 import Title from "./title";
 import PageError from "./page-error";
 
+//Custom pages
+import About from './about';
+
 /**
  * Theme is the root React component of our theme. The one we will export
  * in roots.
@@ -28,6 +31,7 @@ const Theme = ({ state }) => {
         <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/plugins/autoloader/prism-autoloader.js"></script>
         <script>Prism.plugins.autoloader.languages_path = 'https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/components/'</script>
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/themes/prism-coy.min.css" />
+        <link rel="stylesheet" type="text/css" href="https://rsms.me/raster/raster2.css?v=20" />
       </Head>
 
       {/* Add some global styles for the whole site, like body or a's. 
@@ -46,6 +50,7 @@ const Theme = ({ state }) => {
           <Loading when={data.isFetching} />
           <List when={data.isArchive} />
           <Post when={data.isPostType} />
+          <About when={data.isAbout} />
           <PageError when={data.isError} />
         </Switch>
       </Main>
@@ -61,6 +66,7 @@ export default connect(Theme);
 
 const globalStyles = css`
   body {
+    padding: 0;
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
       "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -91,6 +97,81 @@ const globalStyles = css`
   pre[class*=language-]>code {
     border-left: 10px solid #fccb0b;
     box-shadow: -1px 0 0 0 #fccb0b, 0 0 0 1px #dfdfdf;
+  }
+
+  /*Chips*/
+  .md-chip {
+    display: inline-block;
+    background: #e0e0e0;
+    padding: 0 12px;
+    border-radius: 32px;
+    font-size: 13px;
+  }
+  .md-chip.md-chip-hover:hover {
+    background: #ccc;
+  }
+  
+  .md-chip-clickable {
+    cursor: pointer;
+  }
+  
+  .md-chip,
+  .md-chip-icon {
+    height: 32px;
+    line-height: 32px;
+  }
+  
+  .md-chip-icon {
+    display: block;
+    float: left;
+    /*background: #009587;*/
+    background: #e4bb1c;
+    width: 32px;
+    border-radius: 50%;
+    text-align: center;
+    color: white;
+    margin: 0 8px 0 -12px;
+  }
+  
+  .md-chip-remove {
+    display: inline-block;
+    background: #aaa;
+    border: 0;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    padding: 0;
+    margin: 0 -4px 0 4px;
+    cursor: pointer;
+    font: inherit;
+    line-height: 20px;
+  }
+  .md-chip-remove:after {
+    color: #e0e0e0;
+    content: "x";
+  }
+  .md-chip-remove:hover {
+    background: #999;
+  }
+  .md-chip-remove:active {
+    background: #777;
+  }
+  
+  .md-chips {
+    padding: 12px 0;
+  }
+  .md-chips .md-chip {
+    margin: 0 5px 3px 0;
+  }
+  
+  .md-chip-raised {
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12), 0 3px 1px -2px rgba(0, 0, 0, 0.2);
+  }
+
+  /*Technologies animation*/
+  @keyframes slideshow {
+    0%    { left: 0px; }
+    100%  { left: -600px; }
   }
 
   /* Gutenberg styles */
