@@ -33,7 +33,7 @@ const settings = {
       "name": "@frontity/wp-source",
       "state": {
         "source": {
-          "api": "https://www.oriol.im/wp-json"
+          "api": "https://wp.oriol.im/wp-json"
         }
       }
     },

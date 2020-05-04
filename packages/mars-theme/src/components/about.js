@@ -34,19 +34,19 @@ const Post = ({ state, actions, libraries }) => {
 
   const technologies = [
     {
-      image: "https://www.oriol.im/wp-content/uploads/2020/05/node.png",
+      image: "https://wp.oriol.im/wp-content/uploads/2020/05/node.png",
     },
     {
-      image: "https://www.oriol.im/wp-content/uploads/2016/01/salesforce_logo.png",
+      image: "https://wp.oriol.im/wp-content/uploads/2016/01/salesforce_logo.png",
     },
     {
-      image: "https://www.oriol.im/wp-content/uploads/2016/07/Angular_full_color_logo.svg_.png",
+      image: "https://wp.oriol.im/wp-content/uploads/2016/07/Angular_full_color_logo.svg_.png",
     },
     {
-      image: "https://www.oriol.im/wp-content/uploads/2020/05/react-1.png",
+      image: "https://wp.oriol.im/wp-content/uploads/2020/05/react-1.png",
     },
     {
-      image: "https://www.oriol.im/wp-content/uploads/2020/05/csharp.png",
+      image: "https://wp.oriol.im/wp-content/uploads/2020/05/csharp.png",
     },
   ];
 
@@ -75,12 +75,12 @@ const Post = ({ state, actions, libraries }) => {
         <h1>Sobre mi</h1>
         <r-grid columns="20">
             <r-cell span="9" span-s="row">
-              <img css={css`margin-top: 7px;`} src="https://www.oriol.im/wp-content/uploads/2016/07/rsz_aaeaaqaaaaaaaalxaaaajda2zdljytzlltiymjetndqyys1hmzi4lwm1mti2nwfiodexma.jpg" alt="Oriol Egea" />
+              <img css={css`margin-top: 7px;`} src="https://wp.oriol.im/wp-content/uploads/2016/07/rsz_aaeaaqaaaaaaaalxaaaajda2zdljytzlltiymjetndqyys1hmzi4lwm1mti2nwfiodexma.jpg" alt="Oriol Egea" />
               <a className="no-border" href="https://www.linkedin.com/in/oriolegea/" target="_blank">
-                <img css={css`width: 35px !important; margin-top: 10px; margin-right: 15px;`} src="https://www.oriol.im/wp-content/uploads/2020/05/linkedin-logo-1.png" alt="LinkedIn logo"/>
+                <img css={css`width: 35px !important; margin-top: 10px; margin-right: 15px;`} src="https://wp.oriol.im/wp-content/uploads/2020/05/linkedin-logo-1.png" alt="LinkedIn logo"/>
               </a>
               <a className="no-border" href="https://www.twitter.com/OriolEgea" target="_blank">
-                <img css={css`width: 35px !important; margin-top: 10px;`} src="https://www.oriol.im/wp-content/uploads/2020/05/twitter.png" alt="LinkedIn logo"/>
+                <img css={css`width: 35px !important; margin-top: 10px;`} src="https://wp.oriol.im/wp-content/uploads/2020/05/twitter.png" alt="LinkedIn logo"/>
               </a>
               
             </r-cell>
