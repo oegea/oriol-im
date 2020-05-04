@@ -46,7 +46,7 @@ const Item = ({ state, item }) => {
 
       {/* If the post has an excerpt (short summary text), we render it */}
       {item.excerpt && (
-        <Excerpt dangerouslySetInnerHTML={{ __html: item.excerpt.rendered }} />
+        <Excerpt dangerouslySetInnerHTML={{ __html: item.excerpt.rendered.replace("wp.oriol","www.oriol") }} />
       )}
     </article>
   );
