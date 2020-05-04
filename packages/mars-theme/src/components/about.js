@@ -296,6 +296,7 @@ const Slideshow  = styled.div`
   overflow: hidden;
   max-width: 100%;
   height: calc(100% - 50px);
+  min-height: 120px;
 `;
 
 const Marquee = styled.div`
