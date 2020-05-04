@@ -54,7 +54,7 @@ const Post = ({ state, actions, libraries }) => {
   const things = [
     { name: "Product Design & Management", icon: "✍️" },
     { name: "Desarrollo de Software", icon: "🛠️" },
-    { name: "Administración de sistemas y redes", icon: "🖧" },
+    { name: "Administración de sistemas y redes", icon: "📡" },
     { name: "Tecnología", icon: "💻" },
     { name: "Legislación y protección de datos", icon: "⚖️" },
     { name: "Carnavales de Cádiz", icon: "💃" },
@@ -185,7 +185,7 @@ const Post = ({ state, actions, libraries }) => {
           <li>
             <strong>2006:</strong>
             <ul>
-              <li>🖧 El Internet llega a casa gracias al ADSL de Wanadoo. Utilizamos programas P2P para descargar música, nuestro ratio de descarga es de una canción cada cuatro horas.</li>
+              <li>📡 El Internet llega a casa gracias al ADSL de Wanadoo. Utilizamos programas P2P para descargar música, nuestro ratio de descarga es de una canción cada cuatro horas.</li>
               <li>🖥️ Mis padres compran un nuevo ordenador. Empiezo a instalar programas que pruebo indiscriminadamente en Softonic.</li>
               <li>💬 Windows Live Messenger se convierte en el Whatsapp de la época (pero sin ser portátil, y sólo por las tardes) para la mayoría de compañeros de clase.</li>
               <li>🔄 Microsoft libera Windows Vista. Me las apaño para descargarlo por P2P, y al lograr instalarlo (para disgusto de mis padres) en el Ordenador lo dejo inservible por falta de drivers.</li>
