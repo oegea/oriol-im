@@ -35,7 +35,7 @@ const Post = ({ state, actions, libraries }) => {
   // Load the post, but only if the data is ready.
   return data.isReady ? (
     <Container>
-      <div css={css`padding:24px;`}>
+      <div >
         <Title dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
 
         {/* Only display author and date on posts */}
@@ -58,12 +58,12 @@ const Post = ({ state, actions, libraries }) => {
 
       {/* Look at the settings to see if we should include the featured image */}
       {state.theme.featured.showOnPost && (
-        <FeaturedMedia css={css`padding:24px;`} id={post.featured_media} />
+        <FeaturedMedia  id={post.featured_media} />
       )}
 
       {/* Render the content using the Html2React component so the HTML is processed
        by the processors we included in the libraries.html2react.processors array. */}
-      <Content css={css`padding:24px;`}>
+      <Content >
         <Html2React html={post.content.rendered} />
       </Content>
     </Container>
@@ -74,9 +74,10 @@ export default connect(Post);
 
 const Container = styled.div`
   max-width: 800px;
-  width: 100%;
+  width: calc(100% - 48px);
   margin: 0;
   list-style: none;
+  padding: 24px;
 `;
 
 const Title = styled.h1`
