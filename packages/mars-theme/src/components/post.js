@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { connect, styled } from "frontity";
+import { connect, styled, css } from "frontity";
 import Link from "./link";
 import List from "./list";
 import FeaturedMedia from "./featured-media";
@@ -35,7 +35,7 @@ const Post = ({ state, actions, libraries }) => {
   // Load the post, but only if the data is ready.
   return data.isReady ? (
     <Container>
-      <div>
+      <div css={css`padding:24px;`}>
         <Title dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
 
         {/* Only display author and date on posts */}
@@ -58,12 +58,12 @@ const Post = ({ state, actions, libraries }) => {
 
       {/* Look at the settings to see if we should include the featured image */}
       {state.theme.featured.showOnPost && (
-        <FeaturedMedia id={post.featured_media} />
+        <FeaturedMedia css={css`padding:24px;`} id={post.featured_media} />
       )}
 
       {/* Render the content using the Html2React component so the HTML is processed
        by the processors we included in the libraries.html2react.processors array. */}
-      <Content>
+      <Content css={css`padding:24px;`}>
         <Html2React html={post.content.rendered} />
       </Content>
     </Container>
@@ -73,9 +73,10 @@ const Post = ({ state, actions, libraries }) => {
 export default connect(Post);
 
 const Container = styled.div`
-  width: 800px;
+  max-width: 800px;
+  width: 100%;
   margin: 0;
-  padding: 24px;
+  list-style: none;
 `;
 
 const Title = styled.h1`

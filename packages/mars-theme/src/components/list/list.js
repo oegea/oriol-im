@@ -38,10 +38,12 @@ const List = ({ state }) => {
 export default connect(List);
 
 const Container = styled.section`
+  max-width: 100%;
   width: 800px;
   margin: 0;
   padding: 24px;
   list-style: none;
+  word-wrap: line-break;
 `;
 
 const Header = styled.h3`

@@ -31,7 +31,7 @@ const Theme = ({ state }) => {
         <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/plugins/autoloader/prism-autoloader.js"></script>
         <script>Prism.plugins.autoloader.languages_path = 'https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/components/'</script>
         <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/themes/prism-coy.min.css" />
-        <link rel="stylesheet" type="text/css" href="https://rsms.me/raster/raster2.css?v=20" />
+        <link rel="stylesheet" type="text/css" href="https://rsms.me/raster/raster.grid.css?v=20" />
       </Head>
 
       {/* Add some global styles for the whole site, like body or a's. 
@@ -78,7 +78,7 @@ const globalStyles = css`
   }
 
   h1 {
-    font-size: 2.2em;
+    font-size: 1.7em;
   }
 
   h2{
@@ -100,12 +100,20 @@ const globalStyles = css`
   }
 
   /*Chips*/
-  .md-chip {
+  /*.md-chip {
     display: inline-block;
     background: #e0e0e0;
     padding: 0 12px;
     border-radius: 32px;
     font-size: 13px;
+  }*/
+  .md-chip {
+    display: block;
+    background: #e0e0e0;
+    padding: 0 12px;
+    border-radius: 32px;
+    font-size: 13px;
+    width: fit-content;
   }
   .md-chip.md-chip-hover:hover {
     background: #ccc;

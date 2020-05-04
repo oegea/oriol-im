@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { connect, styled } from "frontity";
+import { connect, styled, css } from "frontity";
 import List from "./list";
 
 const Post = ({ state, actions, libraries }) => {
@@ -69,17 +69,24 @@ const Post = ({ state, actions, libraries }) => {
 
   return (
     <Container>
-
       {/* Render the content using the Html2React component so the HTML is processed
        by the processors we included in the libraries.html2react.processors array. */}
       <Content>
         <h1>Sobre mi</h1>
-        <r-grid columns="8">
-            <r-cell span="3" span-s="row">
-                <img src="https://www.oriol.im/wp-content/uploads/2016/07/rsz_aaeaaqaaaaaaaalxaaaajda2zdljytzlltiymjetndqyys1hmzi4lwm1mti2nwfiodexma.jpg" alt="Oriol Egea" />
+        <r-grid columns="20">
+            <r-cell span="9" span-s="row">
+              <img css={css`margin-top: 7px;`} src="https://www.oriol.im/wp-content/uploads/2016/07/rsz_aaeaaqaaaaaaaalxaaaajda2zdljytzlltiymjetndqyys1hmzi4lwm1mti2nwfiodexma.jpg" alt="Oriol Egea" />
+              <a className="no-border" href="https://www.linkedin.com/in/oriolegea/" target="_blank">
+                <img css={css`width: 35px !important; margin-top: 10px; margin-right: 15px;`} src="https://www.oriol.im/wp-content/uploads/2020/05/linkedin-logo-1.png" alt="LinkedIn logo"/>
+              </a>
+              <a className="no-border" href="https://www.twitter.com/OriolEgea" target="_blank">
+                <img css={css`width: 35px !important; margin-top: 10px;`} src="https://www.oriol.im/wp-content/uploads/2020/05/twitter.png" alt="LinkedIn logo"/>
+              </a>
+              
             </r-cell>
-            <r-cell span="5" span-s="row">
-                <p>
+            <r-cell span="1" span-s="row"></r-cell>
+            <r-cell span="10" span-s="row">
+                <p css={css`margin-top: 0;`}>
                     ¡Hola! Soy Oriol. Nací hace {new Date().getFullYear()-1996} años en Terrassa (España). 
                     Actualmente trabajo en <a href="https://www.vsn-tv.com/" target="_blank">VSN</a> liderando a (y aprendiendo de) un pequeño, pero muy talentoso, equipo de programadores, que desarrollamos VSNCREA; un producto de tráfico, programación y distribución de contenidos multimedia.
                 </p>
@@ -93,12 +100,12 @@ const Post = ({ state, actions, libraries }) => {
                 <h1>Certificado en</h1>
                 <r-grid columns="8">
                     <r-cell span="4" span-s="row">
-                      <a href={certifications[0].url} target="_blank">
+                      <a className="no-border" href={certifications[0].url} target="_blank">
                         <Badge src={certifications[0].image} />
                       </a>
                     </r-cell>
                     <r-cell span="4" span-s="row">
-                      <a href={certifications[1].url} target="_blank">
+                      <a className="no-border" href={certifications[1].url} target="_blank">
                         <Badge src={certifications[1].image} />
                       </a>
                     </r-cell>
@@ -124,11 +131,8 @@ const Post = ({ state, actions, libraries }) => {
                   </Slideshow>
             </r-cell>
         </r-grid>
-        <r-grid columns="8">
-            <r-cell span="4" span-s="row">
-
-              
-            </r-cell>
+        <r-grid columns="8" css={css`margin-top: 10px;`}>
+            <r-cell span="4" span-s="row"></r-cell>
             <r-cell span="4" span-s="row">
               <SmallText>Puedes revisar mi <a href="https://www.linkedin.com/in/oriolegea/" target="_blank">LinkedIn</a>, contactarme, o revisar mis publicaciones para ver las tecnologías con las que voy trabajando. Este slider se ofrece sólo a modo de resumen ilustrativo.</SmallText> 
             </r-cell>
@@ -295,8 +299,8 @@ const Slideshow  = styled.div`
   position: relative;
   overflow: hidden;
   max-width: 100%;
-  height: calc(100% - 50px);
-  min-height: 120px;
+  height: 110px;
+  max-height: 110px;
 `;
 
 const Marquee = styled.div`
@@ -366,8 +370,13 @@ const Content = styled.div`
     font-weight: bold;
     text-decoration: none;
   }
+
   a:hover{
     border-bottom: 2px solid rgb(239, 190, 0);
+  }
+
+  a.no-border{
+    border-bottom: none !important;
   }
 
   /* Input fields styles */
