@@ -59,6 +59,7 @@ const Post = ({ state, actions, libraries }) => {
     { name: "Legislación y protección de datos", icon: "⚖️" },
     { name: "Carnavales de Cádiz", icon: "💃" },
     { name: "Roadtripear por el mundo", icon: "🚗" },
+    { name: "Enseñanza y compartir conocimientos", icon: "👨‍🎓" },
   ];
 
   const books = [
@@ -184,40 +185,41 @@ const Post = ({ state, actions, libraries }) => {
           <li>
             <strong>2019:</strong>
             <ul>
-              <li>📜 Obtengo la certificación PSPO1 de Scrum.org siguiendo un curso de Mplaza.</li>
               <li>📜 Finalizo el Grado Superior en Desarrollo de Aplicaciones Multiplataforma a distancia.</li>
+              <li>📜 Obtengo la certificación PSPO1 de Scrum.org siguiendo un curso de Mplaza.</li>
               <li>👩‍👩‍👧‍👦 El equipo de desarrollo crece gracias a dos nuevas incorporaciones. Empezamos a remodelar de nuevo el sitio web de VSN.</li>
             </ul>
           </li>
           <li>
             <strong>2018:</strong>
             <ul>
-              <li>⚖️ El Reglamento General de Protección de datos entra en vigor, y nos adaptamos y formamos para ello.</li>
-              <li>📜 Obtengo la certificación PSM1 de Scrum.org siguiendo un curso de Mplaza.</li>
               <li>👷 Empiezo a liderar un equipo de desarrollo en VSN. Además de mantener el portal web y todo el trabajo hecho hasta el momento, empezamos a trabajar en VSNCREA, una plataforma de tráfico y programación escalable, multitenant, y altamente customizable y extensible, encargada de la gestión, planificación y programación de contenidos tanto en estaciones de TV convencionales, como en medios no lineales.</li>
               <li>✈️ Viajo por primera vez a Amsterdam, para asistir al IBC, una feria del sector Media & Entertainment.</li>
+              <li>⚖️ El Reglamento General de Protección de datos entra en vigor, y nos adaptamos y formamos para ello.</li>
+              <li>📜 Obtengo la certificación PSM1 de Scrum.org siguiendo un curso de Mplaza.</li>
             </ul>
           </li>
           <li>
             <strong>2017:</strong>
             <ul>
               <li>✔️ Finaliza mi implicación con el proyecto de gestión y venta de contenidos y noticias. Finaliza un periodo en el que aprendo muchísimo gracias a unos compañeros muy profesionales y experimentados.</li>
-              <li>✈️ Viajo por primera vez a Lisboa para asistir al Web Summit.</li>
+              <li>✈️ Viajo a Lisboa por primera vez para asistir al Web Summit.</li>
               <li>✈️ Viajo a Cádiz por primera vez y conozco a gente estupenda.</li>
+              <li>✈️ Viajo a Bilbao por primera vez junto a gente estupenda.</li>
             </ul>
           </li>
           <li>
             <strong>2016:</strong>
             <ul>
-              <li>👨‍🎓 Me inscribo en <a href="https://teamtreehouse.com/" target="_blank">Treehouse</a>. Aprendo y consolido mis conocimientos de Javascript y AngularJS. Durante los sucesivos años me sirve para aprender ReactJS, y realizar algún curso de programación básica en Swift y Android nativo. Poco después también realizo algunos cursos a través de Unity.</li>
               <li>👷 Empiezo a trabajar con un equipo de programadores de VSN. Trabajamos en una aplicación web para la gestión y venta de contenidos y noticias para un organismo de la administración pública de la provincia de Barcelona.</li>
+              <li>👨‍🎓 Me inscribo en <a href="https://teamtreehouse.com/" target="_blank">Treehouse</a>. Aprendo y consolido mis conocimientos de Javascript y AngularJS. Durante los sucesivos años me sirve para aprender ReactJS, y realizar algún curso de programación básica en Swift y Android nativo. Poco después también realizo algunos cursos a través de Unity.</li>
             </ul>
           </li>
           <li>
             <strong>2015:</strong>
             <ul>
-              <li>👨‍🎓 Empiezo a cursar el Grado Superior en Desarrollo de Aplicaciones Multiplataforma a distancia.</li>
               <li>✔️ Finaliza en VSN el desarrollo del nuevo sitio web, y otras aplicaciones internas integradas con Salesforce y otros servicios, relativas a la gestión de tiempo de trabajo y satisfacción del cliente.</li>
+              <li>👨‍🎓 Empiezo a cursar el Grado Superior en Desarrollo de Aplicaciones Multiplataforma a distancia.</li>
             </ul>
           </li>
           <li>
@@ -255,14 +257,14 @@ const Post = ({ state, actions, libraries }) => {
           <li>
             <strong>2006:</strong>
             <ul>
-              <li>📡 El Internet llega a casa gracias al ADSL de Wanadoo. Utilizamos programas P2P para descargar música, nuestro ratio de descarga es de una canción cada cuatro horas.</li>
               <li>🖥️ Mis padres compran un nuevo ordenador. Empiezo a instalar programas que pruebo indiscriminadamente en Softonic.</li>
+              <li>📡 El Internet llega a casa gracias al ADSL de Wanadoo. Utilizamos programas P2P para descargar música, nuestro ratio de descarga es de una canción cada cuatro horas.</li>
               <li>💬 Windows Live Messenger se convierte en el Whatsapp de la época (pero sin ser portátil, y sólo por las tardes) para la mayoría de compañeros de clase.</li>
-              <li>🔄 Microsoft libera Windows Vista. Me las apaño para descargarlo por P2P, y al lograr instalarlo (para disgusto de mis padres) en el Ordenador lo dejo inservible por falta de drivers.</li>
+              <li>🔄 Microsoft libera Windows Vista. Me las apaño para descargarlo por P2P, y al lograr instalarlo (para disgusto de mis padres) dejo inservible el PC por falta de drivers. Consigo repararlo en algún momento utilizando los discos de restauración.</li>
             </ul>
           </li>
           <li>
-            <strong>2004:</strong>
+            <strong>2002:</strong>
             <ul>
               <li>🎮 Paso las tardes con mi hermano: Veo la historia de los Zeldas a través de las partidas de mi hermano, vemos el K3 en casa de nuestra abuela 👵, o salimos a dar vueltas con los patinetes de la época.</li>
             </ul>
