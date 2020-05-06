@@ -114,7 +114,7 @@ const Post = ({ state, actions, libraries }) => {
                 
             </r-cell>
             <r-cell span="4" span-s="row">
-                <h1>Tecnologías que me encantan</h1>
+                <h1>Trabajo diariamente con</h1>
                   <Slideshow>
                     <Marquee>
                       {
@@ -142,13 +142,13 @@ const Post = ({ state, actions, libraries }) => {
         <r-grid columns="8">
             <r-cell span="4" span-s="row">
 
-            <h1>Cosas que me interesan</h1>
+            <h1>Qué me interesa</h1>
 
-            <div class="md-chips">
+            <div className="md-chips">
               {things.map((item, index)=>{
                 return(
-                  <div class="md-chip" key={"thing-"+index}>
-                    <div class="md-chip-icon">{item.icon}</div>
+                  <div className="md-chip" key={"thing-"+index}>
+                    <div className="md-chip-icon">{item.icon}</div>
                     {item.name}
                   </div>
                 );
@@ -161,10 +161,10 @@ const Post = ({ state, actions, libraries }) => {
             <r-cell span="4" span-s="row">
             <h1>Libros leídos recientemente</h1>
 
-              <div class="md-chips">
+              <div className="md-chips">
                 {books.map((item, index)=>{
                   return(
-                    <div class="md-chip" key={"thing-"+index}>
+                    <div className="md-chip" key={"thing-"+index}>
                       {item.name}
                     </div>
                   );
@@ -212,7 +212,7 @@ const Post = ({ state, actions, libraries }) => {
             <strong>2016:</strong>
             <ul>
               <li>👷 Empiezo a trabajar con un equipo de programadores de VSN. Trabajamos en una aplicación web para la gestión y venta de contenidos y noticias para un organismo de la administración pública de la provincia de Barcelona.</li>
-              <li>👨‍🎓 Me inscribo en <a href="https://teamtreehouse.com/" target="_blank">Treehouse</a>. Aprendo y consolido mis conocimientos de Javascript y AngularJS. Durante los sucesivos años me sirve para aprender ReactJS, y realizar algún curso de programación básica en Swift y Android nativo. Poco después también realizo algunos cursos a través de Unity.</li>
+              <li>👨‍🎓 Me inscribo en <a href="https://teamtreehouse.com/" target="_blank">Treehouse</a>. Aprendo y consolido mis conocimientos de Javascript y AngularJS. Durante los sucesivos años me sirve para aprender ReactJS, y realizar algún curso de programación básica en Swift y Android nativo. Poco después también realizo algunos cursos a través de Udemy.</li>
             </ul>
           </li>
           <li>
@@ -226,7 +226,7 @@ const Post = ({ state, actions, libraries }) => {
             <strong>2014:</strong>
             <ul>
               <li>📜 Finalizo el Grado Medio en Sistemas Microinformáticos y Redes. Aprendo un montón gracias a un profesorado muy comprometido.</li>
-              <li>👷 Tras seis meses cómo becario, empiezo a trabajar cómo Web & CRM Developer en <a href="https://www.vsn-tv.com" target="_blank">VSN</a>. Encargándome (al mismo tiempo que aprendo) de remodelar el sitio web corporativo, administrar Salesforce, y gestionar y desarrollar el stack de aplicaciones internas.</li>
+              <li>👷 Tras seis meses cómo becario, empiezo a trabajar cómo Web & CRM Developer en <a href="https://www.vsn-tv.com" target="_blank">VSN</a>. Encargándome de remodelar el sitio web corporativo, administrar Salesforce, y gestionar y desarrollar el stack de aplicaciones internas.</li>
             </ul>
           </li>
           <li>
@@ -306,7 +306,6 @@ const Slideshow  = styled.div`
 `;
 
 const Marquee = styled.div`
-  background: url(slideshow.jpg);
   position: absolute;
   left: 0;
   top: 0;

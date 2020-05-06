@@ -2,14 +2,28 @@
   "errors": [],
   "warnings": [],
   "version": "4.43.0",
-  "hash": "847dcad9c11cefa62962",
+  "hash": "a63106c006fe8134ff64",
   "publicPath": "/static/",
   "outputPath": "C:\\Development\\oriol-im\\build\\static",
   "assetsByChunkName": {
     "list": "list.module.js",
-    "oriol-im": "oriol-im.module.js"
+    "oriol-im": [
+      "oriol-im.module.js",
+      "oriol-im.8e364277c4a092655a01.hot-update.js"
+    ]
   },
   "assets": [
+    {
+      "name": "8e364277c4a092655a01.hot-update.json",
+      "size": 50,
+      "chunks": [],
+      "chunkNames": [],
+      "info": {
+        "hotModuleReplacement": true,
+        "immutable": true
+      },
+      "emitted": false
+    },
     {
       "name": "list.module.js",
       "size": 48193,
@@ -23,8 +37,23 @@
       "emitted": false
     },
     {
+      "name": "oriol-im.8e364277c4a092655a01.hot-update.js",
+      "size": 12927,
+      "chunks": [
+        "oriol-im"
+      ],
+      "chunkNames": [
+        "oriol-im"
+      ],
+      "info": {
+        "hotModuleReplacement": true,
+        "immutable": true
+      },
+      "emitted": false
+    },
+    {
       "name": "oriol-im.module.js",
-      "size": 5499298,
+      "size": 5518268,
       "chunks": [
         "oriol-im"
       ],
@@ -42,7 +71,8 @@
         "oriol-im"
       ],
       "assets": [
-        "oriol-im.module.js"
+        "oriol-im.module.js",
+        "oriol-im.8e364277c4a092655a01.hot-update.js"
       ],
       "children": {},
       "childAssets": {}
@@ -54,7 +84,8 @@
         "oriol-im"
       ],
       "assets": [
-        "oriol-im.module.js"
+        "oriol-im.module.js",
+        "oriol-im.8e364277c4a092655a01.hot-update.js"
       ],
       "children": {},
       "childAssets": {}

@@ -1,8 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { connect, styled, css } from "frontity";
 import Link from "./link";
 import List from "./list";
 import FeaturedMedia from "./featured-media";
+import ReadingProgress from "../../../reading-progress";
 
 const Post = ({ state, actions, libraries }) => {
   // Get information about the current URL.
@@ -32,41 +33,45 @@ const Post = ({ state, actions, libraries }) => {
     }
   }, []);
 
+  const target = React.createRef();
   // Load the post, but only if the data is ready.
   return data.isReady ? (
-    <Container>
-      <div >
-        <Title dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
+    <>
+      <ReadingProgress />
+      <Container>
+        <div >
+          <Title dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
 
-        {/* Only display author and date on posts */}
-        {data.isPost && (
-          <div>
-            {author && (
-              <StyledLink link={author.link}>
-                <Author>
-                  By <b>{author.name}</b>
-                </Author>
-              </StyledLink>
-            )}
-            <Fecha>
-              {" "}
-              on <b>{date.toDateString()}</b>
-            </Fecha>
-          </div>
+          {/* Only display author and date on posts */}
+          {data.isPost && (
+            <div>
+              {author && (
+                <StyledLink link={author.link}>
+                  <Author>
+                    By <b>{author.name}</b>
+                  </Author>
+                </StyledLink>
+              )}
+              <Fecha>
+                {" "}
+                on <b>{date.toDateString()}</b>
+              </Fecha>
+            </div>
+          )}
+        </div>
+
+        {/* Look at the settings to see if we should include the featured image */}
+        {state.theme.featured.showOnPost && (
+          <FeaturedMedia  id={post.featured_media} />
         )}
-      </div>
 
-      {/* Look at the settings to see if we should include the featured image */}
-      {state.theme.featured.showOnPost && (
-        <FeaturedMedia  id={post.featured_media} />
-      )}
-
-      {/* Render the content using the Html2React component so the HTML is processed
-       by the processors we included in the libraries.html2react.processors array. */}
-      <Content >
-        <Html2React html={post.content.rendered} />
-      </Content>
-    </Container>
+        {/* Render the content using the Html2React component so the HTML is processed
+        by the processors we included in the libraries.html2react.processors array. */}
+        <Content >
+          <Html2React html={post.content.rendered} />
+        </Content>
+      </Container>
+    </>
   ) : null;
 };
 
@@ -148,7 +153,7 @@ const Content = styled.div`
   }
 
   a {
-    color: rgb(239, 190, 0);
+    color: rgb(239, 190, 0) !important;
     font-weight: bold;
     text-decoration: none;
   }
