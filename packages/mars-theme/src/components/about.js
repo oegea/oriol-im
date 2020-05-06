@@ -213,6 +213,7 @@ const Post = ({ state, actions, libraries }) => {
             <ul>
               <li>👷 Empiezo a trabajar con un equipo de programadores de VSN. Trabajamos en una aplicación web para la gestión y venta de contenidos y noticias para un organismo de la administración pública de la provincia de Barcelona.</li>
               <li>👨‍🎓 Me inscribo en <a href="https://teamtreehouse.com/" target="_blank">Treehouse</a>. Aprendo y consolido mis conocimientos de Javascript y AngularJS. Durante los sucesivos años me sirve para aprender ReactJS, y realizar algún curso de programación básica en Swift y Android nativo. Poco después también realizo algunos cursos a través de Udemy.</li>
+              <li>🐶 La familia crece: Adoptamos a Jeiko, el Spitz Japonés más listo y cariñoso del mundo.</li>  
             </ul>
           </li>
           <li>
