@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { connect, styled, css } from "frontity";
 import List from "./list";
+import ReadingProgress from "../../../reading-progress";
 
 const Post = ({ state, actions, libraries }) => {
 
@@ -69,6 +70,8 @@ const Post = ({ state, actions, libraries }) => {
   ]
 
   return (
+    <>
+    <ReadingProgress />
     <Container>
       {/* Render the content using the Html2React component so the HTML is processed
        by the processors we included in the libraries.html2react.processors array. */}
@@ -278,6 +281,7 @@ const Post = ({ state, actions, libraries }) => {
         </ul>
       </Content>
     </Container>
+    </>
   );
 };
 

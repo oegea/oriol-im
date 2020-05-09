@@ -7,7 +7,7 @@ const Progress = styled.div`
     top: 0;
     left: 0;
     background-color: #fccb0b;
-    z-index: 10;
+    z-index: 99;
 `;
 
 const GoBack = styled.p`
@@ -21,6 +21,7 @@ const GoBack = styled.p`
     padding-top: 5px;
     padding-bottom: 6px;
     font-weight: bold;
+    z-index: 99;
 `;
 
 export default  () => {
