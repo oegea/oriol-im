@@ -20,7 +20,7 @@ export default `<style type="text/css">
           </div>
         </div>
         <div class="ml-form-checkboxRow ml-validate-required">
-          <label class="checkbox"> <input type="checkbox"> <div class="label-description"> <p><a href="https://www.oriol.im/aviso-legal/" target="_blank">He leído el aviso legal</a>, y autorizo expresamente el tratamiento de mis datos recibir correos electrónicos promocionales.</p> </div> </label>
+          <label class="checkbox"> <input type="checkbox"> <div class="label-description"> <p><a href="https://www.oriol.im/aviso-legal/" target="_blank">He leído el aviso legal</a>, y autorizo expresamente el tratamiento de mis datos para recibir correos electrónicos promocionales.</p> </div> </label>
         </div>
         <input type="hidden" name="ml-submit" value="1">
         <div class="ml-form-embedSubmit">
