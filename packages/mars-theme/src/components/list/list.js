@@ -2,10 +2,12 @@ import React from "react";
 import { connect, styled, decode } from "frontity";
 import Item from "./list-item";
 import Pagination from "./pagination";
+import newsletterForm from "../../../../newsletter-form";
 
 const List = ({ state }) => {
   // Get the data of the current list.
   const data = state.source.get(state.router.link);
+
 
   return (
     <Container>
@@ -24,6 +26,9 @@ const List = ({ state }) => {
         </Header>
       )}
 
+      <SectionTitle>📬 ¡Mantente al día!</SectionTitle>
+      <div dangerouslySetInnerHTML={{ __html: newsletterForm }}  />
+      <SectionTitle>📝 Últimas publicaciones</SectionTitle>
       {/* Iterate over the items of the list. */}
       {data.items.map(({ type, id }) => {
         const item = state.source[type][id];
@@ -36,6 +41,13 @@ const List = ({ state }) => {
 };
 
 export default connect(List);
+
+const SectionTitle = styled.h1`
+  font-size: 1.7em;
+  margin-bottom: 0;
+  border-bottom: 1px solid #9e9e9e;
+  padding-bottom: 10px;
+`;
 
 const Container = styled.section`
   max-width: 100%;
