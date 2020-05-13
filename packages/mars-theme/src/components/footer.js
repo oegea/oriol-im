@@ -13,7 +13,9 @@ const Header = ({ state }) => {
             </a>
         </Title>
         
-        <Legal><Link link="/aviso-legal">Un pequeño (pero necesario) aviso legal</Link></Legal>
+        <Legal>
+          <Link link="/aviso-legal">⚖️ Aviso legal</Link> | <Link link="/politica-de-privacidad">🔒 Política de privacidad</Link>
+        </Legal>
         
       </Container>
     </>
