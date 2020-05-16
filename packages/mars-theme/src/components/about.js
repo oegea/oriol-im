@@ -198,7 +198,7 @@ const Post = ({ state, actions, libraries }) => {
             <ul>
               <li>👷 Empiezo a liderar un equipo de desarrollo en VSN. Además de mantener el portal web y todo el trabajo hecho hasta el momento, empezamos a trabajar en VSNCREA, una plataforma de tráfico y programación escalable, multitenant, y altamente customizable y extensible, encargada de la gestión, planificación y programación de contenidos tanto en estaciones de TV convencionales, como en medios no lineales.</li>
               <li>✈️ Viajo por primera vez a Amsterdam, para asistir al IBC, una feria del sector Media & Entertainment.</li>
-              <li>⚖️ El Reglamento General de Protección de datos entra en vigor, y nos adaptamos y formamos para ello.</li>
+              <li>⚖️ Empieza a aplicarse el Reglamento General de Protección de datos, y nos adaptamos y formamos para ello.</li>
               <li>📜 Obtengo la certificación PSM1 de Scrum.org siguiendo un curso de Mplaza.</li>
             </ul>
           </li>
@@ -262,7 +262,7 @@ const Post = ({ state, actions, libraries }) => {
             <strong>2006:</strong>
             <ul>
               <li>🖥️ Mis padres compran un nuevo ordenador. Empiezo a instalar programas que pruebo indiscriminadamente en Softonic.</li>
-              <li>📡 El Internet llega a casa gracias al ADSL de Wanadoo. Utilizamos programas P2P para descargar música, nuestro ratio de descarga es de una canción cada cuatro horas.</li>
+              <li>📡 El Internet llega a casa gracias al ADSL de Wanadoo. Utilizamos programas P2P para descargar música, nuestra ratio de descarga es de una canción cada cuatro horas.</li>
               <li>💬 Windows Live Messenger se convierte en el Whatsapp de la época (pero sin ser portátil, y sólo por las tardes) para la mayoría de compañeros de clase.</li>
               <li>🔄 Microsoft libera Windows Vista. Me las apaño para descargarlo por P2P, y al lograr instalarlo (para disgusto de mis padres) dejo inservible el PC por falta de drivers. Consigo repararlo en algún momento utilizando los discos de restauración.</li>
             </ul>

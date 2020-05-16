@@ -32,7 +32,7 @@ const Item = ({ state, item }) => {
         )}
         <PublishDate>
           {" "}
-          on <b>{date.toDateString()}</b>
+          Publicado el <b>{date.toLocaleDateString('es-ES', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</b>
         </PublishDate>
       </div>
 

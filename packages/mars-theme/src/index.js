@@ -37,6 +37,12 @@ const marsTheme = {
           func: ({ state }) => {
             state.source.data["/about/"].isAbout = true;
           }
+        },
+        {
+          pattern: "/contact/",
+          func: ({ state }) => {
+            state.source.data["/contact/"].isContact = true;
+          }
         });
       },
       toggleMobileMenu: ({ state }) => {

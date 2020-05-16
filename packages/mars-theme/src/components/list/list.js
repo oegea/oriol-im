@@ -25,7 +25,6 @@ const List = ({ state }) => {
           Author: <b>{decode(state.source.author[data.id].name)}</b>
         </Header>
       )}
-
       <SectionTitle>📬 ¡Mantente al día!</SectionTitle>
       <div dangerouslySetInnerHTML={{ __html: newsletterForm }}  />
       <SectionTitle>📝 Últimas publicaciones</SectionTitle>

@@ -11,6 +11,7 @@ import PageError from "./page-error";
 
 //Custom pages
 import About from './about';
+import Contact from './contact';
 
 /**
  * Theme is the root React component of our theme. The one we will export
@@ -25,6 +26,7 @@ const Theme = ({ state }) => {
       {/* Add some metatags to the <head> of the HTML. */}
       <Title />
       <Head>
+        <meta charset="utf-8" />
         <meta name="description" content={state.frontity.description} />
         <html lang="es" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.20.0/components/prism-core.js"></script>
@@ -51,6 +53,7 @@ const Theme = ({ state }) => {
           <List when={data.isArchive} />
           <Post when={data.isPostType} />
           <About when={data.isAbout} />
+          <Contact when={data.isContact} />
           <PageError when={data.isError} />
         </Switch>
       </Main>
@@ -84,6 +87,11 @@ const globalStyles = css`
   h2{
     font-size: 2em;
   }
+  
+  h1, h2, h3, h4, strong {
+    color: rgba(12,17,43);
+  }
+
 
   p, li {
     font-size: 17px;

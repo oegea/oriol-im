@@ -20,6 +20,10 @@ const settings = {
             [
               "Sobre mi",
               "/about/"
+            ],
+            [
+              "Contacto",
+              "/contact/"
             ]
           ],
           "featured": {
