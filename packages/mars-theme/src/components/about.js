@@ -64,6 +64,7 @@ const Post = ({ state, actions, libraries }) => {
   ];
 
   const books = [
+    { name: "The Lean Startup"},
     { name: "The Personal MBA" },
     { name: "Inspired: How to Create Tech Products Customers Love" },
     { name: "Don't make me think" },

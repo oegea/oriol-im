@@ -142,7 +142,7 @@ const Post = ({ state, actions, libraries }) => {
       <>
         <SectionTitle>✉️ He recibido tu mensaje</SectionTitle>
         <p>Tu mensaje se ha enviado correctamente.</p>
-        <p>Puede que dependiendo de mi carga de trabajo, necesite algo de tiempo para contestarte, pero trataré de hacerlo en un momento u otro.</p>
+        <p>Puede que dependiendo de mi carga de trabajo, necesite algo de tiempo para responderte, pero trataré de hacerlo en un momento u otro.</p>
         <p>¡Muchas gracias por escribirme!</p>
       </>
     )
