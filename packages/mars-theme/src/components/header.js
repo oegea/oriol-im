@@ -9,6 +9,7 @@ const Header = ({ state }) => {
     <>
       <Container>
         <StyledLink link="/">
+          <Logo src="https://wp.oriol.im/wp-content/uploads/2020/05/logo.png" />
           <Title>{state.frontity.title}</Title>
         </StyledLink>
         <Nav />
@@ -35,9 +36,17 @@ const Container = styled.div`
   justify-content: space-around;
 `;
 
+const Logo = styled.img`
+  max-width: 50px;
+  display: inline-block;
+  border-radius: 15px;
+  margin-right: 15px;
+`;
+
 const Title = styled.h1`
+  display: inline-block;
+  vertical-align: super;
   margin: 0;
-  margin-bottom: 16px;
 `;
 
 /*const Description = styled.h4`
