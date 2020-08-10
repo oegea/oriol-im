@@ -185,6 +185,7 @@ const Post = ({ state, actions, libraries }) => {
             <strong>2020:</strong>
             <ul>
               <li>✔️ Finalizamos la primera versión estable de VSNCREA y la desplegamos en diversos entornos de producción de diversos clientes. Seguimos trabajando en un montón de nuevas funcionalidades nuevas.</li>
+              <li>✔️ Finalizamos la remodelación del nuevo sitio web de VSN. ¡Ya era hora de un cambio de look!</li>
             </ul>
           </li>
           <li>
