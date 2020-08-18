@@ -64,6 +64,7 @@ const Post = ({ state, actions, libraries }) => {
   ];
 
   const books = [
+    { name: "Lean UX: Designing Great Products with Agile Teams"},
     { name: "Clean JavaScript: Código limpio, SOLID y Testing"},
     { name: "The Lean Startup"},
     { name: "The Personal MBA" },
@@ -185,6 +186,7 @@ const Post = ({ state, actions, libraries }) => {
             <strong>2020:</strong>
             <ul>
               <li>✔️ Finalizamos la primera versión estable de VSNCREA y la desplegamos en diversos entornos de producción de diversos clientes. Seguimos trabajando en un montón de nuevas funcionalidades nuevas.</li>
+              <li>🦠 Se declara una pandemia por la COVID-19. Nos quedamos en casa confinados para protegernos a nosotros y a nuestros seres queridos.</li>
               <li>✔️ Finalizamos la remodelación del nuevo sitio web de VSN. ¡Ya era hora de un cambio de look!</li>
             </ul>
           </li>
