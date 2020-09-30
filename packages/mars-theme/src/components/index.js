@@ -278,7 +278,7 @@ const HeadContainer = styled.div`
 
   position: fixed;
   width: 100%;
-  z-index: 999;
+  z-index: 99;
   background: white;
   webkit-box-shadow: 0 0 26px -7px rgba(57, 63, 72, 0.36) !important;
   box-shadow: 0 0 26px -7px rgba(57, 63, 72, 0.36) !important;
