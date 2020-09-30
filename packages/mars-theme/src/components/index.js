@@ -260,19 +260,37 @@ const globalStyles = css`
     }
 `;
 
-const HeadContainer = styled.div`
+//Old version of the head nav
+/*const HeadContainer = styled.div`
   display: flex;
   align-items: center;
   flex-direction: column;
   height: 70px;
   border-top: 0.5em solid rgb(252, 203, 11);
+`;*/
+
+//Fixed version of the head nav
+const HeadContainer = styled.div`
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  height: 70px;
+
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+  background: white;
+  webkit-box-shadow: 0 0 26px -7px rgba(57, 63, 72, 0.36) !important;
+  box-shadow: 0 0 26px -7px rgba(57, 63, 72, 0.36) !important;
+  height: 75px;
 `;
 
 const Main = styled.div`
   display: flex;
   justify-content: center;
   background: white;
-`;
+  padding-top: 78px;
+`; 
 
 
 const FooterContainer = styled.div`
