@@ -44,6 +44,7 @@ const Logo = styled.img`
 `;
 
 const Title = styled.h1`
+  font-family: 'Kaushan Script', cursive;
   display: inline-block;
   vertical-align: super;
   margin: 0;
