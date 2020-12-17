@@ -25,11 +25,11 @@ const Post = ({ state, actions, libraries }) => {
   const certifications = [
     {
       image: "https://static.scrum.org/web/badges/badge-psmi.svg",
-      url: "https://www.scrum.org/certificates/351942",
+      url: "https://www.scrum.org/user/409153/",
     },
     {
       image: "https://static.scrum.org/web/badges/badge-pspoi.svg",
-      url: "https://www.scrum.org/certificates/445969",
+      url: "https://www.scrum.org/user/409153/",
     },
   ];
 
@@ -63,13 +63,18 @@ const Post = ({ state, actions, libraries }) => {
     { name: "Enseñanza y compartir conocimientos", icon: "👨‍🎓" },
   ];
 
-  const books = [
-    { name: "Lean UX: Designing Great Products with Agile Teams"},
-    { name: "Clean JavaScript: Código limpio, SOLID y Testing"},
-    { name: "The Lean Startup"},
-    { name: "The Personal MBA" },
-    { name: "Inspired: How to Create Tech Products Customers Love" },
-    { name: "Don't make me think" },
+  const booksAndLearning = [
+    { icon: "📚", name: "The Pragmmatic Programmer"},
+    { icon: "🎓", name: "MongoDB Basics", link: "https://university.mongodb.com/course_completion/90d118c2-1540-41f1-8890-b3b3320f7dc0"},
+    { icon: "🎓", name: "Curso de Electron", link: "https://platzi.com/p/oriol-egea-carvajal/curso/1124-electron/diploma/detalle/"},
+    { icon: "🎓", name: "Curso de Motivación para Equipos de Trabajo", link: "https://platzi.com/p/oriol-egea-carvajal/curso/1896-motivacion/diploma/detalle/"},
+    { icon: "🎓", name: "Curso de Inteligencia Emocional", link: "https://platzi.com/p/oriol-egea-carvajal/curso/1614-inteligencia-emocional/diploma/detalle/"},
+    { icon: "📚", name: "Lean UX: Designing Great Products with Agile Teams"},
+    { icon: "📚", name: "Clean JavaScript: Código limpio, SOLID y Testing"},
+    { icon: "📚", name: "The Lean Startup"},
+    { icon: "📚", name: "The Personal MBA" },
+    { icon: "📚", name: "Inspired: How to Create Tech Products Customers Love" },
+    { icon: "📚", name: "Don't make me think" },
   ]
 
   return (
@@ -165,13 +170,16 @@ const Post = ({ state, actions, libraries }) => {
 
             </r-cell>
             <r-cell span="4" span-s="row">
-            <h1>Libros leídos recientemente</h1>
+            <h1>Libros y formación reciente</h1>
 
               <div className="md-chips">
-                {books.map((item, index)=>{
+                {booksAndLearning.map((item, index)=>{
                   return(
                     <div className="md-chip" key={"thing-"+index}>
+                      <div className="md-chip-icon">{item.icon}</div>
                       {item.name}
+                      {item.link && 
+                      <a href={item.link} target="_blank"> 🔗</a>}
                     </div>
                   );
                 })}

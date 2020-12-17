@@ -1,0 +1,112 @@
+{
+  "errors": [],
+  "warnings": [],
+  "version": "4.44.2",
+  "hash": "a8cdc553a2e6ac8e36ef",
+  "publicPath": "/static/",
+  "outputPath": "C:\\Development\\oriol-im\\build\\static",
+  "assetsByChunkName": {
+    "list": "list.module.js",
+    "oriol-im": [
+      "oriol-im.module.js",
+      "oriol-im.33ec2ed3faafc00ed167.hot-update.js"
+    ]
+  },
+  "assets": [
+    {
+      "name": "33ec2ed3faafc00ed167.hot-update.json",
+      "size": 50,
+      "chunks": [],
+      "chunkNames": [],
+      "info": {
+        "hotModuleReplacement": true,
+        "immutable": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "list.module.js",
+      "size": 122308,
+      "chunks": [
+        "list"
+      ],
+      "chunkNames": [
+        "list"
+      ],
+      "info": {},
+      "emitted": false
+    },
+    {
+      "name": "oriol-im.33ec2ed3faafc00ed167.hot-update.js",
+      "size": 394501,
+      "chunks": [
+        "oriol-im"
+      ],
+      "chunkNames": [
+        "oriol-im"
+      ],
+      "info": {
+        "hotModuleReplacement": true,
+        "immutable": true
+      },
+      "emitted": false
+    },
+    {
+      "name": "oriol-im.module.js",
+      "size": 6205427,
+      "chunks": [
+        "oriol-im"
+      ],
+      "chunkNames": [
+        "oriol-im"
+      ],
+      "info": {},
+      "emitted": false
+    }
+  ],
+  "filteredAssets": 0,
+  "entrypoints": {
+    "oriol-im": {
+      "chunks": [
+        "oriol-im"
+      ],
+      "assets": [
+        "oriol-im.module.js",
+        "oriol-im.33ec2ed3faafc00ed167.hot-update.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    }
+  },
+  "namedChunkGroups": {
+    "oriol-im": {
+      "chunks": [
+        "oriol-im"
+      ],
+      "assets": [
+        "oriol-im.module.js",
+        "oriol-im.33ec2ed3faafc00ed167.hot-update.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    },
+    "list": {
+      "chunks": [
+        "list"
+      ],
+      "assets": [
+        "list.module.js"
+      ],
+      "children": {},
+      "childAssets": {}
+    }
+  },
+  "logging": {
+    "webpack.buildChunkGraph.visitModules": {
+      "entries": [],
+      "filteredEntries": 5,
+      "debug": false
+    }
+  },
+  "children": []
+}
