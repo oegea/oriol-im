@@ -18,7 +18,7 @@ const settings = {
               "/"
             ],
             [
-              "Sobre mi",
+              "Sobre mí",
               "/about/"
             ],
             [

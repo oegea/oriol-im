@@ -64,6 +64,7 @@ const Post = ({ state, actions, libraries }) => {
   ];
 
   const booksAndLearning = [
+    { icon: "🎓", name: "Curso de Design Sprint", link: "https://platzi.com/p/oriol-egea-carvajal/curso/1702-design-sprint/diploma/detalle/"},
     { icon: "📚", name: "The Pragmmatic Programmer"},
     { icon: "🎓", name: "MongoDB Basics", link: "https://university.mongodb.com/course_completion/90d118c2-1540-41f1-8890-b3b3320f7dc0"},
     { icon: "🎓", name: "Curso de Electron", link: "https://platzi.com/p/oriol-egea-carvajal/curso/1124-electron/diploma/detalle/"},
@@ -84,7 +85,7 @@ const Post = ({ state, actions, libraries }) => {
       {/* Render the content using the Html2React component so the HTML is processed
        by the processors we included in the libraries.html2react.processors array. */}
       <Content>
-        <h1>Sobre mi</h1>
+        <h1>Sobre mí</h1>
         <r-grid columns="20">
             <r-cell span="9" span-s="row">
               <img css={css`margin-top: 7px;`} src="https://wp.oriol.im/wp-content/uploads/2016/07/rsz_aaeaaqaaaaaaaalxaaaajda2zdljytzlltiymjetndqyys1hmzi4lwm1mti2nwfiodexma.jpg" alt="Oriol Egea" />
