@@ -64,6 +64,8 @@ const Post = ({ state, actions, libraries }) => {
   ];
 
   const booksAndLearning = [
+    { icon: "🎓", name: "Start the UX Design Process: Empathize, Define, and Ideate", link: "https://coursera.org/share/dbb108da80b1a86257b5afd5dcbec684"},
+    { icon: "🎓", name: "Foundations of User Experience (UX) Design", link: "https://coursera.org/share/e7615a4d598d33151327964e16e18d7f"},
     { icon: "🎓", name: "Curso de Design Sprint", link: "https://platzi.com/p/oriol-egea-carvajal/curso/1702-design-sprint/diploma/detalle/"},
     { icon: "📚", name: "The Pragmmatic Programmer"},
     { icon: "🎓", name: "MongoDB Basics", link: "https://university.mongodb.com/course_completion/90d118c2-1540-41f1-8890-b3b3320f7dc0"},
@@ -191,6 +193,13 @@ const Post = ({ state, actions, libraries }) => {
         
         <h1>Mi cronología</h1>
         <ul>
+          <li>
+            <strong>2021:</strong>
+            <ul>
+              <li>💼 VSN es adquirida por ValSoft, nos preparamos para realizar grandes cosas juntos.</li>
+              <li>💉 Empieza la campaña de vacunación para la COVID-19. Empezamos a salir de casa y a recuperar parcialmente la normalidad.</li>
+            </ul>
+          </li>
           <li>
             <strong>2020:</strong>
             <ul>
