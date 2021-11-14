@@ -25,11 +25,11 @@ const Post = ({ state, actions, libraries }) => {
   const certifications = [
     {
       image: "https://static.scrum.org/web/badges/badge-psmi.svg",
-      url: "https://www.scrum.org/user/409153/",
+      url: "https://www.credly.com/badges/1694eade-5c2e-482c-876c-48636805be31",
     },
     {
       image: "https://static.scrum.org/web/badges/badge-pspoi.svg",
-      url: "https://www.scrum.org/user/409153/",
+      url: "https://www.credly.com/badges/6fcefa1a-473a-474d-b7d8-f26e5504d878",
     },
   ];
 
@@ -64,7 +64,8 @@ const Post = ({ state, actions, libraries }) => {
   ];
 
   const booksAndLearning = [
-    { icon: "🎓", name: "Start the UX Design Process: Empathize, Define, and Ideate", link: "https://coursera.org/share/dbb108da80b1a86257b5afd5dcbec684"},
+    { icon: "🎓", name: "Curso de end to end testing con Cypress", link: "https://platzi.com/p/oriol-egea-carvajal/curso/1411-testing-cypress/diploma/detalle/"},
+    { icon: "🎓", name: "Start the UX Design Process", link: "https://coursera.org/share/dbb108da80b1a86257b5afd5dcbec684"},
     { icon: "🎓", name: "Foundations of User Experience (UX) Design", link: "https://coursera.org/share/e7615a4d598d33151327964e16e18d7f"},
     { icon: "🎓", name: "Curso de Design Sprint", link: "https://platzi.com/p/oriol-egea-carvajal/curso/1702-design-sprint/diploma/detalle/"},
     { icon: "📚", name: "The Pragmmatic Programmer"},
