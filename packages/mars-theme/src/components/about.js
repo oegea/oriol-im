@@ -64,6 +64,7 @@ const Post = ({ state, actions, libraries }) => {
   ];
 
   const booksAndLearning = [
+    { icon: "🎓", name: "Curso de complejidad algorítmica con Javascript", link: "https://platzi.com/p/oriol-egea-carvajal/curso/2517-complejidad-js/diploma/detalle/"},
     { icon: "🎓", name: "Curso de end to end testing con Cypress", link: "https://platzi.com/p/oriol-egea-carvajal/curso/1411-testing-cypress/diploma/detalle/"},
     { icon: "🎓", name: "Start the UX Design Process", link: "https://coursera.org/share/dbb108da80b1a86257b5afd5dcbec684"},
     { icon: "🎓", name: "Foundations of User Experience (UX) Design", link: "https://coursera.org/share/e7615a4d598d33151327964e16e18d7f"},
