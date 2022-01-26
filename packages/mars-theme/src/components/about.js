@@ -64,6 +64,9 @@ const Post = ({ state, actions, libraries }) => {
   ];
 
   const booksAndLearning = [
+    { icon: "📚", name: "Revolution in the Valley"},
+    { icon: "📚", name: "Steve Jobs Biography"},
+    { icon: "🎓", name: "Firebase with React v2", link: "https://frontendmasters.com/courses/firebase-react-v2/"},
     { icon: "🎓", name: "Curso de complejidad algorítmica con Javascript", link: "https://platzi.com/p/oriol-egea-carvajal/curso/2517-complejidad-js/diploma/detalle/"},
     { icon: "🎓", name: "Curso de end to end testing con Cypress", link: "https://platzi.com/p/oriol-egea-carvajal/curso/1411-testing-cypress/diploma/detalle/"},
     { icon: "🎓", name: "Start the UX Design Process", link: "https://coursera.org/share/dbb108da80b1a86257b5afd5dcbec684"},
@@ -105,7 +108,7 @@ const Post = ({ state, actions, libraries }) => {
             <r-cell span="10" span-s="row">
                 <p css={css`margin-top: 0;`}>
                     ¡Hola! Soy Oriol. Nací hace {new Date().getFullYear()-1996} años en Terrassa (España). 
-                    Actualmente trabajo en <a href="https://www.vsn-tv.com/" target="_blank">VSN</a> liderando a (y aprendiendo de) un pequeño, pero muy talentoso, equipo de programadores, que desarrollamos VSNCREA; un producto de tráfico, programación y distribución de contenidos multimedia.
+                    Actualmente trabajo como Senior Frontend Engineer en <a href="https://adevinta.es/" target="_blank">Adevinta Spain</a>, previamente he trabajado en <a href="https://www.vsn-tv.com/" target="_blank">VSN</a> liderando un pequeño, pero muy talentoso, equipo de programadores, que desarrollamos VSNCREA; un producto de tráfico, programación y distribución de contenidos multimedia.
                 </p>
                 <p>
                     Siempre me ha apasionado cómo el Software puede aportar valor a casi cualquier situación y entorno. Por ello, siempre que puedo destino tiempo a seguir formándome tanto en desarrollo de Software, como en ideación, descubrimiento y definición de producto.
@@ -196,10 +199,17 @@ const Post = ({ state, actions, libraries }) => {
         <h1>Mi cronología</h1>
         <ul>
           <li>
+            <strong>2022:</strong>
+            <ul>
+              <li>💻 Empiezo a trabajar en Adevinta Spain como Senior Frontend Engineer.</li>
+            </ul>
+          </li>
+          <li>
             <strong>2021:</strong>
             <ul>
-              <li>💼 VSN es adquirida por ValSoft, nos preparamos para realizar grandes cosas juntos.</li>
+              <li>👋 Finaliza mi etapa en VSN.</li>
               <li>💉 Empieza la campaña de vacunación para la COVID-19. Empezamos a salir de casa y a recuperar parcialmente la normalidad.</li>
+              <li>🎥 Inicio mi canal de Twitch y YouTube.</li>
             </ul>
           </li>
           <li>
