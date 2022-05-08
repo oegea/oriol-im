@@ -64,6 +64,8 @@ const Post = ({ state, actions, libraries }) => {
   ];
 
   const booksAndLearning = [
+    { icon: "📚", name: "Accelerate: The Science of Lean Software and Devops"},
+    { icon: "🎓", name: "Adevinta Product Academy", link: "https://www.adevinta-academies.com/certificates/mowdblbpyg"},
     { icon: "📚", name: "Revolution in the Valley"},
     { icon: "📚", name: "Steve Jobs Biography"},
     { icon: "🎓", name: "Firebase with React v2", link: "https://frontendmasters.com/courses/firebase-react-v2/"},
@@ -201,6 +203,7 @@ const Post = ({ state, actions, libraries }) => {
           <li>
             <strong>2022:</strong>
             <ul>
+              <li>💻 Desarrollo <a href="https://cloud.passager.app" target="_blank">Passager</a> un gestor de contraseñas Open Source que utiliza la Crypto Web API.</li>
               <li>💻 Empiezo a trabajar en Adevinta Spain como Senior Frontend Engineer.</li>
             </ul>
           </li>
