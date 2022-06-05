@@ -64,6 +64,8 @@ const Post = ({ state, actions, libraries }) => {
   ];
 
   const booksAndLearning = [
+    { icon: "🎓", name: "Adevinta Leaderships Essentials LiteTrack", link: "https://www.adevinta-academies.com/courses/leadership-essentials-lite-track"},
+    { icon: "📚", name: "How to Avoid a Climate Disaster: The Solutions We Have and the Breakthroughs We Need"},
     { icon: "📚", name: "Accelerate: The Science of Lean Software and Devops"},
     { icon: "🎓", name: "Adevinta Product Academy", link: "https://www.adevinta-academies.com/certificates/mowdblbpyg"},
     { icon: "📚", name: "Revolution in the Valley"},
