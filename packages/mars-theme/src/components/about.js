@@ -205,14 +205,16 @@ const Post = ({ state, actions, libraries }) => {
           <li>
             <strong>2022:</strong>
             <ul>
-              <li>💻 Desarrollo <a href="https://cloud.passager.app" target="_blank">Passager</a> un gestor de contraseñas Open Source que utiliza la Crypto Web API.</li>
+              <li>✔️ Desarrollo <a href="https://github.com/oegea/passager-password-manager" target="_blank">Passager</a> un gestor de contraseñas Open Source liberado bajo licencia AGPL, que utiliza la Crypto Web API.</li>
+              <li>😷 Disfrutamos de un periodo de tiempo en el que no existen restricciones de movilidad debido a la COVID-19. Las mascarillas dejan de ser obligatorias en interiores en España.</li>
               <li>💻 Empiezo a trabajar en Adevinta Spain como Senior Frontend Engineer.</li>
             </ul>
           </li>
           <li>
             <strong>2021:</strong>
             <ul>
-              <li>👋 Finaliza mi etapa en VSN.</li>
+              <li>👋 Finaliza mi etapa en VSN para empezar a trabajar en Adevinta Spain.</li>
+              <li>🏠 ¡Cambio de residencia! Me establezco en una ciudad cerca de Barcelona.</li>
               <li>💉 Empieza la campaña de vacunación para la COVID-19. Empezamos a salir de casa y a recuperar parcialmente la normalidad.</li>
               <li>🎥 Inicio mi canal de Twitch y YouTube.</li>
             </ul>
