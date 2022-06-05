@@ -176,9 +176,19 @@ const globalStyles = css`
   
   .md-chips {
     padding: 12px 0;
+
+    max-height: 415px;
+    overflow-x: visible;
+    overflow-y: scroll;
   }
   .md-chips .md-chip {
     margin: 0 5px 3px 0;
+
+    text-overflow: ellipsis;
+    /* Needed to make it work */
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: calc(100% - 30px);
   }
   
   .md-chip-raised {

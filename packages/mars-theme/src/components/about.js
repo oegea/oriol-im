@@ -214,8 +214,8 @@ const Post = ({ state, actions, libraries }) => {
             <strong>2021:</strong>
             <ul>
               <li>👋 Finaliza mi etapa en VSN para empezar a trabajar en Adevinta Spain.</li>
-              <li>🏠 ¡Cambio de residencia! Me establezco en una ciudad cerca de Barcelona.</li>
               <li>💉 Empieza la campaña de vacunación para la COVID-19. Empezamos a salir de casa y a recuperar parcialmente la normalidad.</li>
+              <li>🏠 ¡Cambio de residencia! Me establezco en una ciudad cercana a Barcelona, España.</li>
               <li>🎥 Inicio mi canal de Twitch y YouTube.</li>
             </ul>
           </li>
