@@ -64,6 +64,11 @@ const Post = ({ state, actions, libraries }) => {
   ];
 
   const booksAndLearning = [
+    { icon: "📚", name: "DDD Distilled"},
+    { icon: "📚", name: "Clean architecture"},
+    { icon: "🎓", name: "CodelyTV: Hexagonal architecture", link: "https://pro.codely.com/library/arquitectura-hexagonal-31201/66748/"},
+    { icon: "📚", name: "IWoz. Computer geek to cult icon"},
+    { icon: "🎓", name: "CodelyTV: Web Performance", link: "https://pro.codely.com/library/web-performance-168675/364571/"},
     { icon: "🎓", name: "Adevinta Leaderships Essentials LiteTrack", link: "https://www.adevinta-academies.com/courses/leadership-essentials-lite-track"},
     { icon: "📚", name: "How to Avoid a Climate Disaster: The Solutions We Have and the Breakthroughs We Need"},
     { icon: "📚", name: "Accelerate: The Science of Lean Software and Devops"},
@@ -205,6 +210,8 @@ const Post = ({ state, actions, libraries }) => {
           <li>
             <strong>2022:</strong>
             <ul>
+              <li>✔️ Desarrollo <a href="https://github.com/oegea/dial-a-norris" target="_blank">Marca un Norris (Dial a Norris)</a> un servicio a través de VoIP de tipo "dial-a-joke" que cada día ofrece una frase de Chuck Norris distinta.</li>
+              <li>📱 Encapsulo Passager como mobile app utilizando <a href="https://capacitorjs.com/" target="_blank">Capacitor</a> y lo publico en las stores de iOS y Android.</li>
               <li>✔️ Desarrollo <a href="https://github.com/oegea/passager-password-manager" target="_blank">Passager</a> un gestor de contraseñas Open Source liberado bajo licencia AGPL, que utiliza la Crypto Web API.</li>
               <li>😷 Disfrutamos de un periodo de tiempo en el que no existen restricciones de movilidad debido a la COVID-19. Las mascarillas dejan de ser obligatorias en interiores en España.</li>
               <li>💻 Empiezo a trabajar en Adevinta Spain como Senior Frontend Engineer.</li>
