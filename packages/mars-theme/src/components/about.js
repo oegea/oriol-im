@@ -208,6 +208,22 @@ const Post = ({ state, actions, libraries }) => {
         <h1>Mi cronología</h1>
         <ul>
           <li>
+            <strong>2024:</strong>
+            <ul>
+              <li>💻 Me uno a Amplify Software como CTO y co-founder para democratizar las herramientas de IA para los profesionales del broadcast y revolucionar algunos procesos a través de la IA.</li>
+              <li>👋 Finaliza mi etapa en Adevinta Spain.</li>
+            </ul>
+          </li>
+          <li>
+            <strong>2023:</strong>
+            <ul>
+              <li>🎙️ Participo en el Adevinta FE Day para compartir algunos aprendizajes del desarrollo y mantenimiento de Passager.</li>
+              <li>🍏 Después de mucho tiempo, Apple vuelve a pronunciar el famoso "One more thing" para presentar las Apple Vision Pro. Aunque también anuncian que necesitarán One more year para empezar a venderlas sólo en EEUU.</li>
+              <li>✔️ Desarrollo <a href="https://www.docky.tech/" target="_blank">Docky</a> una herramienta con la que desarrollar servicios REST rápidamente con un enfoque similar a Firebase.</li>
+              <li>🤖 ChatGPT consigue 100 millones de usuarios durante un sólo mes, en enero. Empieza el boom de la IA.</li>
+            </ul>
+          </li>
+          <li>
             <strong>2022:</strong>
             <ul>
               <li>✔️ Desarrollo <a href="https://github.com/oegea/dial-a-norris" target="_blank">Marca un Norris (Dial a Norris)</a> un servicio a través de VoIP de tipo "dial-a-joke" que cada día ofrece una frase de Chuck Norris distinta.</li>
