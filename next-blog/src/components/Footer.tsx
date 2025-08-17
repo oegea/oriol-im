@@ -158,7 +158,7 @@ export default function Footer() {
         <div className="mt-6 text-center">
           <p className="text-xs text-gray-400">
             Hecho con{' '}
-            <span className="inline-block w-3 h-3 bg-yellow-400 rounded-sm mx-1 animate-pulse"></span>
+            <span className="text-red-500 animate-pulse">❤️</span>
             {' '}y mucho JavaScript
           </p>
         </div>

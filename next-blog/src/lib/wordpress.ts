@@ -32,7 +32,11 @@ export async function getPost(slug: string): Promise<WordPressPost | null> {
         _embed: true,
       },
     })
-    return response.data[0] || null
+    
+    // Find the exact post by slug (WordPress might return multiple results)
+    const exactPost = response.data.find((post: any) => post.slug === slug)
+    
+    return exactPost || null
   } catch (error) {
     console.error('Error fetching post:', error)
     return null
@@ -47,10 +51,44 @@ export async function getPage(slug: string): Promise<WordPressPage | null> {
         _embed: true,
       },
     })
-    return response.data[0] || null
+    
+    // Find the exact page by slug (WordPress might return multiple results)
+    const exactPage = response.data.find((page: any) => page.slug === slug)
+    
+    return exactPage || null
   } catch (error) {
     console.error('Error fetching page:', error)
     return null
+  }
+}
+
+export async function getPageById(id: number): Promise<WordPressPage | null> {
+  try {
+    const response = await wpApi.get(`/pages/${id}`, {
+      params: {
+        _embed: true,
+      },
+    })
+    return response.data
+  } catch (error) {
+    console.error('Error fetching page by ID:', error)
+    return null
+  }
+}
+
+// Function to get all page slugs for static generation
+export async function getAllPageSlugs(): Promise<string[]> {
+  try {
+    const response = await wpApi.get('/pages', {
+      params: {
+        per_page: 100,
+        _fields: 'slug',
+      },
+    })
+    return response.data.map((page: { slug: string }) => page.slug)
+  } catch (error) {
+    console.error('Error fetching page slugs:', error)
+    return []
   }
 }
 

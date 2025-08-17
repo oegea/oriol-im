@@ -12,60 +12,70 @@ export default function PostCard({ post }: PostCardProps) {
   const excerpt = stripHtml(post.excerpt.rendered)
 
   return (
-    <article className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-      {featuredImage && (
-        <div className="relative h-48 w-full">
-          <Image
-            src={featuredImage.source_url}
-            alt={featuredImage.alt_text || post.title.rendered}
-            fill
-            className="object-cover"
-          />
-        </div>
-      )}
-      
-      <div className="p-6">
-        <div className="flex items-center text-sm text-gray-500 mb-2">
-          <time dateTime={post.date}>
-            {formatDate(post.date)}
-          </time>
-        </div>
-        
-        <h2 className="text-xl font-bold text-gray-900 mb-3">
+    <article className="border-b border-gray-200 pb-8 last:border-b-0">
+      <header className="mb-4">
+        <h2 className="mb-2" style={{ fontSize: '2rem', color: 'var(--text-dark)', fontWeight: 600 }}>
           <Link 
             href={`/posts/${post.slug}`}
-            className="hover:text-blue-600 transition-colors"
+            className="hover:opacity-80 transition-opacity"
+            style={{ color: 'var(--text-dark)' }}
           >
             {post.title.rendered}
           </Link>
         </h2>
         
-        {excerpt && (
-          <p className="text-gray-600 mb-4 line-clamp-3">
-            {excerpt}
-          </p>
-        )}
-        
-        <Link 
-          href={`/posts/${post.slug}`}
-          className="inline-flex items-center text-blue-600 hover:text-blue-800 font-medium"
+        <div 
+          className="text-sm mb-4" 
+          style={{ color: 'var(--text-meta)', fontSize: '0.9em' }}
         >
-          Leer más
-          <svg 
-            className="ml-1 w-4 h-4" 
-            fill="none" 
-            stroke="currentColor" 
-            viewBox="0 0 24 24"
-          >
-            <path 
-              strokeLinecap="round" 
-              strokeLinejoin="round" 
-              strokeWidth={2} 
-              d="M9 5l7 7-7 7" 
-            />
-          </svg>
-        </Link>
-      </div>
+          <time dateTime={post.date}>
+            {formatDate(post.date)}
+          </time>
+        </div>
+      </header>
+      
+      {featuredImage && (
+        <div className="mb-4">
+          <Image
+            src={featuredImage.source_url}
+            alt={featuredImage.alt_text || post.title.rendered}
+            width={800}
+            height={400}
+            className="w-full h-auto object-cover rounded-lg"
+          />
+        </div>
+      )}
+      
+      {excerpt && (
+        <div 
+          className="mb-4 leading-relaxed"
+          style={{ color: 'var(--text-light)' }}
+          dangerouslySetInnerHTML={{ 
+            __html: post.excerpt.rendered.replace(/wp\.oriol/g, 'www.oriol') 
+          }}
+        />
+      )}
+      
+      <Link 
+        href={`/posts/${post.slug}`}
+        className="inline-flex items-center font-medium hover:underline"
+        style={{ color: 'var(--link-color)' }}
+      >
+        Leer más
+        <svg 
+          className="ml-1 w-4 h-4" 
+          fill="none" 
+          stroke="currentColor" 
+          viewBox="0 0 24 24"
+        >
+          <path 
+            strokeLinecap="round" 
+            strokeLinejoin="round" 
+            strokeWidth={2} 
+            d="M9 5l7 7-7 7" 
+          />
+        </svg>
+      </Link>
     </article>
   )
 }
