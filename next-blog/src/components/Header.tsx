@@ -2,129 +2,271 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { usePathname } from 'next/navigation'
 import { config } from '@/lib/config'
+import { Home, User, Mail } from 'lucide-react'
 
 const navigation = [
-  { name: 'Inicio', href: '/' },
-  { name: 'Sobre mí', href: '/about' },
-  { name: 'Contacto', href: '/contact' },
+  { name: 'Inicio', href: '/', icon: Home },
+  { name: 'Sobre mí', href: '/about', icon: User },
+  { name: 'Contacto', href: '/contact', icon: Mail },
 ]
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
+  const headerRef = useRef<HTMLElement>(null)
   const pathname = usePathname()
+
+  // Mouse tracking for glow effect
+  useEffect(() => {
+    const updateMousePosition = (e: MouseEvent) => {
+      if (headerRef.current) {
+        const rect = headerRef.current.getBoundingClientRect()
+        setMousePosition({
+          x: e.clientX - rect.left,
+          y: e.clientY - rect.top,
+        })
+      }
+    }
+
+    const header = headerRef.current
+    if (header) {
+      header.addEventListener('mousemove', updateMousePosition)
+      return () => header.removeEventListener('mousemove', updateMousePosition)
+    }
+  }, [])
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen)
-    // Prevent body scroll when menu is open
     document.body.style.overflow = isMobileMenuOpen ? 'unset' : 'hidden'
   }
 
   return (
     <>
-      <header className="bg-white header-shadow fixed w-full top-0 z-50" style={{ height: '75px' }}>
-        <div className="max-w-4xl mx-auto px-6">
+      {/* Glassmorphism header */}
+      <header 
+        ref={headerRef}
+        className="fixed w-full top-0 z-50 backdrop-blur-xl overflow-hidden"
+        style={{ 
+          height: '70px',
+          background: 'linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.85) 100%)',
+          backdropFilter: 'blur(20px)',
+          WebkitBackdropFilter: 'blur(20px)',
+          borderBottom: '1px solid rgba(255,255,255,0.3)',
+          boxShadow: '0 8px 32px rgba(0,0,0,0.1)',
+        }}
+      >
+        {/* Dynamic gradient border */}
+        <div 
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background: `radial-gradient(600px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(252,203,11,0.1), transparent 40%)`,
+          }}
+        />
+        
+        {/* Animated background pattern */}
+        <div 
+          className="absolute inset-0 opacity-5"
+          style={{
+            backgroundImage: `radial-gradient(circle at 20% 80%, rgba(252,203,11,0.3) 0%, transparent 50%), 
+                              radial-gradient(circle at 80% 20%, rgba(245,158,11,0.3) 0%, transparent 50%)`,
+            animation: 'float 6s ease-in-out infinite',
+          }}
+        />
+        
+        <div className="max-w-6xl mx-auto px-6 h-full relative">
           <div className="flex justify-between items-center h-full">
+            {/* Logo */}
             <Link 
               href="/" 
-              className="flex items-center space-x-3 hover:opacity-80 transition-opacity"
+              className="flex items-center space-x-4 group relative"
             >
-              <Image
-                src={`${config.wordpress.contentUrl}/2020/05/logo.png`}
-                alt="Oriol Egea Logo"
-                width={50}
-                height={50}
-                className="rounded-full"
-              />
-              <span 
-                className="text-black text-xl"
-                style={{ fontFamily: "'Kaushan Script', cursive" }}
-              >
-                {config.site.title}
-              </span>
+              <div className="relative">
+                <Image
+                  src={`${config.wordpress.contentUrl}/2020/05/logo.png`}
+                  alt="Oriol Egea Logo"
+                  width={40}
+                  height={40}
+                  className="rounded-xl group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+              
+              <div className="flex flex-col">
+                <span 
+                  className="text-gray-900 text-xl font-bold group-hover:text-yellow-600 transition-colors duration-300"
+                  style={{ fontFamily: "'Kaushan Script', cursive" }}
+                >
+                  {config.site.title}
+                </span>
+              </div>
             </Link>
             
-            {/* Desktop Navigation */}
-            <nav className="hidden lg:flex space-x-8">
-              {navigation.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className={`text-black transition-colors ${
-                    pathname === item.href 
-                      ? 'font-bold' 
-                      : 'font-semibold hover:opacity-70'
-                  }`}
-                  style={{ fontSize: '1.3em', fontWeight: pathname === item.href ? 700 : 600 }}
-                  aria-current={pathname === item.href ? 'page' : undefined}
-                >
-                  {item.name}
-                </Link>
-              ))}
+            {/* Navigation */}
+            <nav className="hidden lg:flex items-center">
+              <div className="flex items-center space-x-1">
+                {navigation.map((item, index) => {
+                  const isActive = pathname === item.href
+                  const IconComponent = item.icon
+                  return (
+                    <Link
+                      key={item.name}
+                      href={item.href}
+                      className={`group relative px-5 py-2.5 rounded-full font-medium transition-all duration-500 ${
+                        isActive 
+                          ? 'text-white' 
+                          : 'text-gray-700 hover:text-yellow-600'
+                      }`}
+                      style={{
+                        background: isActive 
+                          ? 'linear-gradient(135deg, #fccb0b 0%, #f59e0b 100%)' 
+                          : 'transparent',
+                        animationDelay: `${index * 100}ms`
+                      }}
+                      aria-current={isActive ? 'page' : undefined}
+                    >
+                      {/* Hover background effect */}
+                      <div className="absolute inset-0 bg-white/20 rounded-full scale-0 group-hover:scale-100 transition-transform duration-300 ease-out" />
+                      
+                      {/* Active state glow */}
+                      {isActive && (
+                        <div className="absolute inset-0 bg-gradient-to-r from-yellow-400/20 to-orange-400/20 rounded-full blur-sm scale-105" />
+                      )}
+                      
+                      <div className="relative z-10 flex items-center space-x-2">
+                        <IconComponent size={18} className="flex-shrink-0" />
+                        <span className="hidden xl:block">{item.name}</span>
+                      </div>
+                    </Link>
+                  )
+                })}
+              </div>
             </nav>
             
-            {/* Mobile menu button */}
+            {/* Mobile Menu Button */}
             <button 
-              className="lg:hidden p-2"
+              className="lg:hidden relative p-3 rounded-full hover:bg-white/30 transition-all duration-300"
               onClick={toggleMobileMenu}
               aria-label="Toggle mobile menu"
             >
-              {isMobileMenuOpen ? (
-                // Close icon
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <path
-                    d="M18 6L6 18M6 6l12 12"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              ) : (
-                // Hamburger icon
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                  <path
-                    d="M3 12h18M3 6h18M3 18h18"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              )}
+              <div className="w-5 h-5 flex flex-col justify-center items-center space-y-1">
+                <div className={`w-4 h-0.5 bg-gray-700 transition-all duration-300 ${
+                  isMobileMenuOpen ? 'rotate-45 translate-y-1' : ''
+                }`} />
+                <div className={`w-4 h-0.5 bg-gray-700 transition-all duration-300 ${
+                  isMobileMenuOpen ? 'opacity-0' : ''
+                }`} />
+                <div className={`w-4 h-0.5 bg-gray-700 transition-all duration-300 ${
+                  isMobileMenuOpen ? '-rotate-45 -translate-y-1' : ''
+                }`} />
+              </div>
             </button>
           </div>
         </div>
       </header>
 
-      {/* Mobile menu overlay */}
+      {/* Floating Mobile Menu */}
       {isMobileMenuOpen && (
-        <div 
-          className="fixed inset-0 bg-white z-40 lg:hidden"
-          style={{ paddingTop: '75px' }}
-        >
-          <nav className="flex flex-col items-center justify-center h-full space-y-8">
-            {navigation.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className="text-black text-xl font-semibold hover:bg-black hover:bg-opacity-5 px-6 py-3 rounded transition-colors"
-                onClick={() => {
-                  setIsMobileMenuOpen(false)
-                  document.body.style.overflow = 'unset'
-                }}
-              >
-                {item.name}
-              </Link>
-            ))}
-          </nav>
-        </div>
+        <>
+          {/* Glassmorphism backdrop */}
+          <div 
+            className="fixed inset-0 bg-black/10 backdrop-blur-sm z-40 lg:hidden"
+            onClick={() => {
+              setIsMobileMenuOpen(false)
+              document.body.style.overflow = 'unset'
+            }}
+          />
+          
+          {/* Floating menu panel */}
+          <div 
+            className="fixed top-20 left-4 right-4 z-50 lg:hidden"
+            style={{ 
+              animation: 'floatIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)',
+            }}
+          >
+            <div 
+              className="bg-white/90 backdrop-blur-xl rounded-3xl border border-white/30 shadow-2xl overflow-hidden"
+              style={{
+                background: 'linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.85) 100%)',
+              }}
+            >
+              <div className="p-6">
+                <nav className="space-y-2">
+                  {navigation.map((item, index) => {
+                    const isActive = pathname === item.href
+                    const IconComponent = item.icon
+                    return (
+                      <Link
+                        key={item.name}
+                        href={item.href}
+                        className={`flex items-center p-4 rounded-2xl transition-all duration-300 ${
+                          isActive 
+                            ? 'bg-gradient-to-r from-yellow-400 to-orange-400 text-white shadow-lg' 
+                            : 'text-gray-700 hover:bg-white/70 hover:text-yellow-600'
+                        }`}
+                        style={{ 
+                          animationDelay: `${index * 100}ms`,
+                          animation: `slideInRight 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) ${index * 100}ms both`
+                        }}
+                        onClick={() => {
+                          setIsMobileMenuOpen(false)
+                          document.body.style.overflow = 'unset'
+                        }}
+                      >
+                        <div className="flex items-center space-x-3">
+                          <IconComponent size={20} className="flex-shrink-0" />
+                          <span className="font-semibold text-lg">{item.name}</span>
+                        </div>
+                        {isActive && (
+                          <div className="ml-auto w-2 h-2 bg-white rounded-full animate-pulse" />
+                        )}
+                      </Link>
+                    )
+                  })}
+                </nav>
+              </div>
+            </div>
+          </div>
+        </>
       )}
 
       {/* Spacer for fixed header */}
-      <div style={{ height: '75px' }} />
+      <div style={{ height: '70px' }} />
+      
+      {/* Custom animations */}
+      <style jsx>{`
+        @keyframes floatIn {
+          from {
+            opacity: 0;
+            transform: translateY(-30px) scale(0.95);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+          }
+        }
+        
+        @keyframes slideInRight {
+          from {
+            opacity: 0;
+            transform: translateX(30px);
+          }
+          to {
+            opacity: 1;
+            transform: translateX(0);
+          }
+        }
+        
+        @keyframes float {
+          0%, 100% {
+            transform: translateY(0px) rotate(0deg);
+          }
+          50% {
+            transform: translateY(-5px) rotate(1deg);
+          }
+        }
+      `}</style>
     </>
   )
 }

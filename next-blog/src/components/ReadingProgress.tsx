@@ -30,11 +30,13 @@ export default function ReadingProgress() {
     <>
       {/* Reading Progress Bar */}
       <div 
-        className="fixed top-0 left-0 z-50 transition-all duration-200"
+        className="fixed left-0 z-40 transition-all duration-200"
         style={{
+          top: '70px', // Below the header
           width: `${progress}%`,
-          height: '0.5em',
+          height: '3px',
           backgroundColor: 'var(--primary-color)',
+          boxShadow: '0 0 10px rgba(252, 203, 11, 0.5)',
         }}
       />
 
