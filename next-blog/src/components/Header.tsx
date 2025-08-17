@@ -15,28 +15,7 @@ const navigation = [
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 })
-  const headerRef = useRef<HTMLElement>(null)
   const pathname = usePathname()
-
-  // Mouse tracking for glow effect
-  useEffect(() => {
-    const updateMousePosition = (e: MouseEvent) => {
-      if (headerRef.current) {
-        const rect = headerRef.current.getBoundingClientRect()
-        setMousePosition({
-          x: e.clientX - rect.left,
-          y: e.clientY - rect.top,
-        })
-      }
-    }
-
-    const header = headerRef.current
-    if (header) {
-      header.addEventListener('mousemove', updateMousePosition)
-      return () => header.removeEventListener('mousemove', updateMousePosition)
-    }
-  }, [])
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen)
@@ -47,7 +26,6 @@ export default function Header() {
     <>
       {/* Glassmorphism header */}
       <header 
-        ref={headerRef}
         className="fixed w-full top-0 z-50 backdrop-blur-xl overflow-hidden"
         style={{ 
           height: '70px',
@@ -58,21 +36,18 @@ export default function Header() {
           boxShadow: '0 8px 32px rgba(0,0,0,0.1)',
         }}
       >
-        {/* Dynamic gradient border */}
+        {/* Subtle moving gradient animation */}
         <div 
-          className="absolute inset-0 pointer-events-none"
+          className="absolute inset-0 pointer-events-none opacity-30"
           style={{
-            background: `radial-gradient(600px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(252,203,11,0.1), transparent 40%)`,
-          }}
-        />
-        
-        {/* Animated background pattern */}
-        <div 
-          className="absolute inset-0 opacity-5"
-          style={{
-            backgroundImage: `radial-gradient(circle at 20% 80%, rgba(252,203,11,0.3) 0%, transparent 50%), 
-                              radial-gradient(circle at 80% 20%, rgba(245,158,11,0.3) 0%, transparent 50%)`,
-            animation: 'float 6s ease-in-out infinite',
+            background: `linear-gradient(-45deg, 
+              rgba(252,203,11,0.1) 0%, 
+              transparent 25%, 
+              transparent 50%, 
+              rgba(245,158,11,0.1) 75%, 
+              rgba(252,203,11,0.1) 100%)`,
+            backgroundSize: '400% 400%',
+            animation: 'gradientShift 8s ease-in-out infinite',
           }}
         />
         
@@ -264,6 +239,18 @@ export default function Header() {
           }
           50% {
             transform: translateY(-5px) rotate(1deg);
+          }
+        }
+        
+        @keyframes gradientShift {
+          0% {
+            background-position: 0% 50%;
+          }
+          50% {
+            background-position: 100% 50%;
+          }
+          100% {
+            background-position: 0% 50%;
           }
         }
       `}</style>
