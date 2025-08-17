@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap');
+@import url('https://rsms.me/raster/raster.grid.css?v=20');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-color: #fccb0b;
+  --text-dark: rgba(12, 17, 43);
+  --text-light: rgba(12, 17, 43, 0.8);
+  --text-meta: rgba(12, 17, 43, 0.9);
+  --link-color: rgb(239, 190, 0);
+  --background: #ffffff;
+  --foreground: var(--text-dark);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Droid Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.6em;
+  margin: 0;
+  padding: 0;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-dark);
+  font-weight: 600;
+}
+
+p {
+  text-align: justify;
+  color: var(--text-light);
+}
+
+a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Code styling */
+pre {
+  background-color: rgba(0, 0, 0, 0.05);
+  border-left: 10px solid var(--primary-color);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 1em;
+  overflow-x: auto;
+}
+
+code {
+  font-family: 'Courier New', Monaco, monospace;
+}
+
+/* Blockquotes */
+blockquote {
+  border-left: 4px solid var(--text-dark);
+  background: rgba(0, 0, 0, 0.1);
+  margin: 1em 0;
+  padding: 0.5em 1em;
+  font-style: italic;
+}
+
+/* Chip components (material design style) */
+.chip {
+  display: inline-block;
+  padding: 0 12px;
+  height: 32px;
+  line-height: 32px;
+  border-radius: 16px;
+  background-color: #e0e0e0;
+  color: rgba(0, 0, 0, 0.87);
+  font-size: 13px;
+  margin: 2px;
+  cursor: default;
+  transition: background-color 0.3s;
+}
+
+.chip:hover {
+  background-color: #d6d6d6;
+}
+
+.chip.clickable {
+  cursor: pointer;
+}
+
+.chip.clickable:hover {
+  background-color: #bdbdbd;
+}
+
+.chip .chip-icon {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+  margin-left: -4px;
+  vertical-align: middle;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+}
+
+/* WordPress Gutenberg blocks */
+.wp-block-columns {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2em;
+}
+
+.wp-block-column {
+  flex: 1;
+  min-width: 0;
+}
+
+@media (max-width: 782px) {
+  .wp-block-columns {
+    flex-direction: column;
+  }
+}
+
+.aligncenter {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.alignleft {
+  float: left;
+  margin-right: 1em;
+}
+
+.alignright {
+  float: right;
+  margin-left: 1em;
+}
+
+/* Animation keyframes */
+@keyframes scroll {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.slideshow {
+  overflow: hidden;
+  white-space: nowrap;
+  box-sizing: border-box;
+}
+
+.slideshow-inner {
+  display: inline-block;
+  animation: scroll 30s linear infinite;
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .header-shadow {
+    box-shadow: 0 0 26px -7px rgba(57, 63, 72, 0.36);
+  }
+}
