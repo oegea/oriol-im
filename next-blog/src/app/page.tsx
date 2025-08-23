@@ -7,15 +7,25 @@ export default async function HomePage() {
 
   return (
     <div className="min-h-screen">
-      {/* Hero Section with glassmorphism */}
+      {/* Hero Section with background image */}
       <section className="relative overflow-hidden">
-        {/* Animated background patterns */}
+        {/* Background image with overlay */}
+        <div 
+          className="absolute inset-0 opacity-30"
+          style={{
+            backgroundImage: `linear-gradient(rgba(255,255,255,0.6), rgba(255,255,255,0.7)), url(/contact-hero-bg.jpg)`,
+            backgroundSize: 'contain',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat'
+          }}
+        />
+        
+        {/* Subtle animated overlay */}
         <div 
           className="absolute inset-0 opacity-5 animate-float"
           style={{
-            backgroundImage: `radial-gradient(circle at 20% 30%, rgba(252,203,11,0.4) 0%, transparent 50%), 
-                              radial-gradient(circle at 80% 70%, rgba(245,158,11,0.4) 0%, transparent 50%),
-                              radial-gradient(circle at 40% 80%, rgba(252,203,11,0.3) 0%, transparent 50%)`,
+            backgroundImage: `radial-gradient(circle at 20% 30%, rgba(252,203,11,0.2) 0%, transparent 50%), 
+                              radial-gradient(circle at 80% 70%, rgba(245,158,11,0.2) 0%, transparent 50%)`,
           }}
         />
         
