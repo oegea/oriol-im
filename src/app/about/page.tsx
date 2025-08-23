@@ -2,7 +2,6 @@
 
 import Image from 'next/image'
 import Head from 'next/head'
-import { config } from '@/lib/config'
 import { MapPin, Briefcase } from 'lucide-react'
 import { useState } from 'react'
 
@@ -257,7 +256,7 @@ export default function AboutPage() {
               }}
             >
               <Image
-                src={`${config.wordpress.contentUrl}/2016/07/rsz_aaeaaqaaaaaaaalxaaaajda2zdljytzlltiymjetndqyys1hmzi4lwm1mti2nwfiodexma.jpg`}
+                src="/images/oriol-profile.jpg"
                 alt="Oriol Egea"
                 width={400}
                 height={400}
@@ -274,7 +273,7 @@ export default function AboutPage() {
                 className="hover:scale-110 transition-transform"
               >
                 <Image 
-                  src={`${config.wordpress.contentUrl}/2020/05/linkedin-logo-1.png`}
+                  src="/images/linkedin-logo.png"
                   alt="LinkedIn"
                   width={35}
                   height={35}
@@ -287,7 +286,7 @@ export default function AboutPage() {
                 className="hover:scale-110 transition-transform"
               >
                 <Image 
-                  src={`${config.wordpress.contentUrl}/2020/05/twitter.png`}
+                  src="/images/twitter.png"
                   alt="Twitter"
                   width={35}
                   height={35}

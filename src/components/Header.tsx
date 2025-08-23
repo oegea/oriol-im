@@ -61,7 +61,7 @@ export default function Header() {
             >
               <div className="relative">
                 <Image
-                  src={`${config.wordpress.contentUrl}/2020/05/logo.png`}
+                  src="/images/logo.png"
                   alt="Oriol Egea Logo"
                   width={40}
                   height={40}

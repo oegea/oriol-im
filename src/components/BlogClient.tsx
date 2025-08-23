@@ -27,7 +27,7 @@ export default function BlogClient({
   const searchParams = useSearchParams()
 
   const handleSearch = (query: string) => {
-    const params = new URLSearchParams(searchParams.toString())
+    const params = new URLSearchParams(searchParams?.toString() || '')
     if (query.trim()) {
       params.set('search', query.trim())
     } else {
@@ -38,7 +38,7 @@ export default function BlogClient({
   }
 
   const handlePageChange = (page: number) => {
-    const params = new URLSearchParams(searchParams.toString())
+    const params = new URLSearchParams(searchParams?.toString() || '')
     if (page > 1) {
       params.set('page', page.toString())
     } else {

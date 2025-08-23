@@ -1,5 +1,5 @@
-// Client-side posts library that mimics the WordPress API interface
-// but uses our internal API routes that read from markdown files
+// Client-side posts library that uses our internal API routes
+// to read posts from markdown files
 
 import { PostSummary, Post } from '@/types/post'
 
@@ -20,7 +20,7 @@ export interface PostsResponse {
   searchQuery: string
 }
 
-// Get posts with pagination (replaces WordPress getPosts)
+// Get posts with pagination
 export async function getPosts(page: number = 1, perPage: number = 10): Promise<PostSummary[]> {
   try {
     const response = await fetch(`${API_BASE}/posts?page=${page}&perPage=${perPage}`)
@@ -73,7 +73,7 @@ export async function getPostsWithPagination(
   }
 }
 
-// Get a single post by slug (replaces WordPress getPost)
+// Get a single post by slug
 export async function getPost(slug: string): Promise<Post | null> {
   try {
     const response = await fetch(`${API_BASE}/posts/${slug}`)

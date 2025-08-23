@@ -1,16 +1,15 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import { WordPressPost } from '@/types/wordpress'
-import { formatDate, stripHtml } from '@/lib/wordpress'
+import { PostSummary } from '@/types/post'
+import { formatDate, stripHtml } from '@/lib/utils'
 import { Calendar, ArrowRight } from 'lucide-react'
 
 interface PostCardProps {
-  post: WordPressPost
+  post: PostSummary
 }
 
 export default function PostCard({ post }: PostCardProps) {
-  const featuredImage = post._embedded?.['wp:featuredmedia']?.[0]
-  const excerpt = stripHtml(post.excerpt.rendered)
+  const excerpt = stripHtml(post.excerpt)
 
   return (
     <article className="group relative h-full">
@@ -28,11 +27,11 @@ export default function PostCard({ post }: PostCardProps) {
         <div className="absolute inset-0 bg-gradient-to-br from-yellow-400/10 to-orange-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
         
         {/* Featured Image */}
-        {featuredImage && (
+        {post.featured_image && (
           <div className="relative h-48 overflow-hidden">
             <Image
-              src={featuredImage.source_url}
-              alt={featuredImage.alt_text || post.title.rendered}
+              src={post.featured_image}
+              alt={post.featured_image_alt || post.title}
               fill
               className="object-cover transition-transform duration-500 group-hover:scale-105"
             />
@@ -56,18 +55,15 @@ export default function PostCard({ post }: PostCardProps) {
               href={`/${post.slug}`}
               className="text-gray-900 group-hover:text-yellow-600 transition-colors duration-300"
             >
-              {post.title.rendered}
+              {post.title}
             </Link>
           </h2>
           
           {/* Excerpt */}
           {excerpt && (
-            <p 
-              className="mb-4 text-gray-600 leading-relaxed line-clamp-3"
-              dangerouslySetInnerHTML={{ 
-                __html: post.excerpt.rendered.replace(/wp\.oriol/g, 'www.oriol').replace(/<[^>]*>/g, '') 
-              }}
-            />
+            <p className="mb-4 text-gray-600 leading-relaxed line-clamp-3">
+              {excerpt}
+            </p>
           )}
           
           {/* Read more link */}

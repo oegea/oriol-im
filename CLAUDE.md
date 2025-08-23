@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-This is a Next.js 14 blog application that uses WordPress as a headless CMS. The site serves content from a WordPress backend API and renders it as a modern, responsive web application with glassmorphism design elements and Spanish localization.
+This is a Next.js 14 blog application that serves content from local markdown files. The site renders content as a modern, responsive web application with glassmorphism design elements and Spanish localization.
 
 ## Development Commands
 
@@ -21,44 +21,42 @@ No test framework is currently configured in this project.
 ## Architecture
 
 ### Content Management
-- **WordPress Backend**: Headless WordPress installation at `wp.oriol.im`
-- **API Integration**: WordPress REST API v2 (`/wp-json/wp/v2`) 
-- **Content Types**: Posts and Pages with embedded media support
-- **Media Handling**: WordPress media library with multiple image sizes
+- **Local Markdown Files**: Posts stored in `/posts/` directory, pages in `/pages/` directory
+- **Gray Matter**: Frontmatter-based metadata handling
+- **Content Types**: Posts and Pages with local media support
+- **Media Handling**: Static images served from `/public/images/`
 
 ### Frontend Structure
 - **Framework**: Next.js 14 with App Router (`experimental.appDir: true`)
 - **Styling**: TailwindCSS with custom glassmorphism effects and typography plugin
 - **Icons**: Lucide React icons
-- **HTTP Client**: Axios for WordPress API requests
+- **HTTP Client**: Native fetch for API requests
 - **Language**: TypeScript with strict mode
 
 ### Key Directories
 - `src/app/` - Next.js App Router pages (layout, dynamic routes for posts/pages)
 - `src/components/` - Reusable React components (Header, Footer, PostCard, etc.)
-- `src/lib/` - Core utilities (WordPress API functions, configuration)
-- `src/types/` - TypeScript type definitions for WordPress entities
+- `src/lib/` - Core utilities (markdown parsing, API functions, configuration)
+- `src/types/` - TypeScript type definitions for posts and pages
 - `public/` - Static assets (logos, favicon, images)
 
-### WordPress Integration
-The application fetches content through these main functions in `src/lib/wordpress.ts`:
-- `getPosts()` - Fetch blog posts with pagination
-- `getPost(slug)` - Fetch single post by slug
-- `getPage(slug)` - Fetch single page by slug
-- `getAllPageSlugs()` - Get all page slugs for static generation
-- WordPress entities are typed in `src/types/wordpress.ts`
+### Content Integration
+The application serves content through these main libraries:
+- `src/lib/markdown.ts` - Server-side markdown parsing for posts
+- `src/lib/pages-markdown.ts` - Server-side markdown parsing for pages  
+- `src/lib/posts.ts` - Client-side posts API
+- `src/lib/pages.ts` - Client-side pages API
+- Content entities are typed in `src/types/post.ts` and `src/types/page.ts`
 
 ### Routing Strategy
 - Dynamic routes: `[slug]/page.tsx` for both posts and pages
-- Static generation for pages using `getAllPageSlugs()`
-- WordPress slug matching ensures exact content retrieval
+- Static generation for both posts and pages
+- Slug-based routing ensures exact content retrieval
 
 ### Environment Configuration
 Configuration is centralized in `src/lib/config.ts`:
-- WordPress API URL: `NEXT_PUBLIC_WORDPRESS_API_URL`
-- Content URL: `NEXT_PUBLIC_WP_CONTENT_URL` 
 - Site metadata: Title, description, URL
-- Contact form integration
+- Contact form integration (still uses external form)
 - Brand colors and theme configuration
 
 ### Styling Approach
@@ -69,20 +67,20 @@ Configuration is centralized in `src/lib/config.ts`:
 - Custom CSS animations for UI interactions
 
 ### Image Optimization
-- Next.js Image component with WordPress media integration
-- Multiple image sizes from WordPress media API
-- Configured domains: `wp.oriol.im` for external images
+- Next.js Image component with local static images
+- Images stored in `/public/images/` directory
+- Optimized loading and responsive images
 
 ## Development Notes
 
 ### Path Aliases
 - `@/*` maps to `./src/*` for clean imports
 
-### WordPress API Details
-- All requests include `_embed: true` for related data
-- 10-second timeout configured on axios instance
-- Error handling returns empty arrays/null for failed requests
-- Content is fetched server-side for SEO optimization
+### Content Parsing Details
+- Gray matter for frontmatter parsing
+- Remark for markdown to HTML conversion
+- Content is parsed server-side for SEO optimization
+- Error handling returns empty arrays/null for missing files
 
 ### Mobile-First Design
 - Responsive header with glassmorphism effects

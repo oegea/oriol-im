@@ -120,7 +120,7 @@ blockquote {
   background-position: center;
 }
 
-/* WordPress Gutenberg blocks */
+/* Content blocks styling */
 .wp-block-columns {
   display: flex;
   flex-wrap: wrap;

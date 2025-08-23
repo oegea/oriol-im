@@ -1,26 +1,26 @@
 # Oriol's Blog - Next.js Frontend
 
-A modern, responsive blog application built with Next.js 14 that uses WordPress as a headless CMS. This project serves as the frontend for [oriol.im](https://oriol.im), featuring a glassmorphism design with Spanish localization.
+A modern, responsive blog application built with Next.js 14 that serves content from local markdown files. This project serves as the frontend for [oriol.im](https://oriol.im), featuring a glassmorphism design with Spanish localization.
 
 ## Features
 
-- **Headless WordPress Integration**: Fetches content from WordPress REST API
+- **Local Markdown Content**: Posts and pages served from local markdown files
 - **Modern Design**: Glassmorphism UI with backdrop blur effects
 - **Responsive Layout**: Mobile-first design with floating navigation menu
-- **Dynamic Routing**: Automatic page generation for WordPress posts and pages
-- **TypeScript**: Full type safety with WordPress entity definitions
+- **Dynamic Routing**: Automatic page generation for posts and pages
+- **TypeScript**: Full type safety with content entity definitions
 - **SEO Optimized**: Server-side rendering with Next.js App Router
-- **Image Optimization**: Next.js Image component with WordPress media integration
+- **Image Optimization**: Next.js Image component with local static images
 - **Syntax Highlighting**: Prism.js integration for code blocks
 
 ## Tech Stack
 
 - **Frontend**: Next.js 14, React 18, TypeScript
 - **Styling**: TailwindCSS with custom glassmorphism effects
-- **CMS**: WordPress (headless)
-- **API Client**: Axios
+- **Content**: Local Markdown files with Gray Matter frontmatter
+- **HTTP Client**: Native fetch API
 - **Icons**: Lucide React
-- **Image Handling**: Next.js Image with WordPress media API
+- **Image Handling**: Next.js Image with local static files
 
 ## Getting Started
 
@@ -28,7 +28,6 @@ A modern, responsive blog application built with Next.js 14 that uses WordPress 
 
 - Node.js 18+ 
 - npm or yarn
-- Access to a WordPress installation with REST API enabled
 
 ### Installation
 
@@ -43,7 +42,7 @@ cd oriol-im
 npm install
 ```
 
-3. Set up environment variables:
+3. Set up environment variables (optional):
 ```bash
 # Copy the example environment file (create one if needed)
 cp .env.example .env.local
@@ -51,12 +50,10 @@ cp .env.example .env.local
 
 Configure the following environment variables:
 ```env
-NEXT_PUBLIC_WORDPRESS_API_URL=https://your-wordpress-site.com/wp-json/wp/v2
-NEXT_PUBLIC_WP_CONTENT_URL=https://your-wordpress-site.com/wp-content/uploads
 NEXT_PUBLIC_SITE_URL=https://your-domain.com
 NEXT_PUBLIC_SITE_TITLE=Your Site Title
 NEXT_PUBLIC_SITE_DESCRIPTION=Your site description
-NEXT_PUBLIC_CONTACT_FORM_URL=https://your-wordpress-site.com/contact-form/index.php
+NEXT_PUBLIC_CONTACT_FORM_URL=https://your-contact-form-endpoint.com
 ```
 
 4. Run the development server:
@@ -65,6 +62,57 @@ npm run dev
 ```
 
 5. Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+## Content Management
+
+### Adding Posts
+
+1. Create a new markdown file in the `posts/` directory
+2. Follow the naming convention: `YYYY-MM-DD-slug.md`
+3. Add frontmatter with required fields:
+
+```markdown
+---
+title: "Your Post Title"
+slug: "your-post-slug"
+date: "2024-01-01"
+excerpt: "Post excerpt here"
+status: "publish"
+type: "post"
+id: "unique-id"
+categories:
+  - "Category 1"
+  - "Category 2"
+tags:
+  - "tag1"
+  - "tag2"
+---
+
+Your post content here...
+```
+
+### Adding Pages
+
+1. Create a new markdown file in the `pages/` directory
+2. Name it after the slug: `page-slug.md`
+3. Add frontmatter with required fields:
+
+```markdown
+---
+title: "Your Page Title"
+slug: "page-slug"
+date: "2024-01-01"
+modified: "2024-01-01"
+excerpt: "Page excerpt here"
+status: "publish"
+type: "page"
+id: "unique-id"
+parent: 0
+menu_order: 0
+---
+
+Your page content here...
+```
 
 ## Development
 
@@ -81,43 +129,58 @@ npm run dev
 ```
 src/
 ├── app/                 # Next.js App Router pages
-│   ├── [slug]/         # Dynamic routes for pages
+│   ├── [slug]/         # Dynamic routes for posts and pages
 │   ├── about/          # About page
+│   ├── blog/           # Blog listing page
 │   ├── contact/        # Contact page
-│   ├── posts/[slug]/   # Dynamic routes for blog posts
+│   ├── api/            # API routes
+│   │   ├── posts/      # Posts API endpoints
+│   │   └── pages/      # Pages API endpoints
 │   ├── globals.css     # Global styles
 │   ├── layout.tsx      # Root layout component
 │   └── page.tsx        # Homepage
 ├── components/         # Reusable React components
 │   ├── Footer.tsx
 │   ├── Header.tsx
-│   ├── NewsletterForm.tsx
 │   ├── PostCard.tsx
 │   └── ReadingProgress.tsx
 ├── lib/               # Utility functions and configuration
 │   ├── config.ts      # Environment configuration
-│   └── wordpress.ts   # WordPress API functions
-└── types/             # TypeScript type definitions
-    └── wordpress.ts   # WordPress entity types
+│   ├── markdown.ts    # Server-side markdown parsing for posts
+│   ├── pages-markdown.ts # Server-side markdown parsing for pages
+│   ├── posts.ts       # Client-side posts API
+│   ├── pages.ts       # Client-side pages API
+│   └── utils.ts       # Utility functions
+├── types/             # TypeScript type definitions
+│   ├── post.ts        # Post entity types
+│   └── page.ts        # Page entity types
+posts/                 # Markdown blog posts
+pages/                 # Markdown pages
+└── public/
+    └── images/        # Static images
 ```
 
-### WordPress Integration
+### Content Architecture
 
-The application integrates with WordPress through the REST API. Key functions include:
+The application serves content through a dual-layer system:
 
-- `getPosts(page, perPage)` - Fetch paginated blog posts
-- `getPost(slug)` - Fetch single post by slug
-- `getPage(slug)` - Fetch single page by slug
-- `getAllPageSlugs()` - Get all page slugs for static generation
+**Server-side parsing:**
+- `src/lib/markdown.ts` - Parses post markdown files
+- `src/lib/pages-markdown.ts` - Parses page markdown files
 
-All WordPress entities are fully typed with TypeScript interfaces.
+**Client-side API:**
+- `src/lib/posts.ts` - Client-side posts interface
+- `src/lib/pages.ts` - Client-side pages interface
+- `/api/posts/` and `/api/pages/` - REST API endpoints
+
+All content entities are fully typed with TypeScript interfaces.
 
 ### Styling
 
 The project uses TailwindCSS with custom configurations:
 
 - **Glassmorphism effects**: Backdrop blur with gradient backgrounds
-- **Custom typography**: Extended prose styles for WordPress content
+- **Custom typography**: Extended prose styles for markdown content
 - **Responsive design**: Mobile-first approach with breakpoint utilities
 - **Custom animations**: CSS keyframes for UI interactions
 
@@ -134,7 +197,7 @@ npm run start
 
 1. Push your code to GitHub
 2. Connect your repository to Vercel
-3. Configure environment variables in Vercel dashboard
+3. Configure environment variables in Vercel dashboard (optional)
 4. Deploy automatically on every push
 
 ### Other Platforms
@@ -147,22 +210,24 @@ The application can be deployed to any platform that supports Node.js:
 
 ## Configuration
 
-### WordPress Setup
-
-Ensure your WordPress installation has:
-
-1. **REST API enabled** (default in modern WordPress)
-2. **CORS configured** if on different domain
-3. **Media uploads** properly configured
-4. **Permalinks** set to "Post name" or custom structure
-
 ### Next.js Configuration
 
 Key configurations in `next.config.mjs`:
 
-- **App Directory**: Experimental app router enabled
-- **Image Domains**: WordPress content domain configured
-- **API Routes**: Optional API routes for additional functionality
+- **App Directory**: App router enabled
+- **Image Optimization**: Configured for local images
+- **API Routes**: RESTful endpoints for content
+
+### Content Configuration
+
+- **Posts**: Stored in `/posts/` directory as markdown files
+- **Pages**: Stored in `/pages/` directory as markdown files
+- **Images**: Static images in `/public/images/`
+- **Metadata**: Frontmatter-based with Gray Matter parsing
+
+## Migration
+
+This project was migrated from a WordPress-based architecture. Migration scripts are available in `/scripts/` for reference, but the application now runs entirely on local markdown files for improved performance and maintainability.
 
 ## Contributing
 
@@ -184,4 +249,4 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ---
 
-Built with ❤️ using Next.js and WordPress
+Built with ❤️ using Next.js and Markdown

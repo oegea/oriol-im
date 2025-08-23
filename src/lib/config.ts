@@ -1,9 +1,5 @@
 // Environment configuration
 export const config = {
-  wordpress: {
-    apiUrl: process.env.NEXT_PUBLIC_WORDPRESS_API_URL || 'https://wp.oriol.im/wp-json/wp/v2',
-    contentUrl: process.env.NEXT_PUBLIC_WP_CONTENT_URL || 'https://wp.oriol.im/wp-content/uploads',
-  },
   site: {
     url: process.env.NEXT_PUBLIC_SITE_URL || 'https://www.oriol.im',
     title: process.env.NEXT_PUBLIC_SITE_TITLE || "I'm Oriol",

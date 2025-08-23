@@ -1,20 +1,21 @@
 import { NextResponse } from 'next/server'
-import { getPosts } from '@/lib/wordpress'
+import { getAllPosts } from '@/lib/markdown'
 import { config } from '@/lib/config'
-import { stripHtml } from '@/lib/wordpress'
+import { stripHtml } from '@/lib/utils'
 
 export async function GET() {
   try {
     // Fetch latest posts (limit to 20 for RSS)
-    const posts = await getPosts(1, 20)
+    const allPosts = getAllPosts()
+    const posts = allPosts.slice(0, 20)
     
     const rssItems = posts.map(post => {
-      const content = post.excerpt.rendered || post.content.rendered
+      const content = post.excerpt || ''
       const description = stripHtml(content).substring(0, 300) + (content.length > 300 ? '...' : '')
       
       return `
     <item>
-      <title><![CDATA[${post.title.rendered}]]></title>
+      <title><![CDATA[${post.title}]]></title>
       <link>${config.site.url}/${post.slug}</link>
       <guid>${config.site.url}/${post.slug}</guid>
       <pubDate>${new Date(post.date).toUTCString()}</pubDate>

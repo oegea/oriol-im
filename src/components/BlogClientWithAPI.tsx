@@ -18,8 +18,8 @@ export default function BlogClientWithAPI() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   
-  const searchQuery = searchParams.get('search') || ''
-  const currentPage = parseInt(searchParams.get('page') || '1', 10)
+  const searchQuery = searchParams?.get('search') || ''
+  const currentPage = parseInt(searchParams?.get('page') || '1', 10)
 
   // Fetch posts whenever URL params change
   useEffect(() => {
@@ -42,7 +42,7 @@ export default function BlogClientWithAPI() {
   }, [currentPage, searchQuery])
 
   const handleSearch = (query: string) => {
-    const params = new URLSearchParams(searchParams.toString())
+    const params = new URLSearchParams(searchParams?.toString() || '')
     if (query.trim()) {
       params.set('search', query.trim())
     } else {
@@ -53,7 +53,7 @@ export default function BlogClientWithAPI() {
   }
 
   const handlePageChange = (page: number) => {
-    const params = new URLSearchParams(searchParams.toString())
+    const params = new URLSearchParams(searchParams?.toString() || '')
     if (page > 1) {
       params.set('page', page.toString())
     } else {

@@ -1,8 +1,8 @@
 import { notFound } from 'next/navigation'
-import { getPage } from '@/lib/wordpress'
+import { getPageBySlugWithHtml as getPage } from '@/lib/pages-markdown'
 import { getPostBySlugWithHtml, getAllPostSlugs } from '@/lib/markdown'
 import { config } from '@/lib/config'
-import { WordPressPage } from '@/types/wordpress'
+import { Page } from '@/types/page'
 import Breadcrumbs from '@/components/Breadcrumbs'
 
 interface DynamicPageProps {
@@ -15,7 +15,7 @@ export async function generateMetadata({ params }: DynamicPageProps) {
   const slug = params.slug
   
   // Try to get as page first, then as post
-  let content: WordPressPage | null = await getPage(slug)
+  let content: Page | null = await getPage(slug)
   let post = null
   
   if (!content) {
@@ -34,10 +34,10 @@ export async function generateMetadata({ params }: DynamicPageProps) {
   }
 
   return {
-    title: content!.title.rendered,
-    description: content!.excerpt?.rendered ? 
-      content!.excerpt.rendered.replace(/<[^>]*>/g, '').substring(0, 160) :
-      `${content!.title.rendered} - ${config.site.title}`,
+    title: content!.title,
+    description: content!.excerpt ? 
+      content!.excerpt.substring(0, 160) :
+      `${content!.title} - ${config.site.title}`,
   }
 }
 
@@ -45,7 +45,7 @@ export default async function DynamicPage({ params }: DynamicPageProps) {
   const slug = params.slug
   
   // Try to get as page first
-  let content: WordPressPage | null = await getPage(slug)
+  let content: Page | null = await getPage(slug)
   let post = null
   
   // If not found as page, try as post
@@ -136,11 +136,9 @@ export default async function DynamicPage({ params }: DynamicPageProps) {
     )
   }
 
-  // Otherwise render as WordPress page (content is guaranteed to exist here)
-  const featuredImage = (content as any)._embedded?.['wp:featuredmedia']?.[0]
-  
+  // Otherwise render as markdown page (content is guaranteed to exist here)
   const pageBreadcrumbItems = [
-    { label: content!.title.rendered }
+    { label: content!.title }
   ]
 
   return (
@@ -160,24 +158,14 @@ export default async function DynamicPage({ params }: DynamicPageProps) {
                   fontWeight: 600 
                 }}
               >
-                {content!.title.rendered}
+                {content!.title}
               </h1>
-              
-              {featuredImage && (
-                <div className="relative h-64 md:h-96 w-full mb-8 rounded-lg overflow-hidden">
-                  <img
-                    src={featuredImage.source_url}
-                    alt={featuredImage.alt_text || content!.title.rendered}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-              )}
             </header>
             
             <div 
               className="prose prose-lg max-w-none"
               style={{ color: 'var(--text-light)' }}
-              dangerouslySetInnerHTML={{ __html: content!.content.rendered }}
+              dangerouslySetInnerHTML={{ __html: content!.htmlContent || content!.content }}
             />
           </article>
         </div>
@@ -188,13 +176,18 @@ export default async function DynamicPage({ params }: DynamicPageProps) {
 
 // Generate static params for all posts and pages
 export async function generateStaticParams() {
+  const { getAllPageSlugs } = (await import('@/lib/pages-markdown'))
+  
   // Get all post slugs from markdown files
   const postSlugs = getAllPostSlugs()
   
-  // Note: We could also get page slugs from WordPress here if needed
-  // For now, let's focus on posts
+  // Get all page slugs from markdown files
+  const pageSlugs = await getAllPageSlugs()
   
-  return postSlugs.map(slug => ({
+  // Combine all slugs
+  const allSlugs = [...postSlugs, ...pageSlugs]
+  
+  return allSlugs.map(slug => ({
     slug: slug
   }))
 }

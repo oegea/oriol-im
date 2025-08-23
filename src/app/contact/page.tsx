@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import axios from 'axios'
 import ReadingProgress from '@/components/ReadingProgress'
 
 export default function ContactPage() {
@@ -68,14 +67,25 @@ export default function ContactPage() {
     if (!hasErrors) {
       setMessageStatus(1)
       try {
-        await axios.post('https://wp.oriol.im/contact-form/index.php', {
-          name: formData.name,
-          email: formData.email,
-          message: formData.message,
-          checkField: formData.checkField,
-          legalCheck: formData.legalCheck
+        const response = await fetch('https://wp.oriol.im/contact-form/index.php', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            name: formData.name,
+            email: formData.email,
+            message: formData.message,
+            checkField: formData.checkField,
+            legalCheck: formData.legalCheck
+          })
         })
-        setMessageStatus(2)
+        
+        if (response.ok) {
+          setMessageStatus(2)
+        } else {
+          setMessageStatus(0)
+        }
       } catch (error) {
         setMessageStatus(0)
         // Handle error if needed
