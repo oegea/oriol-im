@@ -44,7 +44,7 @@ export default function BlogClient({
     } else {
       params.delete('page')
     }
-    router.push(`/blog?${params.toString()}`)
+    router.replace(`/blog?${params.toString()}`, { scroll: false })
   }
 
   const handleClearSearch = () => {
@@ -61,9 +61,9 @@ export default function BlogClient({
         />
       </div>
 
-      {/* Results info */}
-      <div className="mb-8">
-        <p className="text-sm text-gray-600">
+      {/* Results info and Top Pagination in same line */}
+      <div className="flex items-center justify-between mb-6 gap-4 min-h-[40px]">
+        <span className="text-sm text-gray-600 leading-none">
           {searchQuery ? (
             <>
               Mostrando {filteredPosts.length} resultado{filteredPosts.length !== 1 ? 's' : ''} para "{searchQuery}"
@@ -73,7 +73,17 @@ export default function BlogClient({
               Mostrando {allPosts.length} post{allPosts.length !== 1 ? 's' : ''} en total
             </>
           )}
-        </p>
+        </span>
+        
+        {/* Top Pagination - only show if there are multiple pages */}
+        {totalPages > 1 && (
+          <Pagination 
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onPageChange={handlePageChange}
+            className="m-0"
+          />
+        )}
       </div>
 
       {/* Posts Grid */}
@@ -110,12 +120,30 @@ export default function BlogClient({
         </div>
       )}
 
-      {/* Pagination */}
-      <Pagination 
-        currentPage={currentPage}
-        totalPages={totalPages}
-        onPageChange={handlePageChange}
-      />
+      {/* Bottom Results info and Pagination - same structure as top */}
+      <div className="flex items-center justify-between mt-12 gap-4 min-h-[40px]">
+        <span className="text-sm text-gray-600 leading-none">
+          {searchQuery ? (
+            <>
+              Mostrando {filteredPosts.length} resultado{filteredPosts.length !== 1 ? 's' : ''} para "{searchQuery}"
+            </>
+          ) : (
+            <>
+              Mostrando {allPosts.length} post{allPosts.length !== 1 ? 's' : ''} en total
+            </>
+          )}
+        </span>
+        
+        {/* Bottom Pagination - only show if there are multiple pages */}
+        {totalPages > 1 && (
+          <Pagination 
+            currentPage={currentPage}
+            totalPages={totalPages}
+            onPageChange={handlePageChange}
+            className="m-0"
+          />
+        )}
+      </div>
     </>
   )
 }

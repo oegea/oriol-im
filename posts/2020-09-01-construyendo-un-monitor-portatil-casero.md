@@ -48,7 +48,7 @@ En primer lugar debemos despiezar el portátil. Nos centraremos en extraer la pa
 
 En mi portátil fue posible mantener la carcasa de la pantalla, separándola del resto del cuerpo del portátil. Para ello tuve que retirar las bisagras, la cámara web y todo el cableado, quedando únicamente la pantalla junto a la carcasa de plástico.
 
-![Pantalla del portátil desmontada y sin cableado](https://wp.oriol.im/wp-content/uploads/2020/05/pantalla-desmontada-1024x498.jpg)
+![Pantalla del portátil desmontada y sin cableado](/images/posts/2020-monitor-portatil/pantalla-desmontada.jpg)
 
 Dependiendo del modelo de portátil es posible que sea necesario extraer el panel de la pantalla sin poder conservar la carcasa.
 
@@ -58,7 +58,7 @@ Nuestra pantalla de portátil que vamos a aprovechar está diseñada para recibi
 
 Afortunadamente, buscando el modelo de pantalla (que deberíamos poder encontrar en alguna pegatina que se encuentre pegada sobre el panel), y buscándolo en páginas como eBay o AliExpress, podremos encontrar una placa controladora que nos permitirá dotar a la pantalla de una entrada de vídeo.
 
-![Etiqueta de la pantalla](https://wp.oriol.im/wp-content/uploads/2020/05/etiqueta-pantalla-rotated.jpg)
+![Etiqueta de la pantalla](/images/posts/2020-monitor-portatil/etiqueta-pantalla.jpg)
 
 Aspectos importantes a considerar:
 
@@ -68,7 +68,7 @@ Aspectos importantes a considerar:
 
 Hecho el pedido de la placa ya sólo queda esperar a recibirlo.
 
-![Componentes del pedido recibido](https://wp.oriol.im/wp-content/uploads/2020/05/pedido-recibido-1024x498.jpg)
+![Componentes del pedido recibido](/images/posts/2020-monitor-portatil/pedido-recibido.jpg)
 
 ## Tercer paso: Diseño de la carcasa para la placa
 
@@ -76,23 +76,23 @@ Una vez hayamos recibido la placa, lo primero a realizar será comprobar que fun
 
 Existen multitud de personas que han realizado proyectos como este, sin duda la mejor alternativa para crear la carcasa es a través de una impresión 3D. En mi caso no disponía de una impresora 3D, por lo que opté por utilizar una solución algo más modesta: Una caja de cartón.
 
-![Carcasa para la pantalla](https://wp.oriol.im/wp-content/uploads/2020/05/caja-carton-rotated.jpg)
+![Carcasa para la pantalla](/images/posts/2020-monitor-portatil/caja-carton.jpg)
 
 En primer lugar, y dado que había podido conservar la carcasa de la pantalla e iba a aprovecharla, limé el plástico para crear una pequeña ranura por la que saliese el cable de vídeo. En mi caso el plástico cerraba con bastante fuerza, con lo que de no haber hecho esto el cable de vídeo se hubiese acabado dañando.
 
-![Carcasa limada](https://wp.oriol.im/wp-content/uploads/2020/05/limado-1024x498.jpg)
+![Carcasa limada](/images/posts/2020-monitor-portatil/limado.jpg)
 
 Hecho esto, me hice con una caja de cartón de (más o menos) las medidas necesarias, y posicioné la placa dentro, para realizar los agujeros para las conexiones VGA, HDMI, así como la entrada de alimentación:
 
-![Agujeros realizados para entrada de vídeo](https://wp.oriol.im/wp-content/uploads/2020/05/agujeros-video-1024x498.jpg)
+![Agujeros realizados para entrada de vídeo](/images/posts/2020-monitor-portatil/agujeros-video.jpg)
 
 A continuación realizamos agujeros adicionales para poder incluir la botonera en la misma carcasa:
 
-![Agujeros realizados para la botonera](https://wp.oriol.im/wp-content/uploads/2020/05/agujeros-botonera-1024x498.jpg)
+![Agujeros realizados para la botonera](/images/posts/2020-monitor-portatil/agujeros-botonera.jpg)
 
 Y por último, realizamos una pequeña ranura en la base de la caja por la cual pasaría el cable de vídeo, de forma que éste quedase lo más recogido posible:
 
-![Ranura en la base para cable de vídeo](https://wp.oriol.im/wp-content/uploads/2020/05/ranura-video-1024x498.jpg)
+![Ranura en la base para cable de vídeo](/images/posts/2020-monitor-portatil/ranura-video.jpg)
 
 ## Cuarto paso: Fijando elementos
 
@@ -100,14 +100,14 @@ Diseñada la carcasa, el último paso es colocar la placa y la botonera, fijarla
 
 Para este paso, en mi caso concreto opté por utilizar tornillos que tenía por casa. Cabe mencionar que los cables HDMI y VGA deben conectarse/desconectarse aplicando cierta fuerza, con lo que en caso de optar por soluciones poco robustas, la placa podría empezar a moverse pronto.
 
-![Caja fijada con tornillos](https://wp.oriol.im/wp-content/uploads/2020/05/tornillos-1024x498.jpg)
+![Caja fijada con tornillos](/images/posts/2020-monitor-portatil/tornillos.jpg)
 
 Por último, a modo de embellecedor y para que los circuitos no estuviesen tan expuestos a suciedad o líquidos, colocamos un plástico transparente sobre la carcasa que pegamos con *loctite*.
 
 Asimismo, adherimos la carcasa a la pantalla utilizando velcro. Pegamos el velcro de forma que la posición de la carcasa dejase las conexiones de la pantalla en un lugar accesible, y asimismo asegurase que el recorrido del cable de vídeo era en línea recta para evitar tener que doblarlo. Gracias al velcro, además de poder retirar la carcasa en caso necesario, también es posible tener cierto margen para mover el cable de vídeo que habíamos pasado por la parte inferior de la caja.
 
-![Caja fijada y con embellecedor](https://wp.oriol.im/wp-content/uploads/2020/05/embellecedor-rotated.jpg)
+![Caja fijada y con embellecedor](/images/posts/2020-monitor-portatil/embellecedor.jpg)
 
 El resultado en resumen es este, no es una pantalla perfecta, pero mentiría si dijese que no va a ser útil para llevarla de viaje o a salas de reuniones en las que necesite algún tipo de apoyo adicional =).
 
-![Pantalla en funcionamiento](https://wp.oriol.im/wp-content/uploads/2020/05/resultado-pantalla-1024x613.jpg)
+![Pantalla en funcionamiento](/images/posts/2020-monitor-portatil/resultado-pantalla.jpg)

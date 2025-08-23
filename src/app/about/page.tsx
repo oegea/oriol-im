@@ -28,6 +28,7 @@ const timelineEvents = [
     description: "Metodologías ágiles de liderazgo y gestión de equipos de alto rendimiento.",
     type: "education",
     icon: "👥",
+    image: "/images/logos/management30-logo.png",
     url: "https://management30.com/badges/oriol-egea-143512756465189737d2398/"
   },
   {

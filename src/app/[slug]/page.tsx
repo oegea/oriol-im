@@ -69,7 +69,7 @@ export default async function DynamicPage({ params }: DynamicPageProps) {
       <div className="min-h-screen bg-gray-50 md:py-12">
         <div className="max-w-6xl mx-auto px-2 md:px-6">
           <div className="max-w-4xl mx-auto">
-            {/* Breadcrumbs */}
+            {/* Top Breadcrumbs */}
             <Breadcrumbs items={breadcrumbItems} />
             
             <article className="bg-white md:rounded-lg md:shadow-lg p-4 md:p-8">
@@ -130,6 +130,11 @@ export default async function DynamicPage({ params }: DynamicPageProps) {
                 dangerouslySetInnerHTML={{ __html: post.htmlContent || post.content }}
               />
             </article>
+
+            {/* Bottom Breadcrumbs */}
+            <div className="mt-8">
+              <Breadcrumbs items={breadcrumbItems} />
+            </div>
           </div>
         </div>
       </div>
@@ -145,7 +150,7 @@ export default async function DynamicPage({ params }: DynamicPageProps) {
     <div className="min-h-screen bg-gray-50 md:py-12">
       <div className="max-w-6xl mx-auto px-2 md:px-6">
         <div className="max-w-4xl mx-auto">
-          {/* Breadcrumbs for pages */}
+          {/* Top Breadcrumbs for pages */}
           <Breadcrumbs items={pageBreadcrumbItems} />
           
           <article className="bg-white md:rounded-lg md:shadow-lg p-4 md:p-8">
@@ -168,6 +173,11 @@ export default async function DynamicPage({ params }: DynamicPageProps) {
               dangerouslySetInnerHTML={{ __html: content!.htmlContent || content!.content }}
             />
           </article>
+
+          {/* Bottom Breadcrumbs for pages */}
+          <div className="mt-8">
+            <Breadcrumbs items={pageBreadcrumbItems} />
+          </div>
         </div>
       </div>
     </div>

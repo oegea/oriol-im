@@ -18,7 +18,7 @@ Hace poco, tuve la oportunidad de compartir el proceso y algunos aprendizajes du
 
 **Descargar la presentación**
 
-Puedes descargar las diapositivas de la presentación [pulsando aquí](https://wp.oriol.im/wp-content/uploads/2023/07/slides-passager.html.zip).
+Puedes descargar las diapositivas de la presentación [pulsando aquí](/downloads/presentations/slides-passager.html.zip).
 
 **Cómo probar Passager**
 

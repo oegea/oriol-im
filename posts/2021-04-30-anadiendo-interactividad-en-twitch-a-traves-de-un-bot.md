@@ -30,7 +30,7 @@ El mecanismo es sencillo, y muy similar al de los puntos de canal que nos permit
 
 La arquitectura de *botyto* es sencilla. Se trata de una aplicación de escritorio ([Electron](https://www.electronjs.org/) a través de [electron-forge](https://www.npmjs.com/package/electron-forge)) que inicia un diálogo sencillo que nos permite configurar el software, y una vez configurado iniciar el bot.
 
-[![Pantalla principal de botyto](https://wp.oriol.im/wp-content/uploads/2021/01/botyto.png)](https://wp.oriol.im/wp-content/uploads/2021/01/botyto.png)
+[![Pantalla principal de botyto](/images/posts/2021-twitch-bot/botyto.png)](/images/posts/2021-twitch-bot/botyto.png)
 
 Al iniciar el bot, no sólo inicia una conexión al sistema IRC de Twitch a través de la librería [tmi.js](https://www.npmjs.com/package/tmi.js) sino que inicia un servidor web a través de [express](https://www.npmjs.com/package/express) y [socket.io](https://www.npmjs.com/package/socket.io), que cumplirá dos funciones:
 

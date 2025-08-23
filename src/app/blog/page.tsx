@@ -70,6 +70,11 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
           totalPages={totalPages}
           searchQuery={searchQuery}
         />
+
+        {/* Bottom Breadcrumbs */}
+        <div className="mt-12">
+          <Breadcrumbs items={breadcrumbItems} />
+        </div>
       </div>
     </div>
   )

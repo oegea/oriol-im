@@ -6,9 +6,10 @@ interface PaginationProps {
   currentPage: number
   totalPages: number
   onPageChange: (page: number) => void
+  className?: string
 }
 
-export default function Pagination({ currentPage, totalPages, onPageChange }: PaginationProps) {
+export default function Pagination({ currentPage, totalPages, onPageChange, className }: PaginationProps) {
   if (totalPages <= 1) return null
 
   const getVisiblePages = () => {
@@ -38,7 +39,7 @@ export default function Pagination({ currentPage, totalPages, onPageChange }: Pa
   }
 
   return (
-    <nav className="flex items-center justify-center space-x-2 mt-12">
+    <nav className={`flex items-center justify-start space-x-2 ${className || 'mt-12'}`}>
       {/* Previous button */}
       <button
         onClick={() => onPageChange(currentPage - 1)}
