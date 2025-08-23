@@ -53,7 +53,7 @@ export default function PostCard({ post }: PostCardProps) {
           {/* Title */}
           <h2 className="mb-3 text-xl font-bold leading-tight">
             <Link 
-              href={`/posts/${post.slug}`}
+              href={`/${post.slug}`}
               className="text-gray-900 group-hover:text-yellow-600 transition-colors duration-300"
             >
               {post.title.rendered}
@@ -72,7 +72,7 @@ export default function PostCard({ post }: PostCardProps) {
           
           {/* Read more link */}
           <Link 
-            href={`/posts/${post.slug}`}
+            href={`/${post.slug}`}
             className="inline-flex items-center space-x-2 text-yellow-600 font-medium hover:text-yellow-700 transition-colors duration-300"
           >
             <span>Leer más</span>

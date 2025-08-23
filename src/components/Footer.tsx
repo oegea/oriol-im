@@ -92,7 +92,7 @@ export default function Footer() {
                   <ExternalLink size={14} />
                 </Link>
                 <a 
-                  href="/rss" 
+                  href="/rss.xml" 
                   target="_blank"
                   className="flex items-center space-x-2 text-gray-600 hover:text-yellow-600 transition-colors"
                 >
