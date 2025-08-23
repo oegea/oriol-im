@@ -14,8 +14,8 @@ export default async function HomePage() {
           className="absolute inset-0 opacity-30"
           style={{
             backgroundImage: `linear-gradient(rgba(255,255,255,0.6), rgba(255,255,255,0.7)), url(/contact-hero-bg.jpg)`,
-            backgroundSize: 'contain',
-            backgroundPosition: 'center',
+            backgroundSize: 'cover',
+            backgroundPosition: '75% center',
             backgroundRepeat: 'no-repeat'
           }}
         />

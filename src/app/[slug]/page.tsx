@@ -52,49 +52,53 @@ export default async function DynamicPage({ params }: DynamicPageProps) {
   const featuredImage = (content as any)._embedded?.['wp:featuredmedia']?.[0]
 
   return (
-    <div className="max-w-4xl mx-auto px-6 py-8">
-      <article>
-        <header className="mb-8">
-          <h1 
-            className="mb-4"
-            style={{ 
-              color: 'var(--text-dark)', 
-              fontSize: '1.7em', 
-              fontWeight: 600 
-            }}
-          >
-            {content.title.rendered}
-          </h1>
-          
-          {isPost && (
-            <div className="flex items-center text-sm mb-6" style={{ color: 'var(--text-meta)' }}>
-              <time dateTime={content.date}>
-                {new Date(content.date).toLocaleDateString('es-ES', {
-                  year: 'numeric',
-                  month: 'long',
-                  day: 'numeric',
-                })}
-              </time>
-            </div>
-          )}
-          
-          {featuredImage && (
-            <div className="relative h-64 md:h-96 w-full mb-8 rounded-lg overflow-hidden">
-              <img
-                src={featuredImage.source_url}
-                alt={featuredImage.alt_text || content.title.rendered}
-                className="w-full h-full object-cover"
-              />
-            </div>
-          )}
-        </header>
-        
-        <div 
-          className="prose prose-lg max-w-none"
-          style={{ color: 'var(--text-light)' }}
-          dangerouslySetInnerHTML={{ __html: content.content.rendered }}
-        />
-      </article>
+    <div className="min-h-screen bg-gray-50 md:py-12">
+      <div className="max-w-6xl mx-auto px-2 md:px-6">
+        <div className="max-w-4xl mx-auto">
+          <article className="bg-white md:rounded-lg md:shadow-lg p-4 md:p-8">
+            <header className="mb-8">
+              <h1 
+                className="mb-4"
+                style={{ 
+                  color: 'var(--text-dark)', 
+                  fontSize: '1.7em', 
+                  fontWeight: 600 
+                }}
+              >
+                {content.title.rendered}
+              </h1>
+              
+              {isPost && (
+                <div className="flex items-center text-sm mb-6" style={{ color: 'var(--text-meta)' }}>
+                  <time dateTime={content.date}>
+                    {new Date(content.date).toLocaleDateString('es-ES', {
+                      year: 'numeric',
+                      month: 'long',
+                      day: 'numeric',
+                    })}
+                  </time>
+                </div>
+              )}
+              
+              {featuredImage && (
+                <div className="relative h-64 md:h-96 w-full mb-8 rounded-lg overflow-hidden">
+                  <img
+                    src={featuredImage.source_url}
+                    alt={featuredImage.alt_text || content.title.rendered}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              )}
+            </header>
+            
+            <div 
+              className="prose prose-lg max-w-none"
+              style={{ color: 'var(--text-light)' }}
+              dangerouslySetInnerHTML={{ __html: content.content.rendered }}
+            />
+          </article>
+        </div>
+      </div>
     </div>
   )
 }

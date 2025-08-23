@@ -97,7 +97,7 @@ export default function ContactPage() {
   }
   
   const renderForm = () => (
-    <div className="bg-white rounded-lg shadow-lg p-8">
+    <div className="bg-white md:rounded-lg md:shadow-lg p-4 md:p-8">
       <div className="section-title">
         💬 Hablemos
       </div>
@@ -187,7 +187,7 @@ export default function ContactPage() {
   )
   
   const renderThanks = () => (
-    <div className="bg-white rounded-lg shadow-lg p-8 text-center">
+    <div className="bg-white md:rounded-lg md:shadow-lg p-4 md:p-8 text-center">
       <div className="text-6xl mb-4">✉️</div>
       <div className="section-title mb-6">
         He recibido tu mensaje
@@ -209,8 +209,8 @@ export default function ContactPage() {
   return (
     <>
       <ReadingProgress />
-      <div className="min-h-screen bg-gray-50 py-12">
-        <div className="max-w-6xl mx-auto px-6">
+      <div className="min-h-screen bg-gray-50 md:py-12">
+        <div className="max-w-6xl mx-auto px-2 md:px-6">
           <div className="max-w-4xl mx-auto">
             {(messageStatus === 0 || messageStatus === 1) && renderForm()}
             {messageStatus === 2 && renderThanks()}
