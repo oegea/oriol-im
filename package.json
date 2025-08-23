@@ -1,24 +1,31 @@
 {
-  "name": "oriol-im",
-  "version": "1.0.0",
+  "name": "oriol-blog-nextjs",
+  "version": "0.1.0",
   "private": true,
-  "description": "Frontity project",
-  "keywords": [
-    "frontity"
-  ],
   "scripts": {
-    "dev": "frontity dev",
-    "build": "frontity build",
-    "serve": "frontity serve"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "type-check": "tsc --noEmit"
   },
-  "prettier": {},
   "dependencies": {
-    "@frontity/core": "^1.9.0",
-    "@frontity/html2react": "^1.4.0",
-    "@frontity/mars-theme": "./packages/mars-theme",
-    "@frontity/tiny-router": "^1.2.1",
-    "@frontity/wp-source": "^1.9.0",
-    "axios": "^0.21.2",
-    "frontity": "^1.12.0"
+    "axios": "^1.7.2",
+    "lucide-react": "^0.539.0",
+    "next": "14.2.5",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.13",
+    "@types/node": "^20.14.12",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "autoprefixer": "^10.4.19",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "14.2.5",
+    "postcss": "^8.4.40",
+    "tailwindcss": "^3.4.7",
+    "typescript": "^5.5.4"
   }
 }
