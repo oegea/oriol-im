@@ -5,10 +5,11 @@ import Image from 'next/image'
 import { useState, useEffect, useRef } from 'react'
 import { usePathname } from 'next/navigation'
 import { config } from '@/lib/config'
-import { Home, User, Mail } from 'lucide-react'
+import { Home, User, Mail, BookOpen } from 'lucide-react'
 
 const navigation = [
   { name: 'Inicio', href: '/', icon: Home },
+  { name: 'Blog', href: '/blog', icon: BookOpen },
   { name: 'Sobre mí', href: '/about', icon: User },
   { name: 'Contacto', href: '/contact', icon: Mail },
 ]

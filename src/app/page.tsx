@@ -1,9 +1,11 @@
-import { getPosts } from '@/lib/wordpress'
-import PostCard from '@/components/PostCard'
+import { getPosts } from '@/lib/markdown'
+import PostCard from '@/components/PostCardMarkdown'
 import NewsletterForm from '@/components/NewsletterForm'
+import Link from 'next/link'
+import { ArrowRight } from 'lucide-react'
 
 export default async function HomePage() {
-  const posts = await getPosts()
+  const posts = getPosts(1, 6) // Get first 6 posts for homepage
 
   return (
     <div className="min-h-screen">
@@ -82,6 +84,17 @@ export default async function HomePage() {
               <PostCard post={post} />
             </div>
           ))}
+        </div>
+        
+        {/* View all posts link */}
+        <div className="text-center mt-12">
+          <Link 
+            href="/blog"
+            className="inline-flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-yellow-400 to-orange-400 text-white font-medium rounded-full hover:from-yellow-500 hover:to-orange-500 transition-all duration-300 hover:scale-105 shadow-lg"
+          >
+            <span>Ver todos los posts</span>
+            <ArrowRight size={16} />
+          </Link>
         </div>
       </section>
       
