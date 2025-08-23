@@ -33,6 +33,7 @@ export interface WordPressPost {
   categories: number[]
   tags: number[]
   _links: any
+  _embedded: any
 }
 
 export interface WordPressPage {
