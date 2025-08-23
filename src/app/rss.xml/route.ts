@@ -9,8 +9,8 @@ export async function GET() {
     const posts = await getPosts(1, 20)
     
     const rssItems = posts.map(post => {
-      const description = stripHtml(post.excerpt.rendered || post.content.rendered)
-        .substring(0, 300) + (post.excerpt.rendered || post.content.rendered).length > 300 ? '...' : ''
+      const content = post.excerpt.rendered || post.content.rendered
+      const description = stripHtml(content).substring(0, 300) + (content.length > 300 ? '...' : '')
       
       return `
     <item>
