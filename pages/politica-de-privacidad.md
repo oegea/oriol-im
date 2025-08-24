@@ -44,7 +44,7 @@ Calle Galileu 261
 ***Contacto a través de medios electrónicos:***  
 El interesado puede contactar a través de los siguientes medios electrónicos.
 
-- [Formulario de contacto](http://localhost:3000/contact): http://localhost:3000/contact
+- [Página de contacto](https://www.oriol.im/contact): https://www.oriol.im/contact
 - [X](https://x.com/OriolEgea): https://x.com/OriolEgea
 - [LinkedIn](https://www.linkedin.com/in/oriolegea/): https://www.linkedin.com/in/oriolegea/
 
