@@ -58,14 +58,14 @@ export default function PostCard({ post, featured = false }: PostCardProps) {
             {/* Content */}
             <div className={`p-8 relative z-10 ${post.featured_image ? 'md:w-1/2' : 'w-full'}`}>
               <div className="flex items-center justify-between mb-6">
-                <div className="flex items-center space-x-2 text-sm text-slate-500 dark:text-slate-400">
+                <div className="flex items-center space-x-2 text-sm text-slate-600 dark:text-slate-300">
                   <Calendar size={16} />
                   <time dateTime={post.date}>
                     {formatDate(post.date)}
                   </time>
                 </div>
                 {post.categories && post.categories.length > 0 && (
-                  <span className="px-3 py-1 bg-gradient-to-r from-yellow-400 to-orange-400 text-white text-xs font-medium rounded-full shadow-lg backdrop-blur-sm">
+                  <span className="px-3 py-1 gradient-primary text-white text-xs font-medium rounded-full shadow-lg backdrop-blur-sm">
                     {post.categories[0]}
                   </span>
                 )}
@@ -80,11 +80,11 @@ export default function PostCard({ post, featured = false }: PostCardProps) {
                 </Link>
               </h3>
               
-              <p className="text-slate-600 dark:text-slate-300 text-lg leading-relaxed mb-6">
+              <p className="text-slate-700 dark:text-slate-200 text-lg leading-relaxed mb-6">
                 {cleanExcerpt.substring(0, 300)}{cleanExcerpt.length > 300 ? '...' : ''}
               </p>
               
-              <div className="pt-4 border-t border-slate-200 dark:border-slate-600">
+              <div className="pt-4 border-t border-slate-200 dark:border-slate-700">
                 <Link 
                   href={`/${post.slug}`}
                   className="inline-flex items-center space-x-2 text-yellow-600 font-medium hover:text-yellow-700 transition-colors duration-300 text-base"
@@ -131,7 +131,7 @@ export default function PostCard({ post, featured = false }: PostCardProps) {
         {/* Content */}
         <div className="p-6 relative">
           {/* Date */}
-          <div className="flex items-center space-x-2 mb-3 text-sm text-slate-500 dark:text-slate-400">
+          <div className="flex items-center space-x-2 mb-3 text-sm text-slate-600 dark:text-slate-300">
             <Calendar size={14} />
             <time dateTime={post.date}>
               {formatDate(post.date)}
@@ -150,7 +150,7 @@ export default function PostCard({ post, featured = false }: PostCardProps) {
           
           {/* Excerpt */}
           {cleanExcerpt && (
-            <p className="mb-4 text-slate-600 dark:text-slate-300 leading-relaxed line-clamp-3">
+            <p className="mb-4 text-slate-700 dark:text-slate-200 leading-relaxed line-clamp-3">
               {cleanExcerpt.substring(0, 150)}{cleanExcerpt.length > 150 ? '...' : ''}
             </p>
           )}
@@ -171,7 +171,7 @@ export default function PostCard({ post, featured = false }: PostCardProps) {
         {/* Category badge in bottom-right corner */}
         {post.categories && post.categories.length > 0 && (
           <div className="absolute bottom-4 right-4">
-            <span className="px-3 py-1 bg-gradient-to-r from-yellow-400 to-orange-400 text-white text-xs font-medium rounded-full shadow-lg backdrop-blur-sm">
+            <span className="px-3 py-1 gradient-primary text-white text-xs font-medium rounded-full shadow-lg backdrop-blur-sm">
               {post.categories[0]}
             </span>
           </div>

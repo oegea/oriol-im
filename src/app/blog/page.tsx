@@ -55,7 +55,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
   ]
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-slate-900 py-12 transition-colors">
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-900 py-12 transition-colors">
       <div className="max-w-6xl mx-auto px-6">
         {/* Breadcrumbs */}
         <Breadcrumbs items={breadcrumbItems} />

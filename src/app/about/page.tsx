@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import Head from 'next/head'
-import { MapPin, Briefcase, Linkedin, Twitter } from 'lucide-react'
+import { MapPin, Briefcase, Linkedin, Twitter, Github } from 'lucide-react'
 import { useState } from 'react'
 
 
@@ -249,7 +249,7 @@ export default function AboutPage() {
           {/* Profile Image */}
           <div className="relative">
             <div 
-              className="relative backdrop-blur-sm rounded-3xl border border-white/30 dark:border-gray-700/30 overflow-hidden p-1 about-profile-glassmorphism"
+              className="relative backdrop-blur-sm rounded-3xl border border-white/30 dark:border-slate-700/30 overflow-hidden p-1 about-profile-glassmorphism"
             >
               <Image
                 src="/images/oriol-profile.jpg"
@@ -277,6 +277,14 @@ export default function AboutPage() {
                 className="p-2.5 rounded-full bg-white/80 dark:bg-slate-800/80 border border-white/30 dark:border-slate-600/30 text-slate-700 dark:text-slate-300 hover:text-sky-500 dark:hover:text-sky-400 hover:scale-110 transition-all duration-300 shadow-sm"
               >
                 <Twitter size={20} />
+              </a>
+              <a 
+                href="https://github.com/oegea" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="p-2.5 rounded-full bg-white/80 dark:bg-slate-800/80 border border-white/30 dark:border-slate-600/30 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-50 hover:scale-110 transition-all duration-300 shadow-sm"
+              >
+                <Github size={20} />
               </a>
             </div>
           </div>
@@ -343,7 +351,7 @@ export default function AboutPage() {
                     <div className={`w-5 h-5 rounded border-2 transition-all duration-200 flex items-center justify-center ${
                       professionalFilters.work
                         ? 'bg-yellow-400 border-yellow-400'
-                        : 'bg-white border-gray-300 group-hover:border-yellow-300'
+                        : 'bg-white border-slate-300 group-hover:border-yellow-300'
                     }`}>
                       {professionalFilters.work && (
                         <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
@@ -368,7 +376,7 @@ export default function AboutPage() {
                     <div className={`w-5 h-5 rounded border-2 transition-all duration-200 flex items-center justify-center ${
                       professionalFilters.education
                         ? 'bg-yellow-400 border-yellow-400'
-                        : 'bg-white border-gray-300 group-hover:border-yellow-300'
+                        : 'bg-white border-slate-300 group-hover:border-yellow-300'
                     }`}>
                       {professionalFilters.education && (
                         <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
@@ -442,7 +450,7 @@ export default function AboutPage() {
                       </p>
                       
                       {(groupedEvents.work[0].link || groupedEvents.work[0].url) && (
-                        <div className="flex items-center space-x-4 pt-4 border-t border-gray-100">
+                        <div className="flex items-center space-x-4 pt-4 border-t border-slate-100 dark:border-slate-700">
                           {groupedEvents.work[0].link && (
                             <a href={groupedEvents.work[0].link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center space-x-2 text-yellow-600 font-medium hover:text-yellow-700 transition-colors duration-300 text-base">
                               <span>Ver proyecto</span>
@@ -515,7 +523,7 @@ export default function AboutPage() {
                             <span className={`text-xs font-medium px-2 py-1 rounded-full ${
                               event.type === 'work' 
                                 ? 'bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300' 
-                                : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400'
+                                : 'bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300'
                             }`}>
                               {event.type === 'work' ? 'Trabajo' : 'Formación'}
                             </span>
@@ -532,7 +540,7 @@ export default function AboutPage() {
                         </p>
                         
                         {(event.link || event.url) && (
-                          <div className="flex items-center space-x-2 pt-2 border-t border-gray-100">
+                          <div className="flex items-center space-x-2 pt-2 border-t border-slate-100 dark:border-slate-700">
                             {event.link && (
                               <a href={event.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center space-x-1 text-yellow-600 font-medium hover:text-yellow-700 transition-colors duration-300 text-sm">
                                 <span>Ver proyecto</span>
@@ -580,7 +588,7 @@ export default function AboutPage() {
                     <div className={`w-5 h-5 rounded border-2 transition-all duration-200 flex items-center justify-center ${
                       personalFilters.project
                         ? 'bg-yellow-400 border-yellow-400'
-                        : 'bg-white border-gray-300 group-hover:border-yellow-300'
+                        : 'bg-white border-slate-300 group-hover:border-yellow-300'
                     }`}>
                       {personalFilters.project && (
                         <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
@@ -605,7 +613,7 @@ export default function AboutPage() {
                     <div className={`w-5 h-5 rounded border-2 transition-all duration-200 flex items-center justify-center ${
                       personalFilters.personal
                         ? 'bg-yellow-400 border-yellow-400'
-                        : 'bg-white border-gray-300 group-hover:border-yellow-300'
+                        : 'bg-white border-slate-300 group-hover:border-yellow-300'
                     }`}>
                       {personalFilters.personal && (
                         <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
@@ -652,8 +660,8 @@ export default function AboutPage() {
                           </div>
                           <span className={`text-xs font-medium px-2 py-1 rounded-full ${
                             event.type === 'project'
-                              ? 'bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-400'
-                              : 'bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400'
+                              ? 'bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300'
+                              : 'bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300'
                           }`}>
                             {event.type === 'project' ? 'Proyecto' : 'Momento'}
                           </span>

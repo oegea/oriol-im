@@ -66,7 +66,7 @@ export default async function DynamicPage({ params }: DynamicPageProps) {
     ]
 
     return (
-      <div className="min-h-screen bg-gray-50 dark:bg-slate-900 md:py-12 transition-colors">
+      <div className="min-h-screen bg-slate-50 dark:bg-slate-900 md:py-12 transition-colors">
         <div className="max-w-6xl mx-auto px-2 md:px-6">
           <div className="max-w-4xl mx-auto">
             {/* Top Breadcrumbs */}
@@ -75,7 +75,7 @@ export default async function DynamicPage({ params }: DynamicPageProps) {
             <article className="bg-white dark:bg-slate-800 md:rounded-lg md:shadow-lg dark:shadow-xl p-4 md:p-8 transition-colors">
               <header className="mb-8">
                 <h1 
-                  className="mb-4 text-gray-900 dark:text-slate-50"
+                  className="mb-4 text-slate-900 dark:text-slate-50"
                   style={{ 
                     fontSize: '1.7em', 
                     fontWeight: 600 
@@ -87,7 +87,7 @@ export default async function DynamicPage({ params }: DynamicPageProps) {
                 <div className="flex items-center justify-between flex-wrap gap-4 mb-6">
                   <time 
                     dateTime={post.date}
-                    className="text-sm text-gray-600 dark:text-slate-400"
+                    className="text-sm text-slate-600 dark:text-slate-300"
                   >
                     {new Date(post.date).toLocaleDateString('es-ES', {
                       year: 'numeric',
@@ -102,7 +102,7 @@ export default async function DynamicPage({ params }: DynamicPageProps) {
                       {post.categories.map((category: string) => (
                         <span
                           key={category}
-                          className="px-3 py-1 bg-gradient-to-r from-yellow-400 to-orange-400 text-white text-xs font-medium rounded-full"
+                          className="px-3 py-1 gradient-primary text-white text-xs font-medium rounded-full"
                         >
                           {category}
                         </span>
@@ -123,7 +123,7 @@ export default async function DynamicPage({ params }: DynamicPageProps) {
               </header>
               
               <div 
-                className="prose prose-lg dark:prose-invert max-w-none text-gray-700 dark:text-slate-300"
+                className="prose prose-lg dark:prose-invert max-w-none text-slate-700 dark:text-slate-50"
                 dangerouslySetInnerHTML={{ __html: post.htmlContent || post.content }}
               />
             </article>
@@ -164,7 +164,7 @@ export default async function DynamicPage({ params }: DynamicPageProps) {
             </header>
             
             <div 
-              className="prose prose-lg dark:prose-invert max-w-none text-gray-700 dark:text-slate-300"
+              className="prose prose-lg dark:prose-invert max-w-none text-slate-700 dark:text-slate-50"
               dangerouslySetInnerHTML={{ __html: content!.htmlContent || content!.content }}
             />
           </article>

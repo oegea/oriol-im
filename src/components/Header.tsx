@@ -92,7 +92,7 @@ export default function Header() {
                       }`}
                       style={{
                         background: isActive 
-                          ? 'linear-gradient(135deg, #fccb0b 0%, #f59e0b 100%)' 
+                          ? 'var(--color-gradient-active)' 
                           : 'transparent',
                         animationDelay: `${index * 100}ms`
                       }}
@@ -130,13 +130,13 @@ export default function Header() {
                 aria-label="Toggle mobile menu"
               >
                 <div className="w-5 h-5 flex flex-col justify-center items-center space-y-1">
-                  <div className={`w-4 h-0.5 bg-slate-700 dark:text-slate-200 transition-all duration-300 ${
+                  <div className={`w-4 h-0.5 bg-slate-700 dark:bg-slate-200 transition-all duration-300 ${
                     isMobileMenuOpen ? 'rotate-45 translate-y-1' : ''
                   }`} />
-                  <div className={`w-4 h-0.5 bg-slate-700 dark:text-slate-200 transition-all duration-300 ${
+                  <div className={`w-4 h-0.5 bg-slate-700 dark:bg-slate-200 transition-all duration-300 ${
                     isMobileMenuOpen ? 'opacity-0' : ''
                   }`} />
-                  <div className={`w-4 h-0.5 bg-slate-700 dark:text-slate-200 transition-all duration-300 ${
+                  <div className={`w-4 h-0.5 bg-slate-700 dark:bg-slate-200 transition-all duration-300 ${
                     isMobileMenuOpen ? '-rotate-45 -translate-y-1' : ''
                   }`} />
                 </div>
@@ -166,7 +166,7 @@ export default function Header() {
             }}
           >
             <div 
-              className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl rounded-3xl border border-white/30 dark:border-gray-700/30 shadow-2xl overflow-hidden mobile-menu-glassmorphism"
+              className="bg-white/90 dark:bg-slate-800/90 backdrop-blur-xl rounded-3xl border border-white/30 dark:border-slate-700/30 shadow-2xl overflow-hidden mobile-menu-glassmorphism"
             >
               <div className="p-6">
                 <nav className="space-y-2">
@@ -179,7 +179,7 @@ export default function Header() {
                         href={item.href}
                         className={`flex items-center p-4 rounded-2xl transition-all duration-300 ${
                           isActive 
-                            ? 'bg-gradient-to-r from-yellow-400 to-orange-400 text-white shadow-lg' 
+                            ? 'gradient-primary text-white shadow-lg' 
                             : 'text-slate-700 dark:text-slate-200 hover:bg-white/70 dark:hover:bg-slate-700/70 hover:text-yellow-600'
                         }`}
                         style={{ 

@@ -21,8 +21,10 @@ export function useTheme() {
 }
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setTheme] = useState<Theme>('light')
-  const [actualTheme, setActualTheme] = useState<'light' | 'dark'>('light')
+  // Check if dark class is already applied by the script
+  const initialTheme = typeof window !== 'undefined' && document.documentElement.classList.contains('dark') ? 'dark' : 'light'
+  const [theme, setTheme] = useState<Theme>(initialTheme)
+  const [actualTheme, setActualTheme] = useState<'light' | 'dark'>(initialTheme)
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {

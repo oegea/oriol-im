@@ -23,7 +23,7 @@ export default function ContactPage() {
       <ReadingProgress />
       
       {/* Hero Section with background similar to homepage */}
-      <section className="relative overflow-hidden bg-white dark:bg-gray-900 transition-colors">
+      <section className="relative overflow-hidden bg-white dark:bg-slate-900 transition-colors">
         {/* Background image with overlay */}
         <div 
           className="absolute inset-0 opacity-30"
@@ -46,7 +46,7 @@ export default function ContactPage() {
         
         <div className="relative max-w-6xl mx-auto px-6 py-16 text-center">
           <h1 
-            className="mb-8 bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600 dark:from-gray-100 dark:to-gray-400"
+            className="mb-8 bg-clip-text text-transparent bg-gradient-to-r from-slate-900 to-slate-600 dark:from-slate-50 dark:to-slate-300"
             style={{ 
               fontSize: 'clamp(2.5rem, 5vw, 4rem)', 
               fontWeight: 700,
@@ -57,7 +57,7 @@ export default function ContactPage() {
           </h1>
           
           <p 
-            className="mb-8 text-xl leading-relaxed max-w-3xl mx-auto text-gray-600 dark:text-gray-400"
+            className="mb-8 text-xl leading-relaxed max-w-3xl mx-auto text-slate-600 dark:text-slate-300"
           >
             Tanto si quieres preguntarme algo, charlar un rato, compartir algo interesante, 
             o proponerme un nuevo proyecto, me encantaría conocerte.
@@ -66,11 +66,11 @@ export default function ContactPage() {
       </section>
 
       {/* Content section */}
-      <section className="relative max-w-6xl mx-auto px-6 py-12 bg-white dark:bg-gray-900 transition-colors">
+      <section className="relative max-w-6xl mx-auto px-6 py-12 bg-white dark:bg-slate-900 transition-colors">
         {/* Section Title */}
         <div className="text-center mb-12">
           <h2 
-            className="mb-4 text-3xl font-bold text-gray-900 dark:text-gray-100"
+            className="mb-4 text-3xl font-bold text-slate-900 dark:text-slate-50"
           >
             Formas preferidas de contacto
           </h2>
@@ -89,7 +89,7 @@ export default function ContactPage() {
               style={{ animationDelay: `${index * 150}ms` }}
             >
               <div 
-                className="relative p-8 rounded-2xl backdrop-blur-xl border border-white/30 dark:border-gray-700/30 hover:scale-105 transition-all duration-500 overflow-hidden group hover:border-yellow-400/50 contact-card-glassmorphism"
+                className="relative p-8 rounded-2xl backdrop-blur-xl border border-white/30 dark:border-slate-700/30 hover:scale-105 transition-all duration-500 overflow-hidden group hover:border-yellow-400/50 contact-card-glassmorphism"
                 style={{
                   boxShadow: '0 8px 32px rgba(0,0,0,0.1)',
                 }}
@@ -105,13 +105,13 @@ export default function ContactPage() {
                   <div className="flex items-center mb-4">
                     <span className="text-3xl mr-4">{social.icon}</span>
                     <h3 
-                      className="text-xl font-bold transition-colors duration-500 text-gray-900 dark:text-gray-100"
+                      className="text-xl font-bold transition-colors duration-500 text-slate-900 dark:text-slate-50"
                     >
                       {social.name}
                     </h3>
                   </div>
                   <p 
-                    className="leading-relaxed mb-6 transition-colors duration-500 text-gray-600 dark:text-gray-300"
+                    className="leading-relaxed mb-6 transition-colors duration-500 text-slate-700 dark:text-slate-200"
                   >
                     {social.description}
                   </p>
@@ -128,7 +128,7 @@ export default function ContactPage() {
 
         {/* Email Alternative with glassmorphism */}
         <div 
-          className="p-8 rounded-2xl backdrop-blur-xl border border-white/30 dark:border-gray-700/30 text-center animate-fade-in-up contact-card-glassmorphism"
+          className="p-8 rounded-2xl backdrop-blur-xl border border-white/30 dark:border-slate-700/30 text-center animate-fade-in-up contact-card-glassmorphism"
           style={{
             boxShadow: '0 8px 32px rgba(0,0,0,0.1)',
             animationDelay: '300ms'
@@ -138,22 +138,19 @@ export default function ContactPage() {
             <span className="text-2xl">📧</span>
           </div>
           <h2 
-            className="text-2xl font-semibold mb-4 text-gray-900 dark:text-gray-100"
+            className="text-2xl font-semibold mb-4 text-slate-900 dark:text-slate-50"
           >
             ¿Prefieres el email?
           </h2>
           <p 
-            className="mb-8 leading-relaxed max-w-md mx-auto text-gray-600 dark:text-gray-300"
+            className="mb-8 leading-relaxed max-w-md mx-auto text-slate-700 dark:text-slate-200"
           >
             Si prefieres un contacto más directo, también puedes enviarme un email.
           </p>
           
           <a
             href="mailto:imoriol@duck.com?subject=Contacto desde oriol.im"
-            className="inline-flex items-center px-8 py-4 text-black font-semibold rounded-full transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl"
-            style={{ 
-              background: 'linear-gradient(135deg, var(--primary-color) 0%, #f59e0b 100%)',
-            }}
+            className="inline-flex items-center px-8 py-4 text-black dark:text-white font-semibold rounded-full transition-all duration-300 hover:scale-105 shadow-lg hover:shadow-xl gradient-primary"
           >
             <span className="mr-2">📧</span>
             Enviar email
@@ -167,8 +164,8 @@ export default function ContactPage() {
             animationDelay: '450ms'
           }}
         >
-          <p className="leading-relaxed text-gray-600 dark:text-gray-300">
-            <span className="font-semibold text-gray-900 dark:text-gray-100">⚡ Tiempo de respuesta:</span> Intentaré responder a todos los mensajes relevantes y respetuosos, 
+          <p className="leading-relaxed text-slate-700 dark:text-slate-200">
+            <span className="font-semibold text-slate-900 dark:text-slate-50">⚡ Tiempo de respuesta:</span> Intentaré responder a todos los mensajes relevantes y respetuosos, 
             aunque dependiendo de mi carga de trabajo, las respuestas pueden demorarse un poco.
           </p>
         </div>

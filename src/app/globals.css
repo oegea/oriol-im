@@ -17,6 +17,7 @@
   /* Unified color system - Light */
   --color-primary: #fccb0b;
   --color-primary-hover: #f59e0b;
+  --color-gradient-active: linear-gradient(135deg, #fccb0b 0%, #f59e0b 100%);
   --color-bg-primary: #ffffff;
   --color-bg-secondary: #f9fafb;
   --color-bg-tertiary: #f3f4f6;
@@ -29,22 +30,23 @@
 }
 
 .dark {
-  --text-dark: rgba(255, 255, 255, 0.9);
-  --text-light: rgba(255, 255, 255, 0.7);
-  --text-meta: rgba(255, 255, 255, 0.8);
-  --link-color: rgb(252, 211, 77);
+  --text-dark: rgba(255, 255, 255, 0.95);
+  --text-light: rgba(255, 255, 255, 0.8);
+  --text-meta: rgba(255, 255, 255, 0.85);
+  --link-color: rgb(234, 179, 8);
   --background: #111827;
   --foreground: var(--text-dark);
   
   /* Unified color system - Dark (Higher contrast) */
-  --color-primary: #fcd34d;
-  --color-primary-hover: #f59e0b;
+  --color-primary: #eab308;
+  --color-primary-hover: #d97706;
+  --color-gradient-active: linear-gradient(135deg, #eab308 0%, #d97706 100%);
   --color-bg-primary: #0f172a;
   --color-bg-secondary: #1e293b;
   --color-bg-tertiary: #334155;
-  --color-text-primary: #f8fafc;
-  --color-text-secondary: #e2e8f0;
-  --color-text-tertiary: #cbd5e1;
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #f1f5f9;
+  --color-text-tertiary: #e2e8f0;
   --color-border: #475569;
   --color-border-light: rgba(71, 85, 105, 0.3);
   --color-glassmorphism: linear-gradient(135deg, rgba(30,41,59,0.95) 0%, rgba(30,41,59,0.8) 100%);
@@ -96,7 +98,7 @@ a:hover {
 
 /* Code styling */
 pre {
-  background-color: rgba(0, 0, 0, 0.05);
+  background-color: rgba(0, 0, 0, 0.05) !important;
   border-left: 10px solid var(--primary-color);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   padding: 1em;
@@ -104,7 +106,17 @@ pre {
 }
 
 .dark pre {
-  background-color: rgba(255, 255, 255, 0.05);
+  background-color: rgba(15, 23, 42, 0.8) !important;
+  border-left: 10px solid var(--color-primary);
+}
+
+/* Override Prism theme for better dark mode */
+.dark pre[class*="language-"] {
+  background-color: rgba(15, 23, 42, 0.8) !important;
+}
+
+.dark code[class*="language-"] {
+  background-color: transparent !important;
 }
 
 code {
@@ -512,4 +524,13 @@ blockquote {
 
 .dark .about-timeline-card-glassmorphism {
   background: var(--color-glassmorphism);
+}
+
+/* Unified gradient classes */
+.gradient-primary {
+  background: linear-gradient(135deg, #fccb0b 0%, #f59e0b 100%);
+}
+
+.dark .gradient-primary {
+  background: var(--color-gradient-active);
 }

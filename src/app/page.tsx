@@ -103,7 +103,7 @@ export default async function HomePage() {
         <div className="text-center mt-12">
           <Link 
             href="/blog"
-            className="inline-flex items-center space-x-2 px-6 py-3 bg-gradient-to-r from-yellow-400 to-orange-400 text-white font-medium rounded-full hover:from-yellow-500 hover:to-orange-500 transition-all duration-300 hover:scale-105 shadow-lg"
+            className="inline-flex items-center space-x-2 px-6 py-3 gradient-primary text-white font-medium rounded-full hover:opacity-90 transition-all duration-300 hover:scale-105 shadow-lg"
           >
             <span>Ver todos los posts</span>
             <ArrowRight size={16} />

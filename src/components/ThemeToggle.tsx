@@ -27,7 +27,7 @@ export default function ThemeToggle() {
   return (
     <button
       onClick={toggleTheme}
-      className="flex items-center justify-center p-2.5 rounded-full hover:bg-white/30 dark:hover:bg-gray-700/30 transition-all duration-300 border border-transparent hover:border-yellow-400/30 group"
+      className="flex items-center justify-center p-2.5 rounded-full hover:bg-white/30 dark:hover:bg-slate-700/30 transition-all duration-300 border border-transparent hover:border-yellow-400/30 group"
       aria-label={`Cambiar a modo ${actualTheme === 'dark' ? 'claro' : 'oscuro'}`}
       title={`Cambiar a modo ${actualTheme === 'dark' ? 'claro' : 'oscuro'}`}
     >
