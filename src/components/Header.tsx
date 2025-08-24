@@ -6,6 +6,7 @@ import { useState, useEffect, useRef } from 'react'
 import { usePathname } from 'next/navigation'
 import { config } from '@/lib/config'
 import { Home, User, Mail, BookOpen } from 'lucide-react'
+import ThemeToggle from '@/components/ThemeToggle'
 
 const navigation = [
   { name: 'Inicio', href: '/', icon: Home },
@@ -27,14 +28,9 @@ export default function Header() {
     <>
       {/* Glassmorphism header */}
       <header 
-        className="fixed w-full top-0 z-50 backdrop-blur-xl overflow-hidden"
+        className="fixed w-full top-0 z-50 backdrop-blur-xl overflow-hidden header-glassmorphism"
         style={{ 
           height: '70px',
-          background: 'linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.85) 100%)',
-          backdropFilter: 'blur(20px)',
-          WebkitBackdropFilter: 'blur(20px)',
-          borderBottom: '1px solid rgba(255,255,255,0.3)',
-          boxShadow: '0 8px 32px rgba(0,0,0,0.1)',
         }}
       >
         {/* Subtle moving gradient animation */}
@@ -71,7 +67,7 @@ export default function Header() {
               
               <div className="flex flex-col">
                 <span 
-                  className="text-gray-900 text-xl font-bold group-hover:text-yellow-600 transition-colors duration-300"
+                  className="text-slate-900 dark:text-slate-50 text-xl font-bold group-hover:text-yellow-600 transition-colors duration-300"
                   style={{ fontFamily: "'Kaushan Script', cursive" }}
                 >
                   {config.site.title}
@@ -92,7 +88,7 @@ export default function Header() {
                       className={`group relative px-5 py-2.5 rounded-full font-medium transition-all duration-500 ${
                         isActive 
                           ? 'text-white' 
-                          : 'text-gray-700 hover:text-yellow-600'
+                          : 'text-slate-700 dark:text-slate-200 hover:text-yellow-600'
                       }`}
                       style={{
                         background: isActive 
@@ -118,26 +114,34 @@ export default function Header() {
                   )
                 })}
               </div>
+              
+              {/* Theme toggle separated on the right */}
+              <div className="ml-6 pl-6 border-l border-white/20 dark:border-slate-600/30">
+                <ThemeToggle />
+              </div>
             </nav>
             
-            {/* Mobile Menu Button */}
-            <button 
-              className="lg:hidden relative p-3 rounded-full hover:bg-white/30 transition-all duration-300"
-              onClick={toggleMobileMenu}
-              aria-label="Toggle mobile menu"
-            >
-              <div className="w-5 h-5 flex flex-col justify-center items-center space-y-1">
-                <div className={`w-4 h-0.5 bg-gray-700 transition-all duration-300 ${
-                  isMobileMenuOpen ? 'rotate-45 translate-y-1' : ''
-                }`} />
-                <div className={`w-4 h-0.5 bg-gray-700 transition-all duration-300 ${
-                  isMobileMenuOpen ? 'opacity-0' : ''
-                }`} />
-                <div className={`w-4 h-0.5 bg-gray-700 transition-all duration-300 ${
-                  isMobileMenuOpen ? '-rotate-45 -translate-y-1' : ''
-                }`} />
-              </div>
-            </button>
+            {/* Mobile controls */}
+            <div className="lg:hidden flex items-center space-x-3">
+              <ThemeToggle />
+              <button 
+                className="relative p-3 rounded-full hover:bg-white/30 dark:hover:bg-slate-700/30 transition-all duration-300"
+                onClick={toggleMobileMenu}
+                aria-label="Toggle mobile menu"
+              >
+                <div className="w-5 h-5 flex flex-col justify-center items-center space-y-1">
+                  <div className={`w-4 h-0.5 bg-slate-700 dark:text-slate-200 transition-all duration-300 ${
+                    isMobileMenuOpen ? 'rotate-45 translate-y-1' : ''
+                  }`} />
+                  <div className={`w-4 h-0.5 bg-slate-700 dark:text-slate-200 transition-all duration-300 ${
+                    isMobileMenuOpen ? 'opacity-0' : ''
+                  }`} />
+                  <div className={`w-4 h-0.5 bg-slate-700 dark:text-slate-200 transition-all duration-300 ${
+                    isMobileMenuOpen ? '-rotate-45 -translate-y-1' : ''
+                  }`} />
+                </div>
+              </button>
+            </div>
           </div>
         </div>
       </header>
@@ -147,7 +151,7 @@ export default function Header() {
         <>
           {/* Glassmorphism backdrop */}
           <div 
-            className="fixed inset-0 bg-black/10 backdrop-blur-sm z-40 lg:hidden"
+            className="fixed inset-0 bg-black/10 dark:bg-black/30 backdrop-blur-sm z-40 lg:hidden"
             onClick={() => {
               setIsMobileMenuOpen(false)
               document.body.style.overflow = 'unset'
@@ -162,10 +166,7 @@ export default function Header() {
             }}
           >
             <div 
-              className="bg-white/90 backdrop-blur-xl rounded-3xl border border-white/30 shadow-2xl overflow-hidden"
-              style={{
-                background: 'linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.85) 100%)',
-              }}
+              className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl rounded-3xl border border-white/30 dark:border-gray-700/30 shadow-2xl overflow-hidden mobile-menu-glassmorphism"
             >
               <div className="p-6">
                 <nav className="space-y-2">
@@ -179,7 +180,7 @@ export default function Header() {
                         className={`flex items-center p-4 rounded-2xl transition-all duration-300 ${
                           isActive 
                             ? 'bg-gradient-to-r from-yellow-400 to-orange-400 text-white shadow-lg' 
-                            : 'text-gray-700 hover:bg-white/70 hover:text-yellow-600'
+                            : 'text-slate-700 dark:text-slate-200 hover:bg-white/70 dark:hover:bg-slate-700/70 hover:text-yellow-600'
                         }`}
                         style={{ 
                           animationDelay: `${index * 100}ms`,

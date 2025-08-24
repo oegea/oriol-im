@@ -13,7 +13,7 @@ interface BreadcrumbsProps {
 export default function Breadcrumbs({ items }: BreadcrumbsProps) {
   return (
     <nav className="mb-6" aria-label="Breadcrumb">
-      <div className="flex items-center space-x-2 text-sm text-gray-500">
+      <div className="flex items-center space-x-2 text-sm text-slate-500 dark:text-slate-400">
         {/* Home link */}
         <Link 
           href="/" 
@@ -25,7 +25,7 @@ export default function Breadcrumbs({ items }: BreadcrumbsProps) {
         
         {items.map((item, index) => (
           <div key={index} className="flex items-center space-x-2">
-            <ChevronRight size={14} className="text-gray-400" />
+            <ChevronRight size={14} className="text-slate-400 dark:text-slate-500" />
             {item.href && index < items.length - 1 ? (
               <Link 
                 href={item.href}
@@ -34,7 +34,7 @@ export default function Breadcrumbs({ items }: BreadcrumbsProps) {
                 {item.label}
               </Link>
             ) : (
-              <span className="text-gray-700 font-medium">{item.label}</span>
+              <span className="text-slate-700 dark:text-slate-200 font-medium">{item.label}</span>
             )}
           </div>
         ))}

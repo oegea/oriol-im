@@ -13,6 +13,41 @@
   --link-color: rgb(239, 190, 0);
   --background: #ffffff;
   --foreground: var(--text-dark);
+  
+  /* Unified color system - Light */
+  --color-primary: #fccb0b;
+  --color-primary-hover: #f59e0b;
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #f9fafb;
+  --color-bg-tertiary: #f3f4f6;
+  --color-text-primary: #111827;
+  --color-text-secondary: #4b5563;
+  --color-text-tertiary: #6b7280;
+  --color-border: #e5e7eb;
+  --color-border-light: rgba(255, 255, 255, 0.3);
+  --color-glassmorphism: linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.7) 100%);
+}
+
+.dark {
+  --text-dark: rgba(255, 255, 255, 0.9);
+  --text-light: rgba(255, 255, 255, 0.7);
+  --text-meta: rgba(255, 255, 255, 0.8);
+  --link-color: rgb(252, 211, 77);
+  --background: #111827;
+  --foreground: var(--text-dark);
+  
+  /* Unified color system - Dark (Higher contrast) */
+  --color-primary: #fcd34d;
+  --color-primary-hover: #f59e0b;
+  --color-bg-primary: #0f172a;
+  --color-bg-secondary: #1e293b;
+  --color-bg-tertiary: #334155;
+  --color-text-primary: #f8fafc;
+  --color-text-secondary: #e2e8f0;
+  --color-text-tertiary: #cbd5e1;
+  --color-border: #475569;
+  --color-border-light: rgba(71, 85, 105, 0.3);
+  --color-glassmorphism: linear-gradient(135deg, rgba(30,41,59,0.95) 0%, rgba(30,41,59,0.8) 100%);
 }
 
 * {
@@ -68,6 +103,10 @@ pre {
   overflow-x: auto;
 }
 
+.dark pre {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
 code {
   font-family: 'Courier New', Monaco, monospace;
 }
@@ -79,6 +118,10 @@ blockquote {
   margin: 1em 0;
   padding: 0.5em 1em;
   font-style: italic;
+}
+
+.dark blockquote {
+  background: rgba(255, 255, 255, 0.1);
 }
 
 /* Chip components (material design style) */
@@ -249,6 +292,13 @@ blockquote {
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
+.dark .form-input, 
+.dark .form-textarea {
+  color: #e5e7eb;
+  background-color: #374151;
+  border-color: #4b5563;
+}
+
 .form-input:focus, .form-textarea:focus {
   border-color: var(--primary-color);
   outline: 0;
@@ -327,4 +377,139 @@ blockquote {
 @keyframes loading2 {
   0% { transform: translate(0, 0); }
   100% { transform: translate(24px, 0); }
+}
+
+/* Dark mode glassmorphism components */
+.header-glassmorphism {
+  background: var(--color-glassmorphism);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--color-border-light);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+}
+
+.dark .header-glassmorphism {
+  background: var(--color-glassmorphism);
+  border-bottom: 1px solid var(--color-border-light);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+
+.mobile-menu-glassmorphism {
+  background: var(--color-glassmorphism);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.dark .mobile-menu-glassmorphism {
+  background: var(--color-glassmorphism);
+}
+
+.footer-glassmorphism {
+  background: var(--color-glassmorphism);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.dark .footer-glassmorphism {
+  background: var(--color-glassmorphism);
+}
+
+.post-card-glassmorphism {
+  background: var(--color-glassmorphism);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.dark .post-card-glassmorphism {
+  background: var(--color-glassmorphism);
+}
+
+.newsletter-glassmorphism {
+  background: var(--color-glassmorphism);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.dark .newsletter-glassmorphism {
+  background: var(--color-glassmorphism);
+}
+
+.newsletter-success-glassmorphism {
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.1) 0%, rgba(22, 163, 74, 0.1) 100%);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.dark .newsletter-success-glassmorphism {
+  background: linear-gradient(135deg, rgba(34, 197, 94, 0.2) 0%, rgba(22, 163, 74, 0.2) 100%);
+}
+
+.featured-post-glassmorphism {
+  background: var(--color-glassmorphism);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.dark .featured-post-glassmorphism {
+  background: var(--color-glassmorphism);
+}
+
+.search-glassmorphism {
+  background: var(--color-glassmorphism);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.dark .search-glassmorphism {
+  background: var(--color-glassmorphism);
+}
+
+.pagination-glassmorphism {
+  background: var(--color-glassmorphism);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.dark .pagination-glassmorphism {
+  background: var(--color-glassmorphism);
+}
+
+.contact-card-glassmorphism {
+  background: var(--color-glassmorphism);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.dark .contact-card-glassmorphism {
+  background: var(--color-glassmorphism);
+}
+
+.about-profile-glassmorphism {
+  background: var(--color-glassmorphism);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.dark .about-profile-glassmorphism {
+  background: var(--color-glassmorphism);
+}
+
+.about-timeline-glassmorphism {
+  background: var(--color-glassmorphism);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.dark .about-timeline-glassmorphism {
+  background: var(--color-glassmorphism);
+}
+
+.about-timeline-card-glassmorphism {
+  background: var(--color-glassmorphism);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.dark .about-timeline-card-glassmorphism {
+  background: var(--color-glassmorphism);
 }

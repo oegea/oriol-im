@@ -44,7 +44,7 @@ export default function ReadingProgress() {
       {showBackToTop && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-6 right-6 z-50 bg-white text-black px-4 py-2 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 border border-gray-200"
+          className="fixed bottom-6 right-6 z-50 bg-white dark:bg-gray-800 text-black dark:text-white px-4 py-2 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 border border-gray-200 dark:border-gray-700"
           style={{
             fontSize: '14px',
             fontWeight: 600,

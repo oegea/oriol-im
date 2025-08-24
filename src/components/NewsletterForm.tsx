@@ -27,21 +27,16 @@ export default function NewsletterForm() {
   if (isSubmitted) {
     return (
       <div 
-        className="relative backdrop-blur-sm rounded-2xl border border-white/30 p-6 text-center"
-        style={{ 
-          background: 'linear-gradient(135deg, rgba(34, 197, 94, 0.1) 0%, rgba(22, 163, 74, 0.1) 100%)',
-          backdropFilter: 'blur(10px)',
-          WebkitBackdropFilter: 'blur(10px)',
-        }}
+        className="relative backdrop-blur-sm rounded-2xl border border-white/30 dark:border-gray-700/30 p-6 text-center newsletter-success-glassmorphism"
       >
         <div className="flex flex-col items-center space-y-3">
           <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center">
             <Check size={24} className="text-white" />
           </div>
-          <h3 className="text-lg font-semibold text-gray-900">
+          <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
             ¡Gracias por suscribirte!
           </h3>
-          <p className="text-gray-600 text-sm">
+          <p className="text-gray-600 dark:text-gray-400 text-sm">
             Recibirás las últimas entradas directamente en tu email.
           </p>
         </div>
@@ -51,11 +46,8 @@ export default function NewsletterForm() {
 
   return (
     <div 
-      className="relative backdrop-blur-sm rounded-2xl border border-white/30 p-6"
+      className="relative backdrop-blur-sm rounded-2xl border border-white/30 dark:border-gray-700/30 p-6 newsletter-glassmorphism"
       style={{ 
-        background: 'linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.7) 100%)',
-        backdropFilter: 'blur(10px)',
-        WebkitBackdropFilter: 'blur(10px)',
         boxShadow: '0 8px 32px rgba(0,0,0,0.1)',
       }}
     >
@@ -71,10 +63,10 @@ export default function NewsletterForm() {
         <div className="inline-flex items-center justify-center w-12 h-12 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full mb-3">
           <Mail size={20} className="text-white" />
         </div>
-        <h3 className="text-lg font-bold text-gray-900 mb-2">
+        <h3 className="text-lg font-bold text-gray-900 dark:text-gray-100 mb-2">
           ¡Mantente al día!
         </h3>
-        <p className="text-sm text-gray-600">
+        <p className="text-sm text-gray-600 dark:text-gray-400">
           Recibe las últimas entradas directamente en tu inbox
         </p>
       </div>
@@ -86,7 +78,7 @@ export default function NewsletterForm() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             placeholder="tu@email.com"
-            className="w-full px-4 py-3 bg-white/60 backdrop-blur-sm border border-white/30 rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow-400/50 focus:border-yellow-400/50 transition-all duration-300"
+            className="w-full px-4 py-3 bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm border border-white/30 dark:border-gray-700/30 rounded-xl focus:outline-none focus:ring-2 focus:ring-yellow-400/50 focus:border-yellow-400/50 transition-all duration-300 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400"
             required
           />
         </div>
@@ -100,7 +92,7 @@ export default function NewsletterForm() {
             className="mt-1 w-4 h-4 rounded border-2 border-gray-300 text-yellow-400 focus:ring-yellow-400 focus:ring-2 cursor-pointer relative z-20"
             required
           />
-          <label htmlFor="privacy-checkbox" className="text-xs text-gray-600 cursor-pointer relative z-20">
+          <label htmlFor="privacy-checkbox" className="text-xs text-gray-600 dark:text-gray-400 cursor-pointer relative z-20">
             Acepto la{' '}
             <a 
               href="/politica-de-privacidad" 

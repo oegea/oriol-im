@@ -23,7 +23,7 @@ export default function ContactPage() {
       <ReadingProgress />
       
       {/* Hero Section with background similar to homepage */}
-      <section className="relative overflow-hidden">
+      <section className="relative overflow-hidden bg-white dark:bg-gray-900 transition-colors">
         {/* Background image with overlay */}
         <div 
           className="absolute inset-0 opacity-30"
@@ -46,7 +46,7 @@ export default function ContactPage() {
         
         <div className="relative max-w-6xl mx-auto px-6 py-16 text-center">
           <h1 
-            className="mb-8 bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600"
+            className="mb-8 bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600 dark:from-gray-100 dark:to-gray-400"
             style={{ 
               fontSize: 'clamp(2.5rem, 5vw, 4rem)', 
               fontWeight: 700,
@@ -57,8 +57,7 @@ export default function ContactPage() {
           </h1>
           
           <p 
-            className="mb-8 text-xl leading-relaxed max-w-3xl mx-auto"
-            style={{ color: 'var(--text-light)' }}
+            className="mb-8 text-xl leading-relaxed max-w-3xl mx-auto text-gray-600 dark:text-gray-400"
           >
             Tanto si quieres preguntarme algo, charlar un rato, compartir algo interesante, 
             o proponerme un nuevo proyecto, me encantaría conocerte.
@@ -67,12 +66,11 @@ export default function ContactPage() {
       </section>
 
       {/* Content section */}
-      <section className="relative max-w-6xl mx-auto px-6 py-12">
+      <section className="relative max-w-6xl mx-auto px-6 py-12 bg-white dark:bg-gray-900 transition-colors">
         {/* Section Title */}
         <div className="text-center mb-12">
           <h2 
-            className="mb-4 text-3xl font-bold"
-            style={{ color: 'var(--text-dark)' }}
+            className="mb-4 text-3xl font-bold text-gray-900 dark:text-gray-100"
           >
             Formas preferidas de contacto
           </h2>
@@ -91,9 +89,8 @@ export default function ContactPage() {
               style={{ animationDelay: `${index * 150}ms` }}
             >
               <div 
-                className="relative p-8 rounded-2xl backdrop-blur-xl border border-white/30 hover:scale-105 transition-all duration-500 overflow-hidden group hover:border-yellow-400/50"
+                className="relative p-8 rounded-2xl backdrop-blur-xl border border-white/30 dark:border-gray-700/30 hover:scale-105 transition-all duration-500 overflow-hidden group hover:border-yellow-400/50 contact-card-glassmorphism"
                 style={{
-                  background: 'linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.85) 100%)',
                   boxShadow: '0 8px 32px rgba(0,0,0,0.1)',
                 }}
               >
@@ -108,21 +105,18 @@ export default function ContactPage() {
                   <div className="flex items-center mb-4">
                     <span className="text-3xl mr-4">{social.icon}</span>
                     <h3 
-                      className="text-xl font-bold transition-colors duration-500"
-                      style={{ color: 'var(--text-dark)' }}
+                      className="text-xl font-bold transition-colors duration-500 text-gray-900 dark:text-gray-100"
                     >
                       {social.name}
                     </h3>
                   </div>
                   <p 
-                    className="leading-relaxed mb-6 transition-colors duration-500"
-                    style={{ color: 'var(--text-light)' }}
+                    className="leading-relaxed mb-6 transition-colors duration-500 text-gray-600 dark:text-gray-300"
                   >
                     {social.description}
                   </p>
                   <div 
-                    className="inline-flex items-center text-sm font-semibold transition-colors duration-500" 
-                    style={{ color: 'var(--link-color)' }}
+                    className="inline-flex items-center text-sm font-semibold transition-colors duration-500 text-yellow-600 dark:text-yellow-400" 
                   >
                     Contactar →
                   </div>
@@ -134,9 +128,8 @@ export default function ContactPage() {
 
         {/* Email Alternative with glassmorphism */}
         <div 
-          className="p-8 rounded-2xl backdrop-blur-xl border border-white/30 text-center animate-fade-in-up"
+          className="p-8 rounded-2xl backdrop-blur-xl border border-white/30 dark:border-gray-700/30 text-center animate-fade-in-up contact-card-glassmorphism"
           style={{
-            background: 'linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.85) 100%)',
             boxShadow: '0 8px 32px rgba(0,0,0,0.1)',
             animationDelay: '300ms'
           }}
@@ -145,14 +138,12 @@ export default function ContactPage() {
             <span className="text-2xl">📧</span>
           </div>
           <h2 
-            className="text-2xl font-semibold mb-4"
-            style={{ color: 'var(--text-dark)' }}
+            className="text-2xl font-semibold mb-4 text-gray-900 dark:text-gray-100"
           >
             ¿Prefieres el email?
           </h2>
           <p 
-            className="mb-8 leading-relaxed max-w-md mx-auto"
-            style={{ color: 'var(--text-light)' }}
+            className="mb-8 leading-relaxed max-w-md mx-auto text-gray-600 dark:text-gray-300"
           >
             Si prefieres un contacto más directo, también puedes enviarme un email.
           </p>
@@ -171,15 +162,13 @@ export default function ContactPage() {
 
         {/* Footer Note */}
         <div 
-          className="text-center mt-12 p-6 rounded-xl border animate-fade-in-up"
+          className="text-center mt-12 p-6 rounded-xl border animate-fade-in-up bg-yellow-50 dark:bg-yellow-900/20 border-yellow-200 dark:border-yellow-800/30"
           style={{ 
-            backgroundColor: 'rgba(252, 203, 11, 0.1)',
-            borderColor: 'rgba(252, 203, 11, 0.3)',
             animationDelay: '450ms'
           }}
         >
-          <p style={{ color: 'var(--text-light)' }} className="leading-relaxed">
-            <span className="font-semibold" style={{ color: 'var(--text-dark)' }}>⚡ Tiempo de respuesta:</span> Intentaré responder a todos los mensajes relevantes y respetuosos, 
+          <p className="leading-relaxed text-gray-600 dark:text-gray-300">
+            <span className="font-semibold text-gray-900 dark:text-gray-100">⚡ Tiempo de respuesta:</span> Intentaré responder a todos los mensajes relevantes y respetuosos, 
             aunque dependiendo de mi carga de trabajo, las respuestas pueden demorarse un poco.
           </p>
         </div>

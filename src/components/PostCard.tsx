@@ -15,11 +15,8 @@ export default function PostCard({ post }: PostCardProps) {
     <article className="group relative h-full">
       {/* Glassmorphism card */}
       <div 
-        className="relative h-full bg-white/80 backdrop-blur-sm rounded-2xl border border-white/30 overflow-hidden transition-all duration-500 group-hover:transform group-hover:translateY(-2px)"
+        className="relative h-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm rounded-2xl border border-white/30 dark:border-gray-700/30 overflow-hidden transition-all duration-500 group-hover:transform group-hover:translateY(-2px) post-card-glassmorphism"
         style={{ 
-          background: 'linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.7) 100%)',
-          backdropFilter: 'blur(10px)',
-          WebkitBackdropFilter: 'blur(10px)',
           boxShadow: '0 8px 32px rgba(0,0,0,0.1)',
         }}
       >
@@ -42,7 +39,7 @@ export default function PostCard({ post }: PostCardProps) {
         {/* Content */}
         <div className="p-6 relative">
           {/* Date */}
-          <div className="flex items-center space-x-2 mb-3 text-sm text-gray-500">
+          <div className="flex items-center space-x-2 mb-3 text-sm text-gray-500 dark:text-gray-400">
             <Calendar size={14} />
             <time dateTime={post.date}>
               {formatDate(post.date)}
@@ -53,7 +50,7 @@ export default function PostCard({ post }: PostCardProps) {
           <h2 className="mb-3 text-xl font-bold leading-tight">
             <Link 
               href={`/${post.slug}`}
-              className="text-gray-900 group-hover:text-yellow-600 transition-colors duration-300"
+              className="text-gray-900 dark:text-gray-100 group-hover:text-yellow-600 transition-colors duration-300"
             >
               {post.title}
             </Link>
@@ -61,7 +58,7 @@ export default function PostCard({ post }: PostCardProps) {
           
           {/* Excerpt */}
           {excerpt && (
-            <p className="mb-4 text-gray-600 leading-relaxed line-clamp-3">
+            <p className="mb-4 text-gray-600 dark:text-gray-300 leading-relaxed line-clamp-3">
               {excerpt}
             </p>
           )}
@@ -79,7 +76,6 @@ export default function PostCard({ post }: PostCardProps) {
           </Link>
         </div>
       </div>
-      
     </article>
   )
 }

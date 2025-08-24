@@ -23,11 +23,8 @@ export default function PostCard({ post, featured = false }: PostCardProps) {
     return (
       <article className="group relative w-full">
         <div 
-          className="relative backdrop-blur-sm rounded-3xl border-0 overflow-hidden transition-all duration-500 group-hover:transform group-hover:translateY(-2px) group-hover:shadow-2xl"
+          className="relative backdrop-blur-sm rounded-3xl border-0 overflow-hidden transition-all duration-500 group-hover:transform group-hover:translateY(-2px) group-hover:shadow-2xl featured-post-glassmorphism"
           style={{ 
-            background: 'linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.85) 100%)',
-            backdropFilter: 'blur(20px)',
-            WebkitBackdropFilter: 'blur(20px)',
             boxShadow: '0 10px 40px rgba(0,0,0,0.08), 0 0 0 1px rgba(255,255,255,0.3)',
           }}
         >
@@ -61,7 +58,7 @@ export default function PostCard({ post, featured = false }: PostCardProps) {
             {/* Content */}
             <div className={`p-8 relative z-10 ${post.featured_image ? 'md:w-1/2' : 'w-full'}`}>
               <div className="flex items-center justify-between mb-6">
-                <div className="flex items-center space-x-2 text-sm text-gray-500">
+                <div className="flex items-center space-x-2 text-sm text-slate-500 dark:text-slate-400">
                   <Calendar size={16} />
                   <time dateTime={post.date}>
                     {formatDate(post.date)}
@@ -74,7 +71,7 @@ export default function PostCard({ post, featured = false }: PostCardProps) {
                 )}
               </div>
               
-              <h3 className="mb-4 text-3xl font-bold text-gray-900 leading-tight">
+              <h3 className="mb-4 text-3xl font-bold text-slate-900 dark:text-slate-50 leading-tight">
                 <Link 
                   href={`/${post.slug}`}
                   className="hover:text-yellow-600 transition-colors duration-300"
@@ -83,11 +80,11 @@ export default function PostCard({ post, featured = false }: PostCardProps) {
                 </Link>
               </h3>
               
-              <p className="text-gray-600 text-lg leading-relaxed mb-6">
+              <p className="text-slate-600 dark:text-slate-300 text-lg leading-relaxed mb-6">
                 {cleanExcerpt.substring(0, 300)}{cleanExcerpt.length > 300 ? '...' : ''}
               </p>
               
-              <div className="pt-4 border-t border-gray-100">
+              <div className="pt-4 border-t border-slate-200 dark:border-slate-600">
                 <Link 
                   href={`/${post.slug}`}
                   className="inline-flex items-center space-x-2 text-yellow-600 font-medium hover:text-yellow-700 transition-colors duration-300 text-base"
@@ -110,11 +107,8 @@ export default function PostCard({ post, featured = false }: PostCardProps) {
     <article className="group relative h-full">
       {/* Glassmorphism card */}
       <div 
-        className="relative h-full bg-white/80 backdrop-blur-sm rounded-2xl border border-white/30 overflow-hidden transition-all duration-500 group-hover:transform group-hover:translateY(-2px)"
+        className="relative h-full bg-white/80 dark:bg-slate-800/80 backdrop-blur-sm rounded-2xl border border-white/30 dark:border-slate-600/30 overflow-hidden transition-all duration-500 group-hover:transform group-hover:translateY(-2px) post-card-glassmorphism"
         style={{ 
-          background: 'linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.7) 100%)',
-          backdropFilter: 'blur(10px)',
-          WebkitBackdropFilter: 'blur(10px)',
           boxShadow: '0 8px 32px rgba(0,0,0,0.1)',
         }}
       >
@@ -137,7 +131,7 @@ export default function PostCard({ post, featured = false }: PostCardProps) {
         {/* Content */}
         <div className="p-6 relative">
           {/* Date */}
-          <div className="flex items-center space-x-2 mb-3 text-sm text-gray-500">
+          <div className="flex items-center space-x-2 mb-3 text-sm text-slate-500 dark:text-slate-400">
             <Calendar size={14} />
             <time dateTime={post.date}>
               {formatDate(post.date)}
@@ -148,7 +142,7 @@ export default function PostCard({ post, featured = false }: PostCardProps) {
           <h2 className="mb-3 text-xl font-bold leading-tight">
             <Link 
               href={`/${post.slug}`}
-              className="text-gray-900 group-hover:text-yellow-600 transition-colors duration-300"
+              className="text-slate-900 dark:text-slate-50 group-hover:text-yellow-600 transition-colors duration-300"
             >
               {post.title.replace(/&#8217;/g, "'")}
             </Link>
@@ -156,7 +150,7 @@ export default function PostCard({ post, featured = false }: PostCardProps) {
           
           {/* Excerpt */}
           {cleanExcerpt && (
-            <p className="mb-4 text-gray-600 leading-relaxed line-clamp-3">
+            <p className="mb-4 text-slate-600 dark:text-slate-300 leading-relaxed line-clamp-3">
               {cleanExcerpt.substring(0, 150)}{cleanExcerpt.length > 150 ? '...' : ''}
             </p>
           )}

@@ -55,7 +55,7 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
   ]
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12">
+    <div className="min-h-screen bg-gray-50 dark:bg-slate-900 py-12 transition-colors">
       <div className="max-w-6xl mx-auto px-6">
         {/* Breadcrumbs */}
         <Breadcrumbs items={breadcrumbItems} />
@@ -63,14 +63,12 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
         {/* Header */}
         <div className="text-center mb-12">
           <h1 
-            className="mb-4 text-4xl font-bold"
-            style={{ color: 'var(--text-dark)' }}
+            className="mb-4 text-4xl font-bold text-slate-900 dark:text-slate-50"
           >
             Blog
           </h1>
           <p 
-            className="text-xl leading-relaxed max-w-2xl mx-auto mb-8"
-            style={{ color: 'var(--text-light)' }}
+            className="text-xl leading-relaxed max-w-2xl mx-auto mb-8 text-slate-600 dark:text-slate-300"
           >
             Todas las entradas del blog sobre desarrollo, tecnología y aprendizajes del día a día.
           </p>

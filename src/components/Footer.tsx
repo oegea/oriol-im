@@ -8,12 +8,7 @@ export default function Footer() {
     <footer className="relative mt-16 overflow-hidden">
       {/* Glassmorphism background */}
       <div 
-        className="relative backdrop-blur-sm border-t border-white/30"
-        style={{ 
-          background: 'linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.7) 100%)',
-          backdropFilter: 'blur(10px)',
-          WebkitBackdropFilter: 'blur(10px)',
-        }}
+        className="relative backdrop-blur-sm border-t border-white/30 dark:border-gray-700/30 footer-glassmorphism"
       >
         {/* Subtle background animation */}
         <div 
@@ -30,10 +25,10 @@ export default function Footer() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
             {/* Left section - About */}
             <div className="space-y-4">
-              <h3 className="text-lg font-semibold text-gray-900">
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
                 Oriol Egea
               </h3>
-              <p className="text-sm leading-relaxed text-gray-600 max-w-md">
+              <p className="text-sm leading-relaxed text-gray-600 dark:text-gray-400 max-w-md">
                 Desarrollo, liderazgo tecnológico y aprendizajes del día a día. 
                 Experiencias reales en el mundo del desarrollo y la tecnología.
               </p>
@@ -73,20 +68,20 @@ export default function Footer() {
 
             {/* Right section - Quick Links */}
             <div className="space-y-4">
-              <h3 className="text-lg font-semibold text-gray-900">
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100">
                 Enlaces
               </h3>
               <div className="space-y-3 text-sm">
                 <Link 
                   href="/about"
-                  className="flex items-center space-x-2 text-gray-600 hover:text-yellow-600 transition-colors"
+                  className="flex items-center space-x-2 text-gray-600 dark:text-gray-400 hover:text-yellow-600 transition-colors"
                 >
                   <span>Sobre mí</span>
                   <ExternalLink size={14} />
                 </Link>
                 <Link 
                   href="/contact"
-                  className="flex items-center space-x-2 text-gray-600 hover:text-yellow-600 transition-colors"
+                  className="flex items-center space-x-2 text-gray-600 dark:text-gray-400 hover:text-yellow-600 transition-colors"
                 >
                   <span>Contacto</span>
                   <ExternalLink size={14} />
@@ -94,7 +89,7 @@ export default function Footer() {
                 <a 
                   href="/rss.xml" 
                   target="_blank"
-                  className="flex items-center space-x-2 text-gray-600 hover:text-yellow-600 transition-colors"
+                  className="flex items-center space-x-2 text-gray-600 dark:text-gray-400 hover:text-yellow-600 transition-colors"
                 >
                   <span>RSS Feed</span>
                   <ExternalLink size={14} />
@@ -104,12 +99,12 @@ export default function Footer() {
           </div>
 
           {/* Bottom section - Copyright and Legal */}
-          <div className="pt-8 border-t border-white/30">
+          <div className="pt-8 border-t border-white/30 dark:border-gray-700/30">
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
               {/* Left - Copyright */}
-              <div className="flex items-center space-x-2 text-sm text-gray-500">
+              <div className="flex items-center space-x-2 text-sm text-gray-500 dark:text-gray-400">
                 <span>© {currentYear} Oriol Egea</span>
-                <span className="w-1 h-1 bg-gray-400 rounded-full"></span>
+                <span className="w-1 h-1 bg-gray-400 dark:bg-gray-600 rounded-full"></span>
                 <a 
                   href="https://creativecommons.org/licenses/by-sa/4.0/" 
                   target="_blank" 
@@ -124,13 +119,13 @@ export default function Footer() {
               <div className="flex items-center space-x-6 text-sm">
                 <Link 
                   href="/aviso-legal"
-                  className="text-gray-500 hover:text-yellow-600 transition-colors"
+                  className="text-gray-500 dark:text-gray-400 hover:text-yellow-600 transition-colors"
                 >
                   Aviso legal
                 </Link>
                 <Link 
                   href="/politica-de-privacidad"
-                  className="text-gray-500 hover:text-yellow-600 transition-colors"
+                  className="text-gray-500 dark:text-gray-400 hover:text-yellow-600 transition-colors"
                 >
                   Política de privacidad
                 </Link>

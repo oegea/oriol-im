@@ -8,7 +8,7 @@ export default async function HomePage() {
   const posts = getPosts(1, 4) // Get first 4 posts for homepage
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-white dark:bg-slate-900 transition-colors">
       {/* Hero Section with background image */}
       <section className="relative overflow-hidden">
         {/* Background image with overlay */}
@@ -33,19 +33,21 @@ export default async function HomePage() {
         
         <div className="relative max-w-6xl mx-auto px-6 py-16 text-center">
           <h1 
-            className="mb-8 bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-600"
+            className="mb-8"
             style={{ 
               fontSize: 'clamp(2.5rem, 5vw, 4rem)', 
               fontWeight: 700,
               lineHeight: 1.1
             }}
           >
-            ¡Hola! Soy Oriol 👋
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-slate-900 to-slate-600 dark:from-slate-50 dark:to-slate-300">
+              ¡Hola! Soy Oriol
+            </span>{' '}
+            <span className="inline-block">👋</span>
           </h1>
           
           <p 
-            className="mb-8 text-xl leading-relaxed max-w-3xl mx-auto"
-            style={{ color: 'var(--text-light)' }}
+            className="mb-8 text-xl leading-relaxed max-w-3xl mx-auto text-slate-600 dark:text-slate-300"
           >
             Escribo sobre desarrollo, liderazgo tecnológico y aprendizajes del día a día. 
             En este sitio web encontrarás experiencias personales, reflexiones, 
@@ -64,8 +66,7 @@ export default async function HomePage() {
       <section className="relative max-w-6xl mx-auto px-6 py-12">
         <div className="text-center mb-12">
           <h2 
-            className="mb-4 text-3xl font-bold"
-            style={{ color: 'var(--text-dark)' }}
+            className="mb-4 text-3xl font-bold text-slate-900 dark:text-slate-50"
           >
             Últimas entradas
           </h2>

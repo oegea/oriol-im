@@ -3,6 +3,7 @@ import './globals.css'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import ReadingProgress from '@/components/ReadingProgress'
+import { ThemeProvider } from '@/contexts/ThemeContext'
 import { config } from '@/lib/config'
 
 export const metadata: Metadata = {
@@ -32,13 +33,15 @@ export default function RootLayout({
           defer
         />
       </head>
-      <body className="min-h-screen flex flex-col">
-        <ReadingProgress />
-        <Header />
-        <main className="flex-grow">
-          {children}
-        </main>
-        <Footer />
+      <body className="min-h-screen flex flex-col bg-white dark:bg-slate-900 text-slate-900 dark:text-slate-50 transition-colors">
+        <ThemeProvider>
+          <ReadingProgress />
+          <Header />
+          <main className="flex-grow">
+            {children}
+          </main>
+          <Footer />
+        </ThemeProvider>
       </body>
     </html>
   )

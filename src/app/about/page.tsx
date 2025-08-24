@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import Head from 'next/head'
-import { MapPin, Briefcase } from 'lucide-react'
+import { MapPin, Briefcase, Linkedin, Twitter } from 'lucide-react'
 import { useState } from 'react'
 
 
@@ -242,19 +242,14 @@ export default function AboutPage() {
         <title>Sobre mí</title>
         <meta name="description" content="CTO & Co-Founder con más de 10 años de experiencia en desarrollo, liderazgo técnico y construcción de productos que resuelven problemas reales." />
       </Head>
-      <div className="min-h-screen">
+      <div className="min-h-screen bg-white dark:bg-slate-900 transition-colors">
       {/* Hero Section */}
       <section className="relative max-w-6xl mx-auto px-6 py-16">
         <div className="grid md:grid-cols-3 gap-8 items-start">
           {/* Profile Image */}
           <div className="relative">
             <div 
-              className="relative backdrop-blur-sm rounded-3xl border border-white/30 overflow-hidden p-1"
-              style={{ 
-                background: 'linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.7) 100%)',
-                backdropFilter: 'blur(10px)',
-                WebkitBackdropFilter: 'blur(10px)',
-              }}
+              className="relative backdrop-blur-sm rounded-3xl border border-white/30 dark:border-gray-700/30 overflow-hidden p-1 about-profile-glassmorphism"
             >
               <Image
                 src="/images/oriol-profile.jpg"
@@ -271,27 +266,17 @@ export default function AboutPage() {
                 href="https://www.linkedin.com/in/oriolegea/" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="hover:scale-110 transition-transform"
+                className="p-2.5 rounded-full bg-white/80 dark:bg-slate-800/80 border border-white/30 dark:border-slate-600/30 text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 hover:scale-110 transition-all duration-300 shadow-sm"
               >
-                <Image 
-                  src="/images/linkedin-logo.png"
-                  alt="LinkedIn"
-                  width={35}
-                  height={35}
-                />
+                <Linkedin size={20} />
               </a>
               <a 
                 href="https://www.twitter.com/OriolEgea" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="hover:scale-110 transition-transform"
+                className="p-2.5 rounded-full bg-white/80 dark:bg-slate-800/80 border border-white/30 dark:border-slate-600/30 text-slate-700 dark:text-slate-300 hover:text-sky-500 dark:hover:text-sky-400 hover:scale-110 transition-all duration-300 shadow-sm"
               >
-                <Image 
-                  src="/images/twitter.png"
-                  alt="Twitter"
-                  width={35}
-                  height={35}
-                />
+                <Twitter size={20} />
               </a>
             </div>
           </div>
@@ -299,11 +284,11 @@ export default function AboutPage() {
           {/* Content */}
           <div className="md:col-span-2 space-y-6">
             <div>
-              <h1 className="text-4xl font-bold text-gray-900 mb-4">
+              <h1 className="text-4xl font-bold text-slate-900 dark:text-slate-50 mb-4">
                 Oriol Egea
               </h1>
               <div className="flex items-center space-x-4 mb-6">
-                <div className="flex items-center space-x-2 text-gray-600">
+                <div className="flex items-center space-x-2 text-slate-600 dark:text-slate-400">
                   <Briefcase size={18} />
                   <span>CTO & Co-Founder en </span>
                   <a 
@@ -316,17 +301,17 @@ export default function AboutPage() {
                   </a>
                 </div>
               </div>
-              <div className="flex items-center space-x-2 text-gray-500 mb-6">
+              <div className="flex items-center space-x-2 text-slate-500 dark:text-slate-400 mb-6">
                 <MapPin size={16} />
                 <span>Barcelona, España</span>
               </div>
             </div>
 
             <div className="space-y-4">
-              <p className="text-gray-700 leading-relaxed text-lg">
+              <p className="text-slate-700 dark:text-slate-300 leading-relaxed text-lg">
                 {personalIntro.content.replace('{age}', age.toString())}
               </p>
-              <p className="text-gray-700 leading-relaxed text-lg">
+              <p className="text-slate-700 dark:text-slate-300 leading-relaxed text-lg">
                 Actualmente trabajo como CTO & Co-Founder en <a href="https://www.amplifysoft.io/" target="_blank" className="text-yellow-600 hover:text-yellow-700 font-medium">Amplify Software</a>, donde construimos herramientas de IA para profesionales del broadcast. Antes he contribuido como Senior Frontend Engineer al desarrollo de <a href="https://www.coches.net/" target="_blank" className="text-yellow-600 hover:text-yellow-700 font-medium">coches.net</a>, el portal de compraventa de vehículos líder en España, en <a href="https://adevinta.es/" target="_blank" className="text-yellow-600 hover:text-yellow-700 font-medium">Adevinta Spain</a>, y anteriormente como Tech Lead al liderazgo del desarrollo de uno de los principales productos en <a href="https://www.vsn-tv.com/" target="_blank" className="text-yellow-600 hover:text-yellow-700 font-medium">VSN</a>.
               </p>
             </div>
@@ -342,7 +327,7 @@ export default function AboutPage() {
         {(professionalFilters.work || professionalFilters.education) && (
           <div className="mb-16">
             <div className="text-center mb-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">Trabajo y formación</h3>
+              <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-50 mb-2">Trabajo y formación</h3>
               <div className="w-24 h-1 bg-gradient-to-r from-yellow-400 to-orange-400 mx-auto rounded-full mt-4" />
               
               {/* Checkboxes para esta sección */}
@@ -367,7 +352,7 @@ export default function AboutPage() {
                       )}
                     </div>
                   </div>
-                  <span className="text-sm font-medium text-gray-700 group-hover:text-gray-900">
+                  <span className="text-sm font-medium text-slate-700 dark:text-slate-300 group-hover:text-slate-900 dark:group-hover:text-slate-50">
                     Trabajo ({groupedEvents.work.length})
                   </span>
                 </label>
@@ -392,7 +377,7 @@ export default function AboutPage() {
                       )}
                     </div>
                   </div>
-                  <span className="text-sm font-medium text-gray-700 group-hover:text-gray-900">
+                  <span className="text-sm font-medium text-slate-700 dark:text-slate-300 group-hover:text-slate-900 dark:group-hover:text-slate-50">
                     Formación ({groupedEvents.education.length})
                   </span>
                 </label>
@@ -404,11 +389,8 @@ export default function AboutPage() {
               {professionalFilters.work && groupedEvents.work.length > 0 && (
                 <article className="group relative w-full">
                   <div 
-                    className="relative backdrop-blur-sm rounded-3xl border-0 overflow-hidden transition-all duration-500 group-hover:transform group-hover:translateY(-2px) group-hover:shadow-2xl"
+                    className="relative backdrop-blur-sm rounded-3xl border-0 overflow-hidden transition-all duration-500 group-hover:transform group-hover:translateY(-2px) group-hover:shadow-2xl about-timeline-glassmorphism"
                     style={{ 
-                      background: 'linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.85) 100%)',
-                      backdropFilter: 'blur(20px)',
-                      WebkitBackdropFilter: 'blur(20px)',
                       boxShadow: '0 10px 40px rgba(0,0,0,0.08), 0 0 0 1px rgba(255,255,255,0.3)',
                     }}
                   >
@@ -437,25 +419,25 @@ export default function AboutPage() {
                           {groupedEvents.work[0].image ? (
                             <Image src={groupedEvents.work[0].image} alt={groupedEvents.work[0].title} width={56} height={56} className="object-contain" />
                           ) : (
-                            <div className="w-14 h-14 bg-gray-200 text-gray-700 rounded-full flex items-center justify-center text-2xl font-medium">
+                            <div className="w-14 h-14 bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-full flex items-center justify-center text-2xl font-medium">
                               {groupedEvents.work[0].icon}
                             </div>
                           )}
-                          <span className="text-sm font-semibold px-3 py-2 rounded-full bg-gray-100 text-gray-700">Trabajo</span>
+                          <span className="text-sm font-semibold px-3 py-2 rounded-full bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300">Trabajo</span>
                         </div>
                         <div className="text-right">
-                          <span className="text-lg font-bold text-gray-700">{groupedEvents.work[0].year}</span>
+                          <span className="text-lg font-bold text-slate-700 dark:text-slate-300">{groupedEvents.work[0].year}</span>
                           {groupedEvents.work[0].current && (
                             <span className="block text-sm font-medium text-green-600 bg-green-50 px-3 py-2 rounded-full animate-pulse mt-1">Actual</span>
                           )}
                         </div>
                       </div>
                       
-                      <h3 className="mb-4 text-3xl font-bold text-gray-900 leading-tight">
+                      <h3 className="mb-4 text-3xl font-bold text-slate-900 dark:text-slate-50 leading-tight">
                         {groupedEvents.work[0].title}
                       </h3>
                       
-                      <p className="text-gray-600 text-lg leading-relaxed mb-6">
+                      <p className="text-slate-600 dark:text-slate-300 text-lg leading-relaxed mb-6">
                         {groupedEvents.work[0].description}
                       </p>
                       
@@ -492,11 +474,8 @@ export default function AboutPage() {
                   .map((event, index) => (
                   <article key={`${event.type}-${index}`} className="group relative h-full">
                     <div 
-                      className="relative h-full backdrop-blur-sm rounded-2xl border-0 overflow-hidden transition-all duration-500 group-hover:transform group-hover:translateY(-1px) group-hover:shadow-xl"
+                      className="relative h-full backdrop-blur-sm rounded-2xl border-0 overflow-hidden transition-all duration-500 group-hover:transform group-hover:translateY(-1px) group-hover:shadow-xl about-timeline-card-glassmorphism"
                       style={{ 
-                        background: 'linear-gradient(135deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.78) 100%)',
-                        backdropFilter: 'blur(16px)',
-                        WebkitBackdropFilter: 'blur(16px)',
                         boxShadow: '0 4px 20px rgba(0,0,0,0.06), 0 0 0 1px rgba(255,255,255,0.2)',
                       }}
                     >
@@ -527,28 +506,28 @@ export default function AboutPage() {
                             ) : (
                               <div className={`w-12 h-12 rounded-full flex items-center justify-center text-xl font-medium ${
                                 event.type === 'work' 
-                                  ? 'bg-gray-200 text-gray-700' 
-                                  : 'bg-gray-100 text-gray-600'
+                                  ? 'bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300' 
+                                  : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400'
                               }`}>
                                 {event.icon}
                               </div>
                             )}
                             <span className={`text-xs font-medium px-2 py-1 rounded-full ${
                               event.type === 'work' 
-                                ? 'bg-gray-100 text-gray-700' 
-                                : 'bg-gray-50 text-gray-600'
+                                ? 'bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300' 
+                                : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400'
                             }`}>
                               {event.type === 'work' ? 'Trabajo' : 'Formación'}
                             </span>
                           </div>
-                          <span className="text-sm font-semibold text-gray-700">{event.year}</span>
+                          <span className="text-sm font-semibold text-slate-700 dark:text-slate-300">{event.year}</span>
                         </div>
                         
-                        <h3 className="mb-3 font-bold text-gray-900 leading-tight">
+                        <h3 className="mb-3 font-bold text-slate-900 dark:text-slate-50 leading-tight">
                           {event.title}
                         </h3>
                         
-                        <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                        <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-4">
                           {event.description}
                         </p>
                         
@@ -585,7 +564,7 @@ export default function AboutPage() {
         {(personalFilters.project || personalFilters.personal) && (
           <div>
             <div className="text-center mb-8">
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">Proyectos y momentos</h3>
+              <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-50 mb-2">Proyectos y momentos</h3>
               <div className="w-24 h-1 bg-gradient-to-r from-yellow-400 to-orange-400 mx-auto rounded-full mt-4" />
               
               {/* Checkboxes para esta sección */}
@@ -610,7 +589,7 @@ export default function AboutPage() {
                       )}
                     </div>
                   </div>
-                  <span className="text-sm font-medium text-gray-700 group-hover:text-gray-900">
+                  <span className="text-sm font-medium text-slate-700 dark:text-slate-300 group-hover:text-slate-900 dark:group-hover:text-slate-50">
                     Proyectos ({groupedEvents.project.length})
                   </span>
                 </label>
@@ -635,7 +614,7 @@ export default function AboutPage() {
                       )}
                     </div>
                   </div>
-                  <span className="text-sm font-medium text-gray-700 group-hover:text-gray-900">
+                  <span className="text-sm font-medium text-slate-700 dark:text-slate-300 group-hover:text-slate-900 dark:group-hover:text-slate-50">
                     Momentos ({groupedEvents.personal.length})
                   </span>
                 </label>
@@ -647,11 +626,8 @@ export default function AboutPage() {
               {personalEvents.map((event, index) => (
                 <article key={`${event.type}-${index}`} className="group relative h-full">
                   <div 
-                    className="relative h-full backdrop-blur-sm rounded-2xl border-0 overflow-hidden transition-all duration-500 group-hover:transform group-hover:translateY(-1px) group-hover:shadow-xl"
+                    className="relative h-full backdrop-blur-sm rounded-2xl border-0 overflow-hidden transition-all duration-500 group-hover:transform group-hover:translateY(-1px) group-hover:shadow-xl about-timeline-card-glassmorphism"
                     style={{ 
-                      background: 'linear-gradient(135deg, rgba(255,255,255,0.92) 0%, rgba(255,255,255,0.78) 100%)',
-                      backdropFilter: 'blur(16px)',
-                      WebkitBackdropFilter: 'blur(16px)',
                       boxShadow: '0 4px 20px rgba(0,0,0,0.06), 0 0 0 1px rgba(255,255,255,0.2)',
                     }}
                   >
@@ -669,27 +645,27 @@ export default function AboutPage() {
                         <div className="flex items-center space-x-3">
                           <div className={`w-12 h-12 rounded-full flex items-center justify-center text-xl font-medium ${
                             event.type === 'project'
-                              ? 'bg-gray-150 text-gray-600'
-                              : 'bg-gray-50 text-gray-500'
+                              ? 'bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-400'
+                              : 'bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400'
                           }`}>
                             {event.icon}
                           </div>
                           <span className={`text-xs font-medium px-2 py-1 rounded-full ${
                             event.type === 'project'
-                              ? 'bg-gray-75 text-gray-600'
-                              : 'bg-gray-25 text-gray-500'
+                              ? 'bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-400'
+                              : 'bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400'
                           }`}>
                             {event.type === 'project' ? 'Proyecto' : 'Momento'}
                           </span>
                         </div>
-                        <span className="text-sm font-semibold text-gray-700">{event.year}</span>
+                        <span className="text-sm font-semibold text-slate-700 dark:text-slate-300">{event.year}</span>
                       </div>
                       
-                      <h3 className="mb-3 font-bold text-gray-900 leading-tight">
+                      <h3 className="mb-3 font-bold text-slate-900 dark:text-slate-50 leading-tight">
                         {event.title}
                       </h3>
                       
-                      <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                      <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-4">
                         {event.description}
                       </p>
                       

@@ -91,12 +91,7 @@ export default function Pagination({ currentPage, totalPages, onPageChange, clas
         <button
           onClick={() => onPageChange(currentPage - 1)}
           disabled={currentPage === 1}
-          className="flex items-center px-3 py-2 text-sm font-medium text-gray-500 bg-white/80 backdrop-blur-sm border border-white/30 rounded-lg hover:bg-white/90 hover:text-yellow-600 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300"
-          style={{
-            background: 'linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.7) 100%)',
-            backdropFilter: 'blur(10px)',
-            WebkitBackdropFilter: 'blur(10px)',
-          }}
+          className="flex items-center px-3 py-2 text-sm font-medium text-gray-500 dark:text-gray-400 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-white/30 dark:border-gray-700/30 rounded-lg hover:bg-white/90 dark:hover:bg-gray-700/90 hover:text-yellow-600 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 pagination-glassmorphism"
         >
           <ChevronLeft size={16} className="mr-1" />
           Anterior
@@ -114,17 +109,8 @@ export default function Pagination({ currentPage, totalPages, onPageChange, clas
                   className={`px-3 py-2 text-sm font-medium rounded-lg transition-all duration-300 ${
                     page === currentPage
                       ? 'bg-gradient-to-r from-yellow-400 to-orange-400 text-white shadow-lg'
-                      : 'text-gray-600 bg-white/80 backdrop-blur-sm border border-white/30 hover:bg-white/90 hover:text-yellow-600'
+                      : 'text-gray-600 dark:text-gray-400 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-white/30 dark:border-gray-700/30 hover:bg-white/90 dark:hover:bg-gray-700/90 hover:text-yellow-600 pagination-glassmorphism'
                   }`}
-                  style={
-                    page !== currentPage
-                      ? {
-                          background: 'linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.7) 100%)',
-                          backdropFilter: 'blur(10px)',
-                          WebkitBackdropFilter: 'blur(10px)',
-                        }
-                      : {}
-                  }
                 >
                   {page}
                 </button>
@@ -137,12 +123,7 @@ export default function Pagination({ currentPage, totalPages, onPageChange, clas
         <button
           onClick={() => onPageChange(currentPage + 1)}
           disabled={currentPage === totalPages}
-          className="flex items-center px-3 py-2 text-sm font-medium text-gray-500 bg-white/80 backdrop-blur-sm border border-white/30 rounded-lg hover:bg-white/90 hover:text-yellow-600 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300"
-          style={{
-            background: 'linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.7) 100%)',
-            backdropFilter: 'blur(10px)',
-            WebkitBackdropFilter: 'blur(10px)',
-          }}
+          className="flex items-center px-3 py-2 text-sm font-medium text-gray-500 dark:text-gray-400 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-white/30 dark:border-gray-700/30 rounded-lg hover:bg-white/90 dark:hover:bg-gray-700/90 hover:text-yellow-600 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 pagination-glassmorphism"
         >
           Siguiente
           <ChevronRight size={16} className="ml-1" />
@@ -155,12 +136,7 @@ export default function Pagination({ currentPage, totalPages, onPageChange, clas
         <button
           onClick={() => onPageChange(currentPage - 1)}
           disabled={currentPage === 1}
-          className="flex items-center justify-center w-8 h-8 text-gray-500 bg-white/80 backdrop-blur-sm border border-white/30 rounded-lg hover:bg-white/90 hover:text-yellow-600 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300"
-          style={{
-            background: 'linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.7) 100%)',
-            backdropFilter: 'blur(10px)',
-            WebkitBackdropFilter: 'blur(10px)',
-          }}
+          className="flex items-center justify-center w-8 h-8 text-gray-500 dark:text-gray-400 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-white/30 dark:border-gray-700/30 rounded-lg hover:bg-white/90 dark:hover:bg-gray-700/90 hover:text-yellow-600 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 pagination-glassmorphism"
           aria-label="Página anterior"
         >
           <ChevronLeft size={14} />
@@ -178,17 +154,8 @@ export default function Pagination({ currentPage, totalPages, onPageChange, clas
                   className={`flex items-center justify-center w-8 h-8 text-xs font-medium rounded-lg transition-all duration-300 ${
                     page === currentPage
                       ? 'bg-gradient-to-r from-yellow-400 to-orange-400 text-white shadow-lg font-bold'
-                      : 'text-gray-600 bg-white/80 backdrop-blur-sm border border-white/30 hover:bg-white/90 hover:text-yellow-600'
+                      : 'text-gray-600 dark:text-gray-400 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-white/30 dark:border-gray-700/30 hover:bg-white/90 dark:hover:bg-gray-700/90 hover:text-yellow-600 pagination-glassmorphism'
                   }`}
-                  style={
-                    page !== currentPage
-                      ? {
-                          background: 'linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.7) 100%)',
-                          backdropFilter: 'blur(10px)',
-                          WebkitBackdropFilter: 'blur(10px)',
-                        }
-                      : {}
-                  }
                 >
                   {page}
                 </button>
@@ -201,12 +168,7 @@ export default function Pagination({ currentPage, totalPages, onPageChange, clas
         <button
           onClick={() => onPageChange(currentPage + 1)}
           disabled={currentPage === totalPages}
-          className="flex items-center justify-center w-8 h-8 text-gray-500 bg-white/80 backdrop-blur-sm border border-white/30 rounded-lg hover:bg-white/90 hover:text-yellow-600 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300"
-          style={{
-            background: 'linear-gradient(135deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.7) 100%)',
-            backdropFilter: 'blur(10px)',
-            WebkitBackdropFilter: 'blur(10px)',
-          }}
+          className="flex items-center justify-center w-8 h-8 text-gray-500 dark:text-gray-400 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-white/30 dark:border-gray-700/30 rounded-lg hover:bg-white/90 dark:hover:bg-gray-700/90 hover:text-yellow-600 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 pagination-glassmorphism"
           aria-label="Página siguiente"
         >
           <ChevronRight size={14} />
