@@ -61,29 +61,46 @@ export default function BlogClient({
         />
       </div>
 
-      {/* Results info and Top Pagination in same line */}
-      <div className="flex items-center justify-between mb-6 gap-4 min-h-[40px]">
-        <span className="text-sm text-gray-600 leading-none">
-          {searchQuery ? (
-            <>
-              Mostrando {filteredPosts.length} resultado{filteredPosts.length !== 1 ? 's' : ''} para "{searchQuery}"
-            </>
-          ) : (
-            <>
-              Mostrando {allPosts.length} post{allPosts.length !== 1 ? 's' : ''} en total
-            </>
+      {/* Results info and Top Pagination */}
+      <div className="mb-6 min-h-[40px]">
+        {/* Desktop/Tablet: Same line */}
+        <div className="hidden sm:flex items-center justify-between gap-4">
+          <span className="text-sm text-gray-600 leading-none">
+            {searchQuery ? (
+              <>
+                Mostrando {filteredPosts.length} resultado{filteredPosts.length !== 1 ? 's' : ''} para "{searchQuery}"
+              </>
+            ) : (
+              <>
+                Mostrando {allPosts.length} post{allPosts.length !== 1 ? 's' : ''} en total
+              </>
+            )}
+          </span>
+          
+          {/* Top Pagination - only show if there are multiple pages */}
+          {totalPages > 1 && (
+            <Pagination 
+              currentPage={currentPage}
+              totalPages={totalPages}
+              onPageChange={handlePageChange}
+              className="m-0"
+            />
           )}
-        </span>
-        
-        {/* Top Pagination - only show if there are multiple pages */}
-        {totalPages > 1 && (
-          <Pagination 
-            currentPage={currentPage}
-            totalPages={totalPages}
-            onPageChange={handlePageChange}
-            className="m-0"
-          />
-        )}
+        </div>
+
+        {/* Mobile: Stacked layout without results text */}
+        <div className="sm:hidden">
+          {totalPages > 1 && (
+            <div className="flex justify-center">
+              <Pagination 
+                currentPage={currentPage}
+                totalPages={totalPages}
+                onPageChange={handlePageChange}
+                className="m-0"
+              />
+            </div>
+          )}
+        </div>
       </div>
 
       {/* Posts Grid */}
@@ -130,29 +147,46 @@ export default function BlogClient({
         </div>
       )}
 
-      {/* Bottom Results info and Pagination - same structure as top */}
-      <div className="flex items-center justify-between mt-12 gap-4 min-h-[40px]">
-        <span className="text-sm text-gray-600 leading-none">
-          {searchQuery ? (
-            <>
-              Mostrando {filteredPosts.length} resultado{filteredPosts.length !== 1 ? 's' : ''} para "{searchQuery}"
-            </>
-          ) : (
-            <>
-              Mostrando {allPosts.length} post{allPosts.length !== 1 ? 's' : ''} en total
-            </>
+      {/* Bottom Results info and Pagination */}
+      <div className="mt-12 min-h-[40px]">
+        {/* Desktop/Tablet: Same line */}
+        <div className="hidden sm:flex items-center justify-between gap-4">
+          <span className="text-sm text-gray-600 leading-none">
+            {searchQuery ? (
+              <>
+                Mostrando {filteredPosts.length} resultado{filteredPosts.length !== 1 ? 's' : ''} para "{searchQuery}"
+              </>
+            ) : (
+              <>
+                Mostrando {allPosts.length} post{allPosts.length !== 1 ? 's' : ''} en total
+              </>
+            )}
+          </span>
+          
+          {/* Bottom Pagination - only show if there are multiple pages */}
+          {totalPages > 1 && (
+            <Pagination 
+              currentPage={currentPage}
+              totalPages={totalPages}
+              onPageChange={handlePageChange}
+              className="m-0"
+            />
           )}
-        </span>
-        
-        {/* Bottom Pagination - only show if there are multiple pages */}
-        {totalPages > 1 && (
-          <Pagination 
-            currentPage={currentPage}
-            totalPages={totalPages}
-            onPageChange={handlePageChange}
-            className="m-0"
-          />
-        )}
+        </div>
+
+        {/* Mobile: Centered pagination without results text */}
+        <div className="sm:hidden">
+          {totalPages > 1 && (
+            <div className="flex justify-center">
+              <Pagination 
+                currentPage={currentPage}
+                totalPages={totalPages}
+                onPageChange={handlePageChange}
+                className="m-0"
+              />
+            </div>
+          )}
+        </div>
       </div>
     </>
   )
