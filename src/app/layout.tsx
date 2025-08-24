@@ -35,10 +35,22 @@ export default function RootLayout({
             })();
           `
         }} />
-        <link 
-          rel="stylesheet" 
-          href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-tomorrow.min.css" 
-        />
+        <script dangerouslySetInnerHTML={{
+          __html: `
+            (function() {
+              const savedTheme = localStorage.getItem('theme');
+              const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+              const isDark = savedTheme === 'dark' || (!savedTheme && systemPrefersDark);
+              
+              const link = document.createElement('link');
+              link.rel = 'stylesheet';
+              link.href = isDark 
+                ? 'https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-tomorrow.min.css'
+                : 'https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism.min.css';
+              document.head.appendChild(link);
+            })();
+          `
+        }} />
         <script 
           src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-core.min.js"
           defer

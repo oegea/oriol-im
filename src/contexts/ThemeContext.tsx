@@ -53,6 +53,19 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
       root.classList.remove('dark')
     }
 
+    // Update Prism theme dynamically
+    const existingPrismLink = document.querySelector('link[href*="prism"]')
+    if (existingPrismLink) {
+      existingPrismLink.remove()
+    }
+    
+    const newPrismLink = document.createElement('link')
+    newPrismLink.rel = 'stylesheet'
+    newPrismLink.href = theme === 'dark' 
+      ? 'https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism-tomorrow.min.css'
+      : 'https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism.min.css'
+    document.head.appendChild(newPrismLink)
+
     localStorage.setItem('theme', theme)
   }, [theme])
 

@@ -96,18 +96,15 @@ a:hover {
   animation: scroll 15s linear infinite;
 }
 
-/* Code styling */
+/* Code styling - border color override for both modes */
 pre {
-  background-color: rgba(0, 0, 0, 0.05) !important;
-  border-left: 10px solid var(--primary-color);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  padding: 1em;
-  overflow-x: auto;
+  border-left: 10px solid var(--primary-color) !important;
 }
 
+/* Dark mode specific overrides */
 .dark pre {
   background-color: rgba(15, 23, 42, 0.8) !important;
-  border-left: 10px solid var(--color-primary);
+  border-left: 10px solid var(--color-primary) !important;
 }
 
 /* Override Prism theme for better dark mode */
