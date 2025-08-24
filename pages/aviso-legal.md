@@ -36,3 +36,17 @@ El blog y su infraestructura informática, no almacena cookies propias ni de te
 ## Licencia de las Entradas
 
 Salvo que se especifique lo contrario de forma clara, concisa y puntual en una página o Entrada de El blog: Las Entradas de El blog son publicadas bajo licencia *[Attribution-ShareAlike 4.0 International (CC BY-SA 4.0)](http://creativecommons.org/licenses/by-sa/4.0/)* por lo que pueden ser modificadas y redistribuídas por El usuario siempre y cuando cumpla los términos especificados en la citada licencia.
+
+## Limitación de uso para fines de Inteligencia Artificial
+
+Pese al punto anterior, queda **expresamente prohibido** el uso del contenido de este sitio web para el entrenamiento, desarrollo, mejora o funcionamiento de sistemas de inteligencia artificial, modelos de lenguaje, algoritmos de aprendizaje automático o cualquier tecnología similar, sin el **consentimiento previo, expreso y por escrito** del autor.
+
+Esta prohibición incluye, sin limitación:
+- Scraping o extracción automatizada del contenido
+- Uso como dataset de entrenamiento  
+- Procesamiento para fine-tuning de modelos
+- Cualquier forma de ingesta de contenido con fines de IA
+
+El uso no autorizado del contenido para estos fines constituirá una violación de los derechos de autor y podrá dar lugar a acciones legales correspondientes.
+
+Para solicitar autorización para el uso del contenido con fines de inteligencia artificial, el interesado deberá contactar por escrito a través de los medios especificados en esta política de privacidad.
