@@ -6,9 +6,10 @@ import { Calendar, ArrowRight } from 'lucide-react'
 
 interface PostCardProps {
   post: PostSummary
+  featured?: boolean
 }
 
-export default function PostCard({ post }: PostCardProps) {
+export default function PostCard({ post, featured = false }: PostCardProps) {
   // Clean up excerpt - remove any HTML entities
   const cleanExcerpt = post.excerpt
     .replace(/&#8217;/g, "'")
@@ -17,6 +18,93 @@ export default function PostCard({ post }: PostCardProps) {
     .replace(/&hellip;/g, "...")
     .replace(/<[^>]*>/g, '')
     .trim()
+
+  if (featured) {
+    return (
+      <article className="group relative w-full">
+        <div 
+          className="relative backdrop-blur-sm rounded-3xl border-0 overflow-hidden transition-all duration-500 group-hover:transform group-hover:translateY(-2px) group-hover:shadow-2xl"
+          style={{ 
+            background: 'linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.85) 100%)',
+            backdropFilter: 'blur(20px)',
+            WebkitBackdropFilter: 'blur(20px)',
+            boxShadow: '0 10px 40px rgba(0,0,0,0.08), 0 0 0 1px rgba(255,255,255,0.3)',
+          }}
+        >
+          <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-yellow-400/5 to-orange-400/5" />
+          
+          {/* Background category badge */}
+          {post.categories && post.categories.length > 0 && (
+            <div className="absolute bottom-2 right-2 w-[240px] h-[240px] opacity-[0.065] pointer-events-none flex items-end justify-end">
+              <div className="text-[240px] leading-none select-none">
+                📝
+              </div>
+            </div>
+          )}
+          
+          <div className="flex flex-col md:flex-row">
+            {/* Featured Image */}
+            {post.featured_image && (
+              <div className="relative md:w-1/2">
+                <div className="relative h-64 md:h-full overflow-hidden md:rounded-l-3xl">
+                  <Image
+                    src={post.featured_image}
+                    alt={post.featured_image_alt || post.title}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+                </div>
+              </div>
+            )}
+            
+            {/* Content */}
+            <div className={`p-8 relative z-10 ${post.featured_image ? 'md:w-1/2' : 'w-full'}`}>
+              <div className="flex items-center justify-between mb-6">
+                <div className="flex items-center space-x-2 text-sm text-gray-500">
+                  <Calendar size={16} />
+                  <time dateTime={post.date}>
+                    {formatDate(post.date)}
+                  </time>
+                </div>
+                {post.categories && post.categories.length > 0 && (
+                  <span className="px-3 py-1 bg-gradient-to-r from-yellow-400 to-orange-400 text-white text-xs font-medium rounded-full shadow-lg backdrop-blur-sm">
+                    {post.categories[0]}
+                  </span>
+                )}
+              </div>
+              
+              <h3 className="mb-4 text-3xl font-bold text-gray-900 leading-tight">
+                <Link 
+                  href={`/${post.slug}`}
+                  className="hover:text-yellow-600 transition-colors duration-300"
+                >
+                  {post.title.replace(/&#8217;/g, "'")}
+                </Link>
+              </h3>
+              
+              <p className="text-gray-600 text-lg leading-relaxed mb-6">
+                {cleanExcerpt.substring(0, 300)}{cleanExcerpt.length > 300 ? '...' : ''}
+              </p>
+              
+              <div className="pt-4 border-t border-gray-100">
+                <Link 
+                  href={`/${post.slug}`}
+                  className="inline-flex items-center space-x-2 text-yellow-600 font-medium hover:text-yellow-700 transition-colors duration-300 text-base"
+                >
+                  <span>Leer artículo completo</span>
+                  <ArrowRight 
+                    size={16} 
+                    className="transition-transform duration-300 group-hover:translate-x-1" 
+                  />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+    )
+  }
 
   return (
     <article className="group relative h-full">

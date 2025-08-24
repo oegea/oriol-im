@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
 
 export default async function HomePage() {
-  const posts = getPosts(1, 6) // Get first 6 posts for homepage
+  const posts = getPosts(1, 4) // Get first 4 posts for homepage
 
   return (
     <div className="min-h-screen">
@@ -72,18 +72,30 @@ export default async function HomePage() {
           <div className="w-24 h-1 bg-gradient-to-r from-yellow-400 to-orange-400 mx-auto rounded-full" />
         </div>
         
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {posts.map((post, index) => (
-            <div
-              key={post.id}
-              className="animate-fade-in-up"
-              style={{ 
-                animationDelay: `${index * 150}ms`,
-              }}
-            >
-              <PostCard post={post} />
+        <div className="space-y-8">
+          {/* Featured post - full width card for the first/most recent post */}
+          {posts.length > 0 && (
+            <div className="animate-fade-in-up" style={{ animationDelay: '0ms' }}>
+              <PostCard post={posts[0]} featured={true} />
             </div>
-          ))}
+          )}
+          
+          {/* Regular grid for the rest of posts */}
+          {posts.length > 1 && (
+            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+              {posts.slice(1).map((post, index) => (
+                <div
+                  key={post.id}
+                  className="animate-fade-in-up"
+                  style={{ 
+                    animationDelay: `${(index + 1) * 150}ms`,
+                  }}
+                >
+                  <PostCard post={post} />
+                </div>
+              ))}
+            </div>
+          )}
         </div>
         
         {/* View all posts link */}

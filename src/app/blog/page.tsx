@@ -3,7 +3,8 @@ import Breadcrumbs from '@/components/Breadcrumbs'
 import PostCard from '@/components/PostCardMarkdown'
 import BlogClient from '@/components/BlogClient'
 
-const POSTS_PER_PAGE = 9
+// Dynamic posts per page: 10 on page 1 (1 featured + 9 regular), 9 on other pages
+const getPostsPerPage = (page: number) => page === 1 ? 10 : 9
 
 interface BlogPageProps {
   searchParams: {
@@ -28,10 +29,25 @@ export default async function BlogPage({ searchParams }: BlogPageProps) {
       })
     : allPosts
 
-  // Calculate pagination
-  const totalPages = Math.ceil(filteredPosts.length / POSTS_PER_PAGE)
-  const startIndex = (currentPage - 1) * POSTS_PER_PAGE
-  const endIndex = startIndex + POSTS_PER_PAGE
+  // Calculate pagination with dynamic posts per page
+  const postsPerPage = getPostsPerPage(currentPage)
+  
+  // Calculate total pages considering first page has 10 posts, others have 9
+  let totalPages = 1
+  let remainingPosts = filteredPosts.length
+  if (remainingPosts > 10) {
+    remainingPosts -= 10 // First page takes 10 posts
+    totalPages += Math.ceil(remainingPosts / 9) // Remaining pages take 9 posts each
+  }
+  
+  // Calculate start and end indices
+  let startIndex = 0
+  if (currentPage === 1) {
+    startIndex = 0
+  } else {
+    startIndex = 10 + (currentPage - 2) * 9 // 10 from first page + (currentPage-2) * 9 from previous pages
+  }
+  const endIndex = startIndex + postsPerPage
   const currentPosts = filteredPosts.slice(startIndex, endIndex)
 
   const breadcrumbItems = [

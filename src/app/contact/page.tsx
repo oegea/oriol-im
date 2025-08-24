@@ -13,7 +13,7 @@ export default function ContactPage() {
     {
       name: 'LinkedIn',
       icon: '💼',
-      url: 'https://www.linkedin.com/in/oriol-egea',
+      url: 'https://www.linkedin.com/in/oriolegea/',
       description: 'Conecta conmigo profesionalmente en LinkedIn'
     }
   ]

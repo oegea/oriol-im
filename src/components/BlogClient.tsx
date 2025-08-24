@@ -88,18 +88,28 @@ export default function BlogClient({
 
       {/* Posts Grid */}
       {currentPosts.length > 0 ? (
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {currentPosts.map((post, index) => (
-            <div
-              key={post.id}
-              className="animate-fade-in-up"
-              style={{ 
-                animationDelay: `${index * 100}ms`,
-              }}
-            >
-              <PostCard post={post} />
+        <div className="space-y-8">
+          {/* Featured post - full width card for the first/most recent post - only on page 1 */}
+          {currentPage === 1 && currentPosts.length > 0 && (
+            <div className="animate-fade-in-up" style={{ animationDelay: '0ms' }}>
+              <PostCard post={currentPosts[0]} featured={true} />
             </div>
-          ))}
+          )}
+          
+          {/* Regular grid for posts */}
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {(currentPage === 1 ? currentPosts.slice(1) : currentPosts).map((post, index) => (
+              <div
+                key={post.id}
+                className="animate-fade-in-up"
+                style={{ 
+                  animationDelay: `${(currentPage === 1 ? index + 1 : index) * 100}ms`,
+                }}
+              >
+                <PostCard post={post} />
+              </div>
+            ))}
+          </div>
         </div>
       ) : (
         <div className="text-center py-12">
