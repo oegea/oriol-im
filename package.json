@@ -12,7 +12,7 @@
   "dependencies": {
     "gray-matter": "^4.0.3",
     "lucide-react": "^0.539.0",
-    "next": "14.2.5",
+    "next": "14.2.35",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "remark": "^15.0.1",
