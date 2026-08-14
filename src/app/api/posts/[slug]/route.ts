@@ -3,10 +3,11 @@ import { getPostBySlugWithHtml } from '@/lib/markdown'
 
 export async function GET(
   request: NextRequest,
-  { params }: { params: { slug: string } }
+  { params }: { params: Promise<{ slug: string }> }
 ) {
   try {
-    const post = await getPostBySlugWithHtml(params.slug)
+    const { slug } = await params
+    const post = await getPostBySlugWithHtml(slug)
     
     if (!post) {
       return Response.json({ error: 'Post not found' }, { status: 404 })

@@ -20,6 +20,5 @@ export interface Post extends PostMetadata {
   filename: string
 }
 
-export interface PostSummary extends PostMetadata {
-  // For list views where we don't need the full content
-}
+// For list views where we don't need the full content
+export type PostSummary = PostMetadata

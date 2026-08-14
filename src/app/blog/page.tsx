@@ -7,16 +7,17 @@ import BlogClient from '@/components/BlogClient'
 const getPostsPerPage = (page: number) => page === 1 ? 10 : 9
 
 interface BlogPageProps {
-  searchParams: {
+  searchParams: Promise<{
     search?: string
     page?: string
-  }
+  }>
 }
 
 export default async function BlogPage({ searchParams }: BlogPageProps) {
   const allPosts = getAllPosts()
-  const searchQuery = searchParams.search || ''
-  const currentPage = parseInt(searchParams.page || '1', 10)
+  const { search, page } = await searchParams
+  const searchQuery = search || ''
+  const currentPage = parseInt(page || '1', 10)
 
   // Filter posts based on search query
   const filteredPosts = searchQuery.trim() 

@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Link from 'next/link'
 import { Mail, Check, Loader2 } from 'lucide-react'
 
 export default function NewsletterForm() {
@@ -94,12 +95,12 @@ export default function NewsletterForm() {
           />
           <label htmlFor="privacy-checkbox" className="text-xs text-slate-700 dark:text-slate-200 cursor-pointer relative z-20">
             Acepto la{' '}
-            <a 
-              href="/politica-de-privacidad" 
+            <Link
+              href="/politica-de-privacidad"
               className="text-yellow-600 hover:text-yellow-700 underline transition-colors"
             >
               política de privacidad
-            </a>
+            </Link>
           </label>
         </div>
 

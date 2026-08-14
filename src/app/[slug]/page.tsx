@@ -6,16 +6,16 @@ import { Page } from '@/types/page'
 import Breadcrumbs from '@/components/Breadcrumbs'
 
 interface DynamicPageProps {
-  params: {
+  params: Promise<{
     slug: string
-  }
+  }>
 }
 
 export async function generateMetadata({ params }: DynamicPageProps) {
-  const slug = params.slug
+  const { slug } = await params
   
   // Try to get as page first, then as post
-  let content: Page | null = await getPage(slug)
+  const content: Page | null = await getPage(slug)
   let post = null
   
   if (!content) {
@@ -42,10 +42,10 @@ export async function generateMetadata({ params }: DynamicPageProps) {
 }
 
 export default async function DynamicPage({ params }: DynamicPageProps) {
-  const slug = params.slug
+  const { slug } = await params
   
   // Try to get as page first
-  let content: Page | null = await getPage(slug)
+  const content: Page | null = await getPage(slug)
   let post = null
   
   // If not found as page, try as post

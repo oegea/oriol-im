@@ -92,7 +92,7 @@ async function migrateWordPressPagesToMarkdown() {
   
   try {
     // Create pages directory
-    const pagesDir = path.join(process.cwd(), 'pages')
+    const pagesDir = path.join(process.cwd(), 'content', 'pages')
     if (!fs.existsSync(pagesDir)) {
       fs.mkdirSync(pagesDir, { recursive: true })
     }

@@ -68,7 +68,7 @@ export default function BlogClient({
           <span className="text-sm text-gray-600 leading-none">
             {searchQuery ? (
               <>
-                Mostrando {filteredPosts.length} resultado{filteredPosts.length !== 1 ? 's' : ''} para "{searchQuery}"
+                Mostrando {filteredPosts.length} resultado{filteredPosts.length !== 1 ? 's' : ''} para &ldquo;{searchQuery}&rdquo;
               </>
             ) : (
               <>
@@ -154,7 +154,7 @@ export default function BlogClient({
           <span className="text-sm text-gray-600 leading-none">
             {searchQuery ? (
               <>
-                Mostrando {filteredPosts.length} resultado{filteredPosts.length !== 1 ? 's' : ''} para "{searchQuery}"
+                Mostrando {filteredPosts.length} resultado{filteredPosts.length !== 1 ? 's' : ''} para &ldquo;{searchQuery}&rdquo;
               </>
             ) : (
               <>

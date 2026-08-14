@@ -19,6 +19,5 @@ export interface Page extends PageMetadata {
   filename: string
 }
 
-export interface PageSummary extends PageMetadata {
-  // For list views where we don't need the full content
-}
+// For list views where we don't need the full content
+export type PageSummary = PageMetadata

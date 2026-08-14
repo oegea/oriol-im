@@ -1,7 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  turbopack: {
+    root: import.meta.dirname,
+  },
   images: {
-    domains: ['wp.oriol.im'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'wp.oriol.im',
+      },
+    ],
   },
 }
 

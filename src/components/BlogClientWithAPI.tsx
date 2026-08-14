@@ -112,7 +112,7 @@ export default function BlogClientWithAPI() {
         <p className="text-sm text-gray-600">
           {data.searchQuery ? (
             <>
-              Mostrando {data.pagination.totalPosts} resultado{data.pagination.totalPosts !== 1 ? 's' : ''} para "{data.searchQuery}"
+              Mostrando {data.pagination.totalPosts} resultado{data.pagination.totalPosts !== 1 ? 's' : ''} para &ldquo;{data.searchQuery}&rdquo;
             </>
           ) : (
             <>

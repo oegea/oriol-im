@@ -5,7 +5,7 @@ import { remark } from 'remark'
 import html from 'remark-html'
 import { Page, PageMetadata, PageSummary } from '@/types/page'
 
-const pagesDirectory = path.join(process.cwd(), 'pages')
+const pagesDirectory = path.join(process.cwd(), 'content', 'pages')
 
 // Get all page filenames
 export function getAllPageFilenames(): string[] {
