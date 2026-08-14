@@ -32,6 +32,22 @@ const timelineEvents = [
     url: "https://management30.com/badges/oriol-egea-143512756465189737d2398/"
   },
   {
+    year: "2026",
+    title: "Open Knowledge",
+    description: "Creo Open Knowledge, una plataforma open source y auto-hospedable para publicar bibliotecas de cursos abiertos curados con IA, junto a su biblioteca oficial. Fuentes citadas con rigor, descarga en EPUB y PDF bajo demanda, y sin necesidad de cuenta alguna.",
+    type: "project",
+    icon: "📚",
+    link: "https://www.openknowledge.es"
+  },
+  {
+    year: "2026",
+    title: "FreeSCP",
+    description: "Desarrollo FreeSCP, un port nativo de WinSCP para macOS y Linux: el motor de protocolos original de WinSCP recompilado de forma nativa, tras una reconstrucción de su interfaz en Qt. El gestor de ficheros de doble panel de siempre (SFTP, FTP, SCP, WebDAV y S3), ahora en el Mac. Gratuito y open source.",
+    type: "project",
+    icon: "🗂️",
+    link: "https://freescp.com/"
+  },
+  {
     year: "2023",
     title: "Docky",
     description: "Desarrollo Docky, una herramienta open source para desarrollar servicios REST rápidamente, con enfoque similar a Firebase. NodeJS y simplicidad.",
