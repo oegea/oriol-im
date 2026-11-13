@@ -2,8 +2,8 @@
 
 import Image from 'next/image'
 import Head from 'next/head'
-import { MapPin, Briefcase, Linkedin, Twitter, Github } from 'lucide-react'
-import { useState } from 'react'
+import { MapPin, Briefcase, Linkedin, Twitter, Github, Coffee, ArrowUpRight } from 'lucide-react'
+import { useEffect, useRef, useState, type ReactNode } from 'react'
 
 
 const personalIntro = {
@@ -74,10 +74,10 @@ const timelineEvents = [
   {
     year: "2022",
     title: "Passager",
-    description: "Desarrollo Passager, un gestor de contraseñas Open Source liberado bajo licencia AGPL, que utiliza la Crypto Web API. Encapsulado como mobile app con Capacitor.",
+    description: "Desarrollo Passager, un gestor de contraseñas Open Source liberado bajo licencia AGPL, que utiliza la Crypto Web API. Desde 2026, una aplicación web instalable (PWA) con desbloqueo biométrico.",
     type: "project",
     icon: "🔐",
-    link: "https://github.com/oegea/passager-password-manager"
+    link: "https://www.passager.app"
   },
   {
     year: "2022",
@@ -121,20 +121,6 @@ const timelineEvents = [
     url: "https://www.credly.com/badges/1694eade-5c2e-482c-876c-48636805be31"
   },
   {
-    year: "2018",
-    title: "IBC Amsterdam",
-    description: "Viajo por primera vez a Amsterdam, para asistir al IBC, una feria del sector Media & Entertainment.",
-    type: "personal",
-    icon: "✈️"
-  },
-  {
-    year: "2016",
-    title: "La familia crece",
-    description: "Adoptamos a Jeiko, el Spitz Japonés más listo y cariñoso del mundo.",
-    type: "personal",
-    icon: "🐕"
-  },
-  {
     year: "2014-2018",
     title: "Web & CRM Developer - VSN",
     description: "Desarrollo full-stack y administración de Salesforce. Evolución desde posición de becario hasta developer, trabajando en el rediseño del sitio web corporativo y desarrollo de aplicaciones internas.",
@@ -164,94 +150,123 @@ const timelineEvents = [
     type: "project",
     icon: "🎮"
   },
-  {
-    year: "2009",
-    title: "Piratas de Silicon Valley",
-    description: "Veo Piratas de Silicon Valley por primera vez. Un colega de mi hermano me enseña EyeOS y me hago fan del proyecto.",
-    type: "personal",
-    icon: "🎬"
-  },
-  {
-    year: "2006",
-    title: "El lío con Windows Vista",
-    description: "Microsoft libera Windows Vista. Me las apaño para descargarlo por P2P, y al lograr instalarlo (para disgusto de mis padres) dejo inservible el PC por falta de drivers. Consigo repararlo utilizando los discos de restauración.",
-    type: "personal",
-    icon: "🔄"
-  },
-  {
-    year: "2006",
-    title: "Windows Live Messenger",
-    description: "Windows Live Messenger se convierte en el Whatsapp de la época (pero sin ser portátil, y sólo por las tardes) para la mayoría de compañeros de clase.",
-    type: "personal",
-    icon: "💬"
-  },
-  {
-    year: "2006",
-    title: "El primer ordenador",
-    description: "Mis padres compran un nuevo ordenador. Empiezo a instalar programas que pruebo indiscriminadamente en Softonic. El Internet llega a casa gracias al ADSL de Wanadoo.",
-    type: "personal",
-    icon: "💻"
-  },
 ]
 
+type TimelineEvent = {
+  year: string
+  title: string
+  description: string
+  type: string
+  icon: string
+  image?: string
+  link?: string
+  url?: string
+  current?: boolean
+}
+
+// "2015-2019" -> 2019, "2024" -> 2024
+const getEndYear = (year: string): number =>
+  parseInt(year.includes('-') ? year.split('-')[1] : year)
+
+const byMostRecent = (a: TimelineEvent, b: TimelineEvent) =>
+  getEndYear(b.year) - getEndYear(a.year)
+
+const eventsOfType = (...types: string[]): TimelineEvent[] =>
+  (timelineEvents as TimelineEvent[])
+    .filter(event => types.includes(event.type))
+    .sort(byMostRecent)
+
+/** Fades its content in the first time it enters the screen. */
+function Reveal({ children, delay = 0, className = '' }: { children: ReactNode, delay?: number, className?: string }) {
+  const ref = useRef<HTMLDivElement>(null)
+  const [visible, setVisible] = useState(false)
+
+  useEffect(() => {
+    const element = ref.current
+    if (!element) return
+    const observer = new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) {
+        setVisible(true)
+        observer.disconnect()
+      }
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' })
+    observer.observe(element)
+    return () => observer.disconnect()
+  }, [])
+
+  return (
+    <div
+      ref={ref}
+      className={`transition-all duration-700 ease-out motion-reduce:transition-none ${
+        visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5 motion-reduce:opacity-100 motion-reduce:translate-y-0'
+      } ${className}`}
+      style={{ transitionDelay: visible ? `${delay}ms` : '0ms' }}
+    >
+      {children}
+    </div>
+  )
+}
+
+function SectionTitle({ title, subtitle }: { title: string, subtitle: string }) {
+  return (
+    <Reveal className="mb-10">
+      <h2 className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-slate-50">{title}</h2>
+      <div className="w-16 h-1 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-full mt-3 mb-3" />
+      <p className="text-slate-600 dark:text-slate-400">{subtitle}</p>
+    </Reveal>
+  )
+}
+
+function EventLogo({ event, size }: { event: TimelineEvent, size: number }) {
+  if (event.image) {
+    return (
+      <div
+        className="shrink-0 rounded-2xl bg-white border border-slate-200/70 dark:border-transparent flex items-center justify-center p-1.5"
+        style={{ width: size, height: size }}
+      >
+        <Image
+          src={event.image}
+          alt=""
+          width={size}
+          height={size}
+          className="object-contain w-full h-full"
+        />
+      </div>
+    )
+  }
+  return (
+    <div
+      className="shrink-0 rounded-2xl bg-slate-100 dark:bg-slate-800 flex items-center justify-center"
+      style={{ width: size, height: size, fontSize: size * 0.5 }}
+      aria-hidden="true"
+    >
+      {event.icon}
+    </div>
+  )
+}
+
+const socialLinks = [
+  { href: 'https://www.linkedin.com/in/oriolegea/', label: 'LinkedIn', icon: Linkedin, hover: 'hover:text-blue-600 dark:hover:text-blue-400' },
+  { href: 'https://www.twitter.com/OriolEgea', label: 'X (Twitter)', icon: Twitter, hover: 'hover:text-sky-500 dark:hover:text-sky-400' },
+  { href: 'https://github.com/oegea', label: 'GitHub', icon: Github, hover: 'hover:text-slate-900 dark:hover:text-slate-50' },
+  { href: 'https://ko-fi.com/oriolegea', label: 'Invítame a un café en Ko-fi', icon: Coffee, hover: 'hover:text-rose-500 dark:hover:text-rose-400' },
+]
+
+const cardClass =
+  'relative h-full rounded-2xl overflow-hidden backdrop-blur-sm about-timeline-card-glassmorphism ' +
+  'border border-slate-200/70 dark:border-slate-700/50 shadow-sm ' +
+  'transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:border-yellow-400/60'
+
+const linkClass =
+  'text-yellow-600 hover:text-yellow-700 font-medium'
 
 export default function AboutPage() {
-  const currentYear = new Date().getFullYear()
-  const age = currentYear - 1996
-  
-  // Estado para filtros por sección
-  const [professionalFilters, setProfessionalFilters] = useState({
-    work: true,
-    education: true
-  })
-  
-  const [personalFilters, setPersonalFilters] = useState({
-    project: true,
-    personal: false
-  })
-  
-  // Función para extraer el año de fin de un rango (ej: "2015-2019" -> 2019, "2024" -> 2024)
-  const getEndYear = (yearString: string): number => {
-    if (yearString.includes('-')) {
-      return parseInt(yearString.split('-')[1])
-    }
-    return parseInt(yearString)
-  }
-  
-  // Agrupar eventos por categoría y ordenar dentro de cada categoría
-  const groupedEvents = {
-    work: timelineEvents.filter(event => event.type === 'work').sort((a, b) => getEndYear(b.year) - getEndYear(a.year)),
-    project: timelineEvents.filter(event => event.type === 'project').sort((a, b) => getEndYear(b.year) - getEndYear(a.year)),
-    education: timelineEvents.filter(event => event.type === 'education').sort((a, b) => getEndYear(b.year) - getEndYear(a.year)),
-    personal: timelineEvents.filter(event => event.type === 'personal').sort((a, b) => getEndYear(b.year) - getEndYear(a.year))
-  }
+  const age = new Date().getFullYear() - 1996
 
-  // Crear arrays combinados y ordenados para cada sección
-  const professionalEvents = []
-  if (professionalFilters.work) professionalEvents.push(...groupedEvents.work)
-  if (professionalFilters.education) professionalEvents.push(...groupedEvents.education)
-  professionalEvents.sort((a, b) => getEndYear(b.year) - getEndYear(a.year))
+  const work = eventsOfType('work')
+  const projects = eventsOfType('project')
+  const education = eventsOfType('education', 'achievement')
 
-  const personalEvents = []
-  if (personalFilters.project) personalEvents.push(...groupedEvents.project)
-  if (personalFilters.personal) personalEvents.push(...groupedEvents.personal)
-  personalEvents.sort((a, b) => getEndYear(b.year) - getEndYear(a.year))
-
-  // Funciones para toggle de filtros por sección
-  const toggleProfessionalFilter = (filterId: 'work' | 'education') => {
-    setProfessionalFilters(prev => ({
-      ...prev,
-      [filterId]: !prev[filterId]
-    }))
-  }
-  
-  const togglePersonalFilter = (filterId: 'project' | 'personal') => {
-    setPersonalFilters(prev => ({
-      ...prev,
-      [filterId]: !prev[filterId]
-    }))
-  }
-  
   return (
     <>
       <Head>
@@ -259,464 +274,189 @@ export default function AboutPage() {
         <meta name="description" content="CTO & Co-Founder con más de 10 años de experiencia en desarrollo, liderazgo técnico y construcción de productos que resuelven problemas reales." />
       </Head>
       <div className="min-h-screen bg-white dark:bg-slate-900 transition-colors">
-      {/* Hero Section */}
-      <section className="relative max-w-6xl mx-auto px-6 py-16">
-        <div className="grid md:grid-cols-3 gap-8 items-start">
-          {/* Profile Image */}
-          <div className="relative">
-            <div 
-              className="relative backdrop-blur-sm rounded-3xl border border-white/30 dark:border-slate-700/30 overflow-hidden p-1 about-profile-glassmorphism"
-            >
-              <Image
-                src="/images/oriol-profile.jpg"
-                alt="Oriol Egea"
-                width={400}
-                height={400}
-                className="w-full h-auto object-cover rounded-3xl"
-              />
-            </div>
-            
-            {/* Social Links */}
-            <div className="flex space-x-4 mt-4 justify-center">
-              <a 
-                href="https://www.linkedin.com/in/oriolegea/" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="p-2.5 rounded-full bg-white/80 dark:bg-slate-800/80 border border-white/30 dark:border-slate-600/30 text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 hover:scale-110 transition-all duration-300 shadow-sm"
-              >
-                <Linkedin size={20} />
-              </a>
-              <a 
-                href="https://www.twitter.com/OriolEgea" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="p-2.5 rounded-full bg-white/80 dark:bg-slate-800/80 border border-white/30 dark:border-slate-600/30 text-slate-700 dark:text-slate-300 hover:text-sky-500 dark:hover:text-sky-400 hover:scale-110 transition-all duration-300 shadow-sm"
-              >
-                <Twitter size={20} />
-              </a>
-              <a 
-                href="https://github.com/oegea" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="p-2.5 rounded-full bg-white/80 dark:bg-slate-800/80 border border-white/30 dark:border-slate-600/30 text-slate-700 dark:text-slate-300 hover:text-slate-900 dark:hover:text-slate-50 hover:scale-110 transition-all duration-300 shadow-sm"
-              >
-                <Github size={20} />
-              </a>
-            </div>
-          </div>
+        {/* Hero */}
+        <section className="relative max-w-6xl mx-auto px-6 py-16">
+          <div className="grid md:grid-cols-3 gap-10 items-start">
+            <Reveal>
+              <div className="relative backdrop-blur-sm rounded-3xl border border-white/30 dark:border-slate-700/30 overflow-hidden p-1 about-profile-glassmorphism transition-transform duration-500 hover:-rotate-1 hover:scale-[1.02]">
+                <Image
+                  src="/images/oriol-profile.jpg"
+                  alt="Oriol Egea"
+                  width={400}
+                  height={400}
+                  priority
+                  className="w-full h-auto object-cover rounded-3xl"
+                />
+              </div>
 
-          {/* Content */}
-          <div className="md:col-span-2 space-y-6">
-            <div>
-              <h1 className="text-4xl font-bold text-slate-900 dark:text-slate-50 mb-4">
-                Oriol Egea
-              </h1>
-              <div className="flex items-center space-x-4 mb-6">
-                <div className="flex items-center space-x-2 text-slate-600 dark:text-slate-400">
-                  <Briefcase size={18} />
-                  <span>CTO & Co-Founder en </span>
-                  <a 
-                    href="https://www.amplifysoft.io" 
-                    target="_blank" 
+              <div className="flex space-x-4 mt-5 justify-center">
+                {socialLinks.map(({ href, label, icon: Icon, hover }) => (
+                  <a
+                    key={href}
+                    href={href}
+                    target="_blank"
                     rel="noopener noreferrer"
-                    className="text-yellow-600 hover:text-yellow-700 font-medium"
+                    aria-label={label}
+                    title={label}
+                    className={`p-2.5 rounded-full bg-white/80 dark:bg-slate-800/80 border border-slate-200/70 dark:border-slate-600/30 text-slate-700 dark:text-slate-300 hover:scale-110 hover:-translate-y-0.5 transition-all duration-300 shadow-sm ${hover}`}
                   >
-                    Amplify Software
+                    <Icon size={20} />
                   </a>
+                ))}
+              </div>
+            </Reveal>
+
+            <Reveal delay={120} className="md:col-span-2 space-y-6">
+              <div>
+                <h1 className="text-4xl md:text-5xl font-bold text-slate-900 dark:text-slate-50 mb-5">
+                  Oriol Egea
+                </h1>
+                <div className="flex flex-wrap gap-3">
+                  <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-sm">
+                    <Briefcase size={16} />
+                    <span>
+                      CTO & Co-Founder en{' '}
+                      <a href="https://www.amplifysoft.io" target="_blank" rel="noopener noreferrer" className={linkClass}>
+                        Amplify Software
+                      </a>
+                    </span>
+                  </span>
+                  <span className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-sm">
+                    <MapPin size={16} />
+                    Barcelona, España
+                  </span>
                 </div>
               </div>
-              <div className="flex items-center space-x-2 text-slate-500 dark:text-slate-400 mb-6">
-                <MapPin size={16} />
-                <span>Barcelona, España</span>
-              </div>
-            </div>
 
-            <div className="space-y-4">
-              <p className="text-slate-700 dark:text-slate-300 leading-relaxed text-lg">
-                {personalIntro.content.replace('{age}', age.toString())}
-              </p>
-              <p className="text-slate-700 dark:text-slate-300 leading-relaxed text-lg">
-                Actualmente trabajo como CTO & Co-Founder en <a href="https://www.amplifysoft.io/" target="_blank" className="text-yellow-600 hover:text-yellow-700 font-medium">Amplify Software</a>, donde construimos herramientas de IA para profesionales del broadcast. Antes he contribuido como Senior Frontend Engineer al desarrollo de <a href="https://www.coches.net/" target="_blank" className="text-yellow-600 hover:text-yellow-700 font-medium">coches.net</a>, el portal de compraventa de vehículos líder en España, en <a href="https://adevinta.es/" target="_blank" className="text-yellow-600 hover:text-yellow-700 font-medium">Adevinta Spain</a>, y anteriormente como Tech Lead al liderazgo del desarrollo de uno de los principales productos en <a href="https://www.vsn-tv.com/" target="_blank" className="text-yellow-600 hover:text-yellow-700 font-medium">VSN</a>.
-              </p>
-            </div>
+              <div className="space-y-4">
+                <p className="text-slate-700 dark:text-slate-300 leading-relaxed text-lg">
+                  {personalIntro.content.replace('{age}', age.toString())}
+                </p>
+                <p className="text-slate-700 dark:text-slate-300 leading-relaxed text-lg">
+                  Actualmente trabajo como CTO & Co-Founder en <a href="https://www.amplifysoft.io/" target="_blank" rel="noopener noreferrer" className={linkClass}>Amplify Software</a>, donde construimos herramientas de IA para profesionales del broadcast. Antes he contribuido como Senior Frontend Engineer al desarrollo de <a href="https://www.coches.net/" target="_blank" rel="noopener noreferrer" className={linkClass}>coches.net</a>, el portal de compraventa de vehículos líder en España, en <a href="https://adevinta.es/" target="_blank" rel="noopener noreferrer" className={linkClass}>Adevinta Spain</a>, y anteriormente como Tech Lead al liderazgo del desarrollo de uno de los principales productos en <a href="https://www.vsn-tv.com/" target="_blank" rel="noopener noreferrer" className={linkClass}>VSN</a>.
+                </p>
+              </div>
+            </Reveal>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Timeline */}
-      <section className="max-w-6xl mx-auto px-6 py-12">
+        {/* Trayectoria */}
+        <section className="max-w-6xl mx-auto px-6 py-12">
+          <SectionTitle title="Trayectoria" subtitle="Dónde he trabajado, y en qué." />
 
-
-        {/* Sección Profesional: Trabajo y Formación */}
-        {(professionalFilters.work || professionalFilters.education) && (
-          <div className="mb-16">
-            <div className="text-center mb-8">
-              <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-50 mb-2">Trabajo y formación</h3>
-              <div className="w-24 h-1 bg-gradient-to-r from-yellow-400 to-orange-400 mx-auto rounded-full mt-4" />
-              
-              {/* Checkboxes para esta sección */}
-              <div className="flex items-center justify-center gap-6 mt-6">
-                <label className="flex items-center space-x-3 cursor-pointer group">
-                  <div className="relative">
-                    <input
-                      type="checkbox"
-                      checked={professionalFilters.work}
-                      onChange={() => toggleProfessionalFilter('work')}
-                      className="sr-only"
-                    />
-                    <div className={`w-5 h-5 rounded border-2 transition-all duration-200 flex items-center justify-center ${
-                      professionalFilters.work
-                        ? 'bg-yellow-400 border-yellow-400'
-                        : 'bg-white border-slate-300 group-hover:border-yellow-300'
-                    }`}>
-                      {professionalFilters.work && (
-                        <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                        </svg>
-                      )}
-                    </div>
-                  </div>
-                  <span className="text-sm font-medium text-slate-700 dark:text-slate-300 group-hover:text-slate-900 dark:group-hover:text-slate-50">
-                    Trabajo ({groupedEvents.work.length})
-                  </span>
-                </label>
-                
-                <label className="flex items-center space-x-3 cursor-pointer group">
-                  <div className="relative">
-                    <input
-                      type="checkbox"
-                      checked={professionalFilters.education}
-                      onChange={() => toggleProfessionalFilter('education')}
-                      className="sr-only"
-                    />
-                    <div className={`w-5 h-5 rounded border-2 transition-all duration-200 flex items-center justify-center ${
-                      professionalFilters.education
-                        ? 'bg-yellow-400 border-yellow-400'
-                        : 'bg-white border-slate-300 group-hover:border-yellow-300'
-                    }`}>
-                      {professionalFilters.education && (
-                        <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                        </svg>
-                      )}
-                    </div>
-                  </div>
-                  <span className="text-sm font-medium text-slate-700 dark:text-slate-300 group-hover:text-slate-900 dark:group-hover:text-slate-50">
-                    Formación ({groupedEvents.education.length})
-                  </span>
-                </label>
-              </div>
-            </div>
-            
-            <div className="space-y-8">
-              {/* Tarjeta destacada para el trabajo actual */}
-              {professionalFilters.work && groupedEvents.work.length > 0 && (
-                <article className="group relative w-full">
-                  <div 
-                    className="relative backdrop-blur-sm rounded-3xl border-0 overflow-hidden transition-all duration-500 group-hover:transform group-hover:translateY(-2px) group-hover:shadow-2xl about-timeline-glassmorphism"
-                    style={{ 
-                      boxShadow: '0 10px 40px rgba(0,0,0,0.08), 0 0 0 1px rgba(255,255,255,0.3)',
-                    }}
-                  >
-                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-yellow-400/5 to-orange-400/5" />
-                    
-                    {/* Background logo/emoji */}
-                    <div className="absolute bottom-2 right-2 w-[240px] h-[240px] opacity-[0.065] pointer-events-none flex items-end justify-end">
-                      {groupedEvents.work[0].image ? (
-                        <Image
-                          src={groupedEvents.work[0].image}
-                          alt=""
-                          width={240}
-                          height={240}
-                          className="object-contain"
-                        />
-                      ) : (
-                        <div className="text-[240px] leading-none select-none">
-                          {groupedEvents.work[0].icon}
-                        </div>
-                      )}
-                    </div>
-                    
-                    <div className="p-8 relative z-10">
-                      <div className="flex items-center justify-between mb-6">
-                        <div className="flex items-center space-x-4">
-                          {groupedEvents.work[0].image ? (
-                            <Image src={groupedEvents.work[0].image} alt={groupedEvents.work[0].title} width={56} height={56} className="object-contain" />
-                          ) : (
-                            <div className="w-14 h-14 bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-full flex items-center justify-center text-2xl font-medium">
-                              {groupedEvents.work[0].icon}
-                            </div>
-                          )}
-                          <span className="text-sm font-semibold px-3 py-2 rounded-full bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300">Trabajo</span>
-                        </div>
-                        <div className="text-right">
-                          <span className="text-lg font-bold text-slate-700 dark:text-slate-300">{groupedEvents.work[0].year}</span>
-                          {groupedEvents.work[0].current && (
-                            <span className="block text-sm font-medium text-green-600 bg-green-50 px-3 py-2 rounded-full animate-pulse mt-1">Actual</span>
-                          )}
-                        </div>
-                      </div>
-                      
-                      <h3 className="mb-4 text-3xl font-bold text-slate-900 dark:text-slate-50 leading-tight">
-                        {groupedEvents.work[0].title}
-                      </h3>
-                      
-                      <p className="text-slate-600 dark:text-slate-300 text-lg leading-relaxed mb-6">
-                        {groupedEvents.work[0].description}
-                      </p>
-                      
-                      {(groupedEvents.work[0].link || groupedEvents.work[0].url) && (
-                        <div className="flex items-center space-x-4 pt-4 border-t border-slate-100 dark:border-slate-700">
-                          {groupedEvents.work[0].link && (
-                            <a href={groupedEvents.work[0].link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center space-x-2 text-yellow-600 font-medium hover:text-yellow-700 transition-colors duration-300 text-base">
-                              <span>Ver proyecto</span>
-                              <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zm-2 2H5c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-7h-2v7H5V7h7V5z"/>
-                              </svg>
-                            </a>
-                          )}
-                          {groupedEvents.work[0].url && (
-                            <a href={groupedEvents.work[0].url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center space-x-2 text-yellow-600 font-medium hover:text-yellow-700 transition-colors duration-300 text-base">
-                              <span>Ver certificado</span>
-                              <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zm-2 2H5c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-7h-2v7H5V7h7V5z"/>
-                              </svg>
-                            </a>
-                          )}
-                        </div>
-                      )}
-                    </div>
-                  </div>
-                </article>
-              )}
-              
-              {/* Grid para el resto de trabajo y formación */}
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {/* Trabajo y formación mezclados cronológicamente (excluyendo el primer trabajo) */}
-                {professionalEvents
-                  .filter(event => !(event.type === 'work' && event === groupedEvents.work[0]))
-                  .map((event, index) => (
-                  <article key={`${event.type}-${index}`} className="group relative h-full">
-                    <div 
-                      className="relative h-full backdrop-blur-sm rounded-2xl border-0 overflow-hidden transition-all duration-500 group-hover:transform group-hover:translateY(-1px) group-hover:shadow-xl about-timeline-card-glassmorphism"
-                      style={{ 
-                        boxShadow: '0 4px 20px rgba(0,0,0,0.06), 0 0 0 1px rgba(255,255,255,0.2)',
-                      }}
-                    >
-                      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-yellow-400/4 to-orange-400/4" />
-                      
-                      {/* Background logo/emoji */}
-                      <div className="absolute bottom-1 right-1 w-[160px] h-[160px] opacity-[0.055] pointer-events-none flex items-end justify-end">
-                        {event.image ? (
-                          <Image
-                            src={event.image}
-                            alt=""
-                            width={160}
-                            height={160}
-                            className="object-contain"
-                          />
-                        ) : (
-                          <div className="text-[160px] leading-none select-none">
-                            {event.icon}
-                          </div>
-                        )}
-                      </div>
-                      
-                      <div className="p-6 relative z-10">
-                        <div className="flex items-center justify-between mb-4">
-                          <div className="flex items-center space-x-3">
-                            {event.image ? (
-                              <Image src={event.image} alt={event.title} width={48} height={48} className="object-contain" />
-                            ) : (
-                              <div className={`w-12 h-12 rounded-full flex items-center justify-center text-xl font-medium ${
-                                event.type === 'work' 
-                                  ? 'bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300' 
-                                  : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400'
-                              }`}>
-                                {event.icon}
-                              </div>
-                            )}
-                            <span className={`text-xs font-medium px-2 py-1 rounded-full ${
-                              event.type === 'work' 
-                                ? 'bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300' 
-                                : 'bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300'
-                            }`}>
-                              {event.type === 'work' ? 'Trabajo' : 'Formación'}
+          <ol className="relative ml-3 border-l-2 border-slate-200 dark:border-slate-700 space-y-8">
+            {work.map((event, index) => (
+              <li key={event.title} className="relative pl-6 md:pl-10">
+                <span
+                  className={`absolute -left-[9px] top-7 w-4 h-4 rounded-full border-4 border-white dark:border-slate-900 ${
+                    event.current ? 'bg-yellow-400' : 'bg-slate-300 dark:bg-slate-600'
+                  }`}
+                  aria-hidden="true"
+                >
+                  {event.current && (
+                    <span className="absolute inset-0 rounded-full bg-yellow-400 animate-ping opacity-60 motion-reduce:hidden" />
+                  )}
+                </span>
+                <Reveal delay={index * 60}>
+                  <article className={`${cardClass} p-5 md:p-7`}>
+                    <div className="flex flex-col sm:flex-row items-start gap-3 sm:gap-5">
+                      <EventLogo event={event} size={52} />
+                      <div className="min-w-0 flex-1">
+                        <div className="flex flex-wrap items-center gap-x-3 gap-y-1 mb-1">
+                          <span className="text-sm font-semibold text-slate-500 dark:text-slate-400">{event.year}</span>
+                          {event.current && (
+                            <span className="text-xs font-medium text-green-700 dark:text-green-400 bg-green-50 dark:bg-green-900/30 px-2.5 py-0.5 rounded-full">
+                              Actualidad
                             </span>
-                          </div>
-                          <span className="text-sm font-semibold text-slate-700 dark:text-slate-300">{event.year}</span>
+                          )}
                         </div>
-                        
-                        <h3 className="mb-3 font-bold text-slate-900 dark:text-slate-50 leading-tight">
+                        <h3 className="text-xl font-bold text-slate-900 dark:text-slate-50 leading-snug mb-2">
                           {event.title}
                         </h3>
-                        
-                        <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-4">
+                        <p className="text-slate-600 dark:text-slate-300 leading-relaxed text-left">
                           {event.description}
                         </p>
-                        
-                        {(event.link || event.url) && (
-                          <div className="flex items-center space-x-2 pt-2 border-t border-slate-100 dark:border-slate-700">
-                            {event.link && (
-                              <a href={event.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center space-x-1 text-yellow-600 font-medium hover:text-yellow-700 transition-colors duration-300 text-sm">
-                                <span>Ver proyecto</span>
-                                <svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24">
-                                  <path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zm-2 2H5c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-7h-2v7H5V7h7V5z"/>
-                                </svg>
-                              </a>
-                            )}
-                            {event.url && (
-                              <a href={event.url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center space-x-1 text-yellow-600 font-medium hover:text-yellow-700 transition-colors duration-300 text-sm">
-                                <span>Ver certificado</span>
-                                <svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24">
-                                  <path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zm-2 2H5c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-7h-2v7H5V7h7V5z"/>
-                                </svg>
-                              </a>
-                            )}
-                          </div>
+                        {event.link && (
+                          <a href={event.link} target="_blank" rel="noopener noreferrer" className={`inline-flex items-center gap-1 mt-3 text-sm ${linkClass}`}>
+                            Visitar <ArrowUpRight size={15} />
+                          </a>
                         )}
                       </div>
                     </div>
                   </article>
-                ))}
-              </div>
-            </div>
-          </div>
-        )}
+                </Reveal>
+              </li>
+            ))}
+          </ol>
+        </section>
 
-        {/* Sección Personal: Proyectos y Momentos */}
-        {(personalFilters.project || personalFilters.personal) && (
-          <div>
-            <div className="text-center mb-8">
-              <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-50 mb-2">Proyectos y momentos</h3>
-              <div className="w-24 h-1 bg-gradient-to-r from-yellow-400 to-orange-400 mx-auto rounded-full mt-4" />
-              
-              {/* Checkboxes para esta sección */}
-              <div className="flex items-center justify-center gap-6 mt-6">
-                <label className="flex items-center space-x-3 cursor-pointer group">
-                  <div className="relative">
-                    <input
-                      type="checkbox"
-                      checked={personalFilters.project}
-                      onChange={() => togglePersonalFilter('project')}
-                      className="sr-only"
-                    />
-                    <div className={`w-5 h-5 rounded border-2 transition-all duration-200 flex items-center justify-center ${
-                      personalFilters.project
-                        ? 'bg-yellow-400 border-yellow-400'
-                        : 'bg-white border-slate-300 group-hover:border-yellow-300'
-                    }`}>
-                      {personalFilters.project && (
-                        <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                        </svg>
-                      )}
+        {/* Proyectos */}
+        <section className="max-w-6xl mx-auto px-6 py-12">
+          <SectionTitle title="Proyectos" subtitle="Software libre y experimentos que he ido construyendo en mis ratos libres." />
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {projects.map((event, index) => {
+              const content = (
+                <article className={`${cardClass} group p-6 flex flex-col`}>
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="w-12 h-12 rounded-2xl bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-2xl transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6" aria-hidden="true">
+                      {event.icon}
                     </div>
+                    <span className="text-sm font-semibold text-slate-500 dark:text-slate-400">{event.year}</span>
                   </div>
-                  <span className="text-sm font-medium text-slate-700 dark:text-slate-300 group-hover:text-slate-900 dark:group-hover:text-slate-50">
-                    Proyectos ({groupedEvents.project.length})
-                  </span>
-                </label>
-                
-                <label className="flex items-center space-x-3 cursor-pointer group">
-                  <div className="relative">
-                    <input
-                      type="checkbox"
-                      checked={personalFilters.personal}
-                      onChange={() => togglePersonalFilter('personal')}
-                      className="sr-only"
-                    />
-                    <div className={`w-5 h-5 rounded border-2 transition-all duration-200 flex items-center justify-center ${
-                      personalFilters.personal
-                        ? 'bg-yellow-400 border-yellow-400'
-                        : 'bg-white border-slate-300 group-hover:border-yellow-300'
-                    }`}>
-                      {personalFilters.personal && (
-                        <svg className="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                        </svg>
-                      )}
-                    </div>
-                  </div>
-                  <span className="text-sm font-medium text-slate-700 dark:text-slate-300 group-hover:text-slate-900 dark:group-hover:text-slate-50">
-                    Momentos ({groupedEvents.personal.length})
-                  </span>
-                </label>
-              </div>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {/* Proyectos y momentos mezclados cronológicamente */}
-              {personalEvents.map((event, index) => (
-                <article key={`${event.type}-${index}`} className="group relative h-full">
-                  <div 
-                    className="relative h-full backdrop-blur-sm rounded-2xl border-0 overflow-hidden transition-all duration-500 group-hover:transform group-hover:translateY(-1px) group-hover:shadow-xl about-timeline-card-glassmorphism"
-                    style={{ 
-                      boxShadow: '0 4px 20px rgba(0,0,0,0.06), 0 0 0 1px rgba(255,255,255,0.2)',
-                    }}
-                  >
-                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-yellow-400/4 to-orange-400/4" />
-                    
-                    {/* Background logo/emoji */}
-                    <div className="absolute bottom-1 right-1 w-[160px] h-[160px] opacity-[0.055] pointer-events-none flex items-end justify-end">
-                      <div className="text-[160px] leading-none select-none">
-                        {event.icon}
-                      </div>
-                    </div>
-                    
-                    <div className="p-6 relative z-10">
-                      <div className="flex items-center justify-between mb-4">
-                        <div className="flex items-center space-x-3">
-                          <div className={`w-12 h-12 rounded-full flex items-center justify-center text-xl font-medium ${
-                            event.type === 'project'
-                              ? 'bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-400'
-                              : 'bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400'
-                          }`}>
-                            {event.icon}
-                          </div>
-                          <span className={`text-xs font-medium px-2 py-1 rounded-full ${
-                            event.type === 'project'
-                              ? 'bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300'
-                              : 'bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300'
-                          }`}>
-                            {event.type === 'project' ? 'Proyecto' : 'Momento'}
-                          </span>
-                        </div>
-                        <span className="text-sm font-semibold text-slate-700 dark:text-slate-300">{event.year}</span>
-                      </div>
-                      
-                      <h3 className="mb-3 font-bold text-slate-900 dark:text-slate-50 leading-tight">
-                        {event.title}
-                      </h3>
-                      
-                      <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed mb-4">
-                        {event.description}
-                      </p>
-                      
-                      {(event.link || event.url) && (
-                        <div className="flex items-center space-x-2 pt-2 border-t border-gray-100">
-                          {event.link && (
-                            <a href={event.link} target="_blank" rel="noopener noreferrer" className="inline-flex items-center space-x-1 text-yellow-600 font-medium hover:text-yellow-700 transition-colors duration-300 text-sm">
-                              <span>Ver proyecto</span>
-                              <svg width="12" height="12" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7zm-2 2H5c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-7h-2v7H5V7h7V5z"/>
-                              </svg>
-                            </a>
-                          )}
-                        </div>
-                      )}
-                    </div>
+                  <h3 className="text-lg font-bold text-slate-900 dark:text-slate-50 mb-2 flex items-center gap-1.5">
+                    {event.title}
+                    {event.link && (
+                      <ArrowUpRight size={17} className="text-slate-400 transition-all duration-300 group-hover:text-yellow-600 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                    )}
+                  </h3>
+                  <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed text-left">
+                    {event.description}
+                  </p>
+                </article>
+              )
+              return (
+                <Reveal key={event.title} delay={(index % 3) * 80}>
+                  {event.link ? (
+                    <a href={event.link} target="_blank" rel="noopener noreferrer" className="block h-full rounded-2xl focus:outline-none focus-visible:ring-2 focus-visible:ring-yellow-400">
+                      {content}
+                    </a>
+                  ) : content}
+                </Reveal>
+              )
+            })}
+          </div>
+        </section>
+
+        {/* Formación */}
+        <section className="max-w-6xl mx-auto px-6 pt-12 pb-20">
+          <SectionTitle title="Formación y charlas" subtitle="Estudios, certificaciones y alguna que otra charla." />
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {education.map((event, index) => (
+              <Reveal key={event.title} delay={(index % 2) * 80}>
+                <article className={`${cardClass} p-5 flex items-start gap-4`}>
+                  <EventLogo event={event} size={44} />
+                  <div className="min-w-0 flex-1">
+                    <span className="text-xs font-semibold text-slate-500 dark:text-slate-400">{event.year}</span>
+                    <h3 className="font-bold text-slate-900 dark:text-slate-50 leading-snug mb-1">
+                      {event.title}
+                    </h3>
+                    <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed text-left">
+                      {event.description}
+                    </p>
+                    {event.url && (
+                      <a href={event.url} target="_blank" rel="noopener noreferrer" className={`inline-flex items-center gap-1 mt-2 text-sm ${linkClass}`}>
+                        Ver certificado <ArrowUpRight size={14} />
+                      </a>
+                    )}
                   </div>
                 </article>
-              ))}
-            </div>
+              </Reveal>
+            ))}
           </div>
-        )}
-      </section>
-
-
-
-    </div>
+        </section>
+      </div>
     </>
   )
 }
